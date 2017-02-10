@@ -1,3 +1,6 @@
+using CarAdvertsSystem.WebFormsClient.App_Start.NinjectModules;
+using WebFormsMvp.Binder;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(CarAdvertsSystem.WebFormsClient.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(CarAdvertsSystem.WebFormsClient.App_Start.NinjectWebCommon), "Stop")]
 
@@ -61,6 +64,9 @@ namespace CarAdvertsSystem.WebFormsClient.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Load(new MvpNinjectModule());
+            // Connection between Ninject and MVP package
+            PresenterBinder.Factory = kernel.Get<IPresenterFactory>();
         }        
     }
 }
