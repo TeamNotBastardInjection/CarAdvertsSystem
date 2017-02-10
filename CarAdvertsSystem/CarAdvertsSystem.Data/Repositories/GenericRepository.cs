@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-
+using Bytes2you.Validation;
 using CarAdvertsSystem.Data.Contracts;
 
 namespace CarAdvertsSystem.Data.Repositories
@@ -11,10 +11,7 @@ namespace CarAdvertsSystem.Data.Repositories
     {
         public GenericRepository(ICarAdvertsSystemDbContext context)
         {
-            if (context == null)
-            {
-                throw new ArgumentException("An instance of DbContext is required to use this repository.", "context");
-            }
+            Guard.WhenArgument(context, "An instance of DbContext is required to use this repository.").IsNull().Throw();
 
             this.Context = context;
             this.DbSet = this.Context.Set<T>();
