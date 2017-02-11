@@ -18,10 +18,6 @@ namespace CarAdvertsSystem.Data
         public virtual IDbSet<Manufacturer> Manufacturers { get; set; }
         public virtual IDbSet<VethicleModel> VethicleModels { get; set; }
 
-        //public virtual IDbSet<CategoryType> CategoryTypes { get; set; }
-
-       
-
         public static CarAdvertsSystemDbContext Create()
         {
             return new CarAdvertsSystemDbContext();

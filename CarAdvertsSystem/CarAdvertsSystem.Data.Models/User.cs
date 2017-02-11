@@ -15,7 +15,7 @@ namespace CarAdvertsSystem.Data.Models
         {
             this.adverts = new HashSet<Advert>();
         }
-
+ 
         [Required]
         [MaxLength(20)]
         public string FirstName { get; set; }
@@ -30,7 +30,7 @@ namespace CarAdvertsSystem.Data.Models
 
         public bool IsDeleted { get; set; }
 
-        public ICollection<Advert> Adverts
+        public virtual ICollection<Advert> Adverts
         {
             get
             {

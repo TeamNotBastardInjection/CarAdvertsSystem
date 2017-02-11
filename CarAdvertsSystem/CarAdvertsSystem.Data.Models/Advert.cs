@@ -21,9 +21,9 @@ namespace CarAdvertsSystem.Data.Models
         [ForeignKey("VethicleModelId")]
         public virtual VethicleModel VethicleModel { get; set; }
         
-        public int UserlId { get; set; }
+        public int UserId { get; set; }
 
-        [ForeignKey("UserlId")]
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
         [Required]
