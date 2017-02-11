@@ -1,4 +1,5 @@
 ﻿using CarAdvertsSystem.Data.Models.Enums;
+using System;
 
 namespace CarAdvertsSystem.Data.Models.Contracts
 {
@@ -18,7 +19,7 @@ namespace CarAdvertsSystem.Data.Models.Contracts
         string Title { get; set; }
         TransmissionType TransmissionType { get; set; }
         User User { get; set; }
-        int UserId { get; set; }
+        string UserId { get; set; }
         VethicleModel VethicleModel { get; set; }
         int VethicleModelId { get; set; }
         int Year { get; set; }
