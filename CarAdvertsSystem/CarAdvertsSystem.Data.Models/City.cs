@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using CarAdvertsSystem.Data.Models.Contracts;
 
 namespace CarAdvertsSystem.Data.Models
 {
-    public class City
+    public class City : ICity
     {
         private ICollection<Advert> adverts;
 

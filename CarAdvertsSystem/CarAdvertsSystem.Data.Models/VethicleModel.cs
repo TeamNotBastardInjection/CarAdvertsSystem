@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CarAdvertsSystem.Data.Models.Contracts;
 
 namespace CarAdvertsSystem.Data.Models
 {
-    public class VethicleModel
+    public class VethicleModel : IVethicleModel
     {
         private ICollection<Advert> adverts;
 

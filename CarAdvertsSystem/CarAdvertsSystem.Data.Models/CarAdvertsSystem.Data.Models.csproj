@@ -69,6 +69,11 @@
     <Compile Include="Enums\EngineType.cs" />
     <Compile Include="Enums\TransmissionType.cs" />
     <Compile Include="Enums\VethicleType.cs" />
+    <Compile Include="Contracts\IAdvert.cs" />
+    <Compile Include="Contracts\ICategory.cs" />
+    <Compile Include="Contracts\IVethicleModel.cs" />
+    <Compile Include="Contracts\ICity.cs" />
+    <Compile Include="Contracts\IManufacturer.cs" />
     <Compile Include="Manufacturer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />

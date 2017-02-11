@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using CarAdvertsSystem.Data.Models.Contracts;
 
 namespace CarAdvertsSystem.Data.Models
 {
-    public class Manufacturer
+    public class Manufacturer : IManufacturer
     {
         private ICollection<VethicleModel> models;
 

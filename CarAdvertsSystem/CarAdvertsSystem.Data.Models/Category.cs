@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CarAdvertsSystem.Data.Models.Contracts;
 
 namespace CarAdvertsSystem.Data.Models
 {
-    public class Category
+    public class Category : ICategory
     {
         private ICollection<Manufacturer> manufacturers;
 

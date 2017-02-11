@@ -1,15 +1,11 @@
 ﻿using CarAdvertsSystem.Data.Models.Enums;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CarAdvertsSystem.Data.Models.Contracts;
 
 namespace CarAdvertsSystem.Data.Models
 {
-    public class Advert
+    public class Advert : IAdvert
     {
         [Key]
         public int Id { get; set; }
