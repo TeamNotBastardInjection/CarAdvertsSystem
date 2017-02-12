@@ -61,11 +61,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvertServices.cs" />
+    <Compile Include="Contracts\IAdvertServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CarAdvertsSystem.Data.Models\CarAdvertsSystem.Data.Models.csproj">
+      <Project>{4a6bdabf-46a4-45af-bd44-be14ac83fe1e}</Project>
+      <Name>CarAdvertsSystem.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarAdvertsSystem.Data\CarAdvertsSystem.Data.csproj">
+      <Project>{e4333bb7-4bfd-4ffe-a520-3f82c1158693}</Project>
+      <Name>CarAdvertsSystem.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
