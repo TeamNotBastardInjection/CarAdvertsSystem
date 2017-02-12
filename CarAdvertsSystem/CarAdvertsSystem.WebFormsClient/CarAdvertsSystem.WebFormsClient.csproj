@@ -378,6 +378,7 @@
     <Compile Include="App_Start\Factories\WebFormsMvpPresenterFactory.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NinjectBindings\DataBindings.cs" />
+    <Compile Include="App_Start\NinjectBindings\ServicesBindings.cs" />
     <Compile Include="App_Start\NinjectModules\MvpNinjectModule.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
