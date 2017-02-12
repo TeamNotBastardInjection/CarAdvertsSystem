@@ -9,6 +9,8 @@ namespace CarAdvertsSystem.Data.Contracts
 
         T GetById(int id);
 
+        T GetByTitle(object title);
+
         void Add(T entity);
 
         void Update(T entity);

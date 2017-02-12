@@ -69,6 +69,11 @@ namespace CarAdvertsSystem.Data.Repositories
             }
         }
 
+        public T GetByTitle(object title)
+        {
+            return this.DbSet.Find(title);
+        }
+
         public virtual void Delete(int id)
         {
             var entity = this.GetById(id);
