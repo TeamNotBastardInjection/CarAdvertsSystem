@@ -5,6 +5,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Tests
     [TestFixture]
     public class TestClass
     {
+        [Ignore("TODO")]
         [Test]
         public void TestMethod()
         {

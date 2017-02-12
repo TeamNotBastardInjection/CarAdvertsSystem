@@ -8,6 +8,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Models.Tests.AdvertTests
     [TestFixture]
     public class TestClass1
     {
+        [Ignore("TODO")]
         [Test]
         public void TestMethod()
         {
