@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using CarAdvertsSystem.Data.Models.Contracts;
 using System.ComponentModel.DataAnnotations.Schema;
+using CarAdvertsSystem.Common.Constants;
 
 namespace CarAdvertsSystem.Data.Models
 {
@@ -20,7 +21,8 @@ namespace CarAdvertsSystem.Data.Models
 
         [Required]
         [Index(IsUnique = true)]
-        [MaxLength(20)]
+        [MinLength(ValidationConstants.ManufacturerNameMinLength)]
+        [MaxLength(ValidationConstants.ManufacturerNameMaxLength)]
         public string Name { get; set; }
         
         public virtual ICollection<VethicleModel> Models

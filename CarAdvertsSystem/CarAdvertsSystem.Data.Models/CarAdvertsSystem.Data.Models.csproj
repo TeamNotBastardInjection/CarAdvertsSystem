@@ -83,7 +83,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CarAdvertsSystem.Common\CarAdvertsSystem.Common.csproj">
+      <Project>{b3107c56-c052-4c2b-8649-5addb2bbbed2}</Project>
+      <Name>CarAdvertsSystem.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

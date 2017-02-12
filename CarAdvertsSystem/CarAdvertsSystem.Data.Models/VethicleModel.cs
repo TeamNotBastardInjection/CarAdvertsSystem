@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CarAdvertsSystem.Common.Constants;
 using CarAdvertsSystem.Data.Models.Contracts;
 
 namespace CarAdvertsSystem.Data.Models
@@ -18,7 +19,8 @@ namespace CarAdvertsSystem.Data.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(30)]
+        [MinLength(ValidationConstants.VechicleNameMinLength)]
+        [MaxLength(ValidationConstants.VechicleNameMaxLength)]
         public string Name { get; set; }
 
         public int ManufacturerId { get; set; }

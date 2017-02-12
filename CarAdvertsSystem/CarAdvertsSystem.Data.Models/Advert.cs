@@ -1,6 +1,7 @@
 ﻿using CarAdvertsSystem.Data.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CarAdvertsSystem.Common.Constants;
 using CarAdvertsSystem.Data.Models.Contracts;
 
 namespace CarAdvertsSystem.Data.Models
@@ -11,7 +12,8 @@ namespace CarAdvertsSystem.Data.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MinLength(ValidationConstants.AdvertTitleMinLength)]
+        [MaxLength(ValidationConstants.AdvertTitleMaxLength)]
         public string Title { get; set; }
 
         public bool IsDeleted { get; set; }
@@ -56,7 +58,8 @@ namespace CarAdvertsSystem.Data.Models
         [ForeignKey("CityId")]
         public virtual City City { get; set; }
 
-        [MaxLength(200)]
+        [MinLength(ValidationConstants.AdvertDescriptionMinLength)]
+        [MaxLength(ValidationConstants.AdvertDescriptionMaxLength)]
         public string Description { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using CarAdvertsSystem.Common.Constants;
 using CarAdvertsSystem.Data.Models.Contracts;
 
 namespace CarAdvertsSystem.Data.Models
@@ -17,7 +18,8 @@ namespace CarAdvertsSystem.Data.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(30)]
+        [MinLength(ValidationConstants.CityNameMinLength)]
+        [MaxLength(ValidationConstants.CityNameMaxLength)]
         public string Name { get; set; }
 
         public virtual ICollection<Advert> Adverts
