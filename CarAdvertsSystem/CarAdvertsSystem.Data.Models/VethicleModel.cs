@@ -31,7 +31,7 @@ namespace CarAdvertsSystem.Data.Models
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
 
-        public ICollection<Advert> Adverts
+        public virtual ICollection<Advert> Adverts
         {
             get
             {

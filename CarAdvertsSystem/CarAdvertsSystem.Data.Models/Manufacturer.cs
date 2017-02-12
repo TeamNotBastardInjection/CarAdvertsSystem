@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using CarAdvertsSystem.Data.Models.Contracts;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarAdvertsSystem.Data.Models
 {
@@ -18,6 +19,7 @@ namespace CarAdvertsSystem.Data.Models
         public int Id { get; set; }
 
         [Required]
+        [Index(IsUnique = true)]
         [MaxLength(20)]
         public string Name { get; set; }
         

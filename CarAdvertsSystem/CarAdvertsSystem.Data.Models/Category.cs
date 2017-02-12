@@ -1,34 +1,36 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using CarAdvertsSystem.Data.Models.Contracts;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarAdvertsSystem.Data.Models
 {
     public class Category : ICategory
     {
-        private ICollection<Manufacturer> manufacturers;
+        private ICollection<VethicleModel> vethicleModel;
 
         public Category()
         {
-            this.manufacturers = new HashSet<Manufacturer>();
+            this.vethicleModel = new HashSet<VethicleModel>();
         }
 
         [Key]
         public int Id { get; set; }
         
         [Required]
+        [Index(IsUnique = true)]
         public CategoryType Name { get; set; }
 
-        public ICollection<Manufacturer> Manufacturers
+        public virtual ICollection<VethicleModel> VethicleModels
         {
             get
             {
-                return this.manufacturers;
+                return this.vethicleModel;
             }
 
             set
             {
-                this.manufacturers = value;
+                this.vethicleModel = value;
             }
         }
     }
