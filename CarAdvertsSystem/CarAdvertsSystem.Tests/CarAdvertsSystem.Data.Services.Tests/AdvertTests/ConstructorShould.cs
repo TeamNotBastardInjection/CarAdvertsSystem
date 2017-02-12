@@ -1,18 +1,16 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+
 using CarAdvertsSystem.Data.Contracts;
 using CarAdvertsSystem.Data.Models;
 using CarAdvertsSystem.Data.Services;
-using Moq;
 
-namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests
+using Moq;
+using NUnit.Framework;
+
+namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.AdvertTests
 {
     [TestFixture]
-    public class AdvertServicesTests
+    public class ConstructorShould
     {
         [Test]
         public void Constructor_Should_CreateAdvertServices_IfParamsAreValid()

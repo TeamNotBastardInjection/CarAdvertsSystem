@@ -47,7 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\AdvertTests\TestClass1.cs" />
-    <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertServicesTests.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\AddAdvertShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\TestClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
