@@ -373,6 +373,7 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\DbConfig.cs" />
     <Compile Include="App_Start\Factories\Contracts\ICustomPresenterFactory.cs" />
     <Compile Include="App_Start\Factories\WebFormsMvpPresenterFactory.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />

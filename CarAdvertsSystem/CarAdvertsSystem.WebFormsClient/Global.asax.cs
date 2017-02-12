@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
-using CarAdvertsSystem.Data;
-using CarAdvertsSystem.Data.Migrations;
 
 namespace CarAdvertsSystem.WebFormsClient
 {
@@ -15,8 +12,6 @@ namespace CarAdvertsSystem.WebFormsClient
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<CarAdvertsSystemDbContext, Configuration>());
         }
     }
 }
