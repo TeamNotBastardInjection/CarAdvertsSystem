@@ -21,7 +21,7 @@ namespace CarAdvertsSystem.Data.Models
         public int VethicleModelId { get; set; }
 
         [ForeignKey("VethicleModelId")]
-        public virtual VethicleModel VethicleModel { get; set; }
+        public virtual VechicleModel VechicleModel { get; set; }
         
         public string UserId { get; set; }
 

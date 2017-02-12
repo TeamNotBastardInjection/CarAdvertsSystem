@@ -2,7 +2,7 @@
 
 namespace CarAdvertsSystem.Data.Models.Contracts
 {
-    public interface IVethicleModel
+    public interface IVechicleModel
     {
         ICollection<Advert> Adverts { get; set; }
         Category Category { get; set; }
