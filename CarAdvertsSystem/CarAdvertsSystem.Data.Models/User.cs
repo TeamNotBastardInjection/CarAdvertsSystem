@@ -16,17 +16,11 @@ namespace CarAdvertsSystem.Data.Models
             this.adverts = new HashSet<Advert>();
         }
  
-        [Required]
         [MaxLength(20)]
         public string FirstName { get; set; }
 
-        [Required]
         [MaxLength(20)]
         public string LastName { get; set; }
-
-        [Required]
-        [MaxLength(15)]
-        public string Phone { get; set; }
 
         public bool IsDeleted { get; set; }
 

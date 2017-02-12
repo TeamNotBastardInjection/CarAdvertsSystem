@@ -20,7 +20,7 @@ namespace CarAdvertsSystem.Data.Models
         [MaxLength(30)]
         public string Name { get; set; }
 
-        public ICollection<Advert> Adverts
+        public virtual ICollection<Advert> Adverts
         {
             get
             {
