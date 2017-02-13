@@ -22,6 +22,24 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.TextBox AdvertTitle;
         
         /// <summary>
+        /// IdOfCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox IdOfCity;
+        
+        /// <summary>
+        /// IdVechisle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox IdVechisle;
+        
+        /// <summary>
         /// CreateAdvert control.
         /// </summary>
         /// <remarks>

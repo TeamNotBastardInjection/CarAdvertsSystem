@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using CarAdvertsSystem.Common.Constants;
 using CarAdvertsSystem.Data.Models.Contracts;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarAdvertsSystem.Data.Models
 {
@@ -18,6 +19,7 @@ namespace CarAdvertsSystem.Data.Models
         public int Id { get; set; }
 
         [Required]
+        [Index(IsUnique = true)]
         [MinLength(ValidationConstants.CityNameMinLength)]
         [MaxLength(ValidationConstants.CityNameMaxLength)]
         public string Name { get; set; }

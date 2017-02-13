@@ -4,10 +4,13 @@ using CarAdvertsSystem.Data.Models;
 using CarAdvertsSystem.Data.Repositories;
 using CarAdvertsSystem.Data.Services;
 using CarAdvertsSystem.Data.UnitOfWork;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -23,12 +26,21 @@ namespace CarAdvertsSystem.WebFormsClient
         protected void CreateAdvert_Click(object sender, EventArgs e)
         {
             var title = this.AdvertTitle.Text;
-            var context = new CarAdvertsSystemDbContext();
+            var cityId = int.Parse(this.IdOfCity.Text);
+            var vechisleId = int.Parse(this.IdVechisle.Text);
+
+            //MembershipUser membershipUser = Membership.GetUser();
+            //string userID = membershipUser.ProviderUserKey.ToString();
+            
+
+
+
+        var context = new CarAdvertsSystemDbContext();
             IRepository<Advert> advertRepository = new GenericRepository<Advert>(context);
             var unitOfWork = new UnitOfWork(context);
 
             AdvertServices advService = new AdvertServices(advertRepository, unitOfWork);
-            var advert = new Advert() { Title = "My First Advert Creation." };
+            var advert = new Advert() { Title = title, CityId = cityId, VehicleModelId = vechisleId };
 
             advService.AddAdvert(advert);
         }
