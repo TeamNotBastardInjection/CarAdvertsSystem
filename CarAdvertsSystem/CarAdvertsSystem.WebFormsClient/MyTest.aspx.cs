@@ -14,6 +14,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace CarAdvertsSystem.WebFormsClient
 {
     public partial class MyTest : System.Web.UI.Page
@@ -31,8 +32,8 @@ namespace CarAdvertsSystem.WebFormsClient
 
             //MembershipUser membershipUser = Membership.GetUser();
             //string userID = membershipUser.ProviderUserKey.ToString();
-            
 
+            var userId = User.Identity.GetUserId();
 
 
         var context = new CarAdvertsSystemDbContext();
@@ -40,7 +41,7 @@ namespace CarAdvertsSystem.WebFormsClient
             var unitOfWork = new UnitOfWork(context);
 
             AdvertServices advService = new AdvertServices(advertRepository, unitOfWork);
-            var advert = new Advert() { Title = title, CityId = cityId, VehicleModelId = vechisleId };
+            var advert = new Advert() { Title = title, CityId = cityId, VehicleModelId = vechisleId, UserId = userId };
 
             advService.AddAdvert(advert);
         }
