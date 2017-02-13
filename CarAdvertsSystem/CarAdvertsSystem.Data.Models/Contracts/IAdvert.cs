@@ -20,8 +20,8 @@ namespace CarAdvertsSystem.Data.Models.Contracts
         TransmissionType TransmissionType { get; set; }
         User User { get; set; }
         string UserId { get; set; }
-        VechicleModel VechicleModel { get; set; }
-        int VethicleModelId { get; set; }
+        VehicleModel VehicleModel { get; set; }
+        int VehicleModelId { get; set; }
         int Year { get; set; }
     }
 }

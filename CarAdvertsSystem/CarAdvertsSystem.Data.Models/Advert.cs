@@ -18,10 +18,10 @@ namespace CarAdvertsSystem.Data.Models
 
         public bool IsDeleted { get; set; }
 
-        public int VethicleModelId { get; set; }
+        public int VehicleModelId { get; set; }
 
-        [ForeignKey("VethicleModelId")]
-        public virtual VechicleModel VechicleModel { get; set; }
+        [ForeignKey("VehicleModelId")]
+        public virtual VehicleModel VehicleModel { get; set; }
         
         public string UserId { get; set; }
 

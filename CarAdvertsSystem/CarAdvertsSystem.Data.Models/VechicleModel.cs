@@ -6,11 +6,11 @@ using CarAdvertsSystem.Data.Models.Contracts;
 
 namespace CarAdvertsSystem.Data.Models
 {
-    public class VechicleModel : IVechicleModel
+    public class VehicleModel : IVechicleModel
     {
         private ICollection<Advert> adverts;
 
-        public VechicleModel()
+        public VehicleModel()
         {
             this.adverts = new HashSet<Advert>();
         }

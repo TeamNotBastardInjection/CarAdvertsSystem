@@ -9,11 +9,11 @@ namespace CarAdvertsSystem.Data.Models
 {
     public class Manufacturer : IManufacturer
     {
-        private ICollection<VechicleModel> models;
+        private ICollection<VehicleModel> models;
 
         public Manufacturer()
         {
-            this.models = new HashSet<VechicleModel>();
+            this.models = new HashSet<VehicleModel>();
         }
 
         [Key]
@@ -25,7 +25,7 @@ namespace CarAdvertsSystem.Data.Models
         [MaxLength(ValidationConstants.ManufacturerNameMaxLength)]
         public string Name { get; set; }
         
-        public virtual ICollection<VechicleModel> Models
+        public virtual ICollection<VehicleModel> Models
         {
             get
             {
