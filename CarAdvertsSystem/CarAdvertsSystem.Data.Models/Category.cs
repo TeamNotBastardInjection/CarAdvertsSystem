@@ -7,11 +7,11 @@ namespace CarAdvertsSystem.Data.Models
 {
     public class Category : ICategory
     {
-        private ICollection<VechicleModel> vethicleModel;
+        private ICollection<VehicleModel> vethicleModel;
 
         public Category()
         {
-            this.vethicleModel = new HashSet<VechicleModel>();
+            this.vethicleModel = new HashSet<VehicleModel>();
         }
 
         [Key]
@@ -21,7 +21,7 @@ namespace CarAdvertsSystem.Data.Models
         [Index(IsUnique = true)]
         public CategoryType Name { get; set; }
 
-        public virtual ICollection<VechicleModel> VethicleModels
+        public virtual ICollection<VehicleModel> VethicleModels
         {
             get
             {

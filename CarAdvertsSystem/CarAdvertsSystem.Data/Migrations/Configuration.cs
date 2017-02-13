@@ -33,17 +33,17 @@ namespace CarAdvertsSystem.Data.Migrations
                     new Manufacturer { Id = 6, Name = "BMV" }
                 );
 
-            context.VethicleModels.AddOrUpdate(v => v.Id,
-                    new VechicleModel {Id = 1, Name = "A4", CategoryId = 1, ManufacturerId = 1 },
-                    new VechicleModel {Id = 2, Name = "A6", CategoryId = 1, ManufacturerId = 1 },
-                    new VechicleModel {Id = 3, Name = "A8", CategoryId = 2, ManufacturerId = 1 },
-                    new VechicleModel {Id = 4, Name = "100", CategoryId = 1, ManufacturerId = 1 },
-                    new VechicleModel {Id = 5, Name = "S8", CategoryId = 1, ManufacturerId = 1 },
-                    new VechicleModel {Id = 6, Name = "XS", CategoryId = 2, ManufacturerId = 2 },
-                    new VechicleModel {Id = 7, Name = "TT", CategoryId = 1, ManufacturerId = 1 },
-                    new VechicleModel {Id = 8, Name = "Uou", CategoryId = 2, ManufacturerId = 3 },
-                    new VechicleModel {Id = 9, Name = "Test", CategoryId = 1, ManufacturerId = 1 },
-                    new VechicleModel {Id = 10, Name = "80", CategoryId = 1, ManufacturerId = 1 }
+            context.VehicleModels.AddOrUpdate(v => v.Id,
+                    new VehicleModel {Id = 1, Name = "A4", CategoryId = 1, ManufacturerId = 1 },
+                    new VehicleModel {Id = 2, Name = "A6", CategoryId = 1, ManufacturerId = 1 },
+                    new VehicleModel {Id = 3, Name = "A8", CategoryId = 2, ManufacturerId = 1 },
+                    new VehicleModel {Id = 4, Name = "100", CategoryId = 1, ManufacturerId = 1 },
+                    new VehicleModel {Id = 5, Name = "S8", CategoryId = 1, ManufacturerId = 1 },
+                    new VehicleModel {Id = 6, Name = "XS", CategoryId = 2, ManufacturerId = 2 },
+                    new VehicleModel {Id = 7, Name = "TT", CategoryId = 1, ManufacturerId = 1 },
+                    new VehicleModel {Id = 8, Name = "Uou", CategoryId = 2, ManufacturerId = 3 },
+                    new VehicleModel {Id = 9, Name = "Test", CategoryId = 1, ManufacturerId = 1 },
+                    new VehicleModel {Id = 10, Name = "80", CategoryId = 1, ManufacturerId = 1 }
                 );
 
             //context.Adverts.AddOrUpdate(a => a.Id,
