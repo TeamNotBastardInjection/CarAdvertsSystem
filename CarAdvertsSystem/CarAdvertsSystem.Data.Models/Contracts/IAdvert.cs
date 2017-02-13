@@ -21,7 +21,7 @@ namespace CarAdvertsSystem.Data.Models.Contracts
         User User { get; set; }
         string UserId { get; set; }
         VechicleModel VechicleModel { get; set; }
-        int VethicleModelId { get; set; }
+        int VehicleModelId { get; set; }
         int Year { get; set; }
     }
 }
