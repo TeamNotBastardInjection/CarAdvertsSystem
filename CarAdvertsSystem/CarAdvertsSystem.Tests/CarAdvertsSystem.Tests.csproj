@@ -58,6 +58,7 @@
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\GetByIdShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\CreateShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Tests\GenericRepositoryTests\ConstructorShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

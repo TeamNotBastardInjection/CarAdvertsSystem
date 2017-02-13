@@ -1,9 +1,10 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using Bytes2you.Validation;
+
 using CarAdvertsSystem.Data.Contracts;
+
+using Bytes2you.Validation;
 
 namespace CarAdvertsSystem.Data.Repositories
 {

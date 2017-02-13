@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+
 using CarAdvertsSystem.Data;
 using CarAdvertsSystem.Data.Migrations;
 
