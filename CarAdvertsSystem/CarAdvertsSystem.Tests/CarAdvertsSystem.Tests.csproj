@@ -50,6 +50,8 @@
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\AddAdvertShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\CountShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\DeleteAdvertByIdShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\DeleteAdvertShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\TestClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
