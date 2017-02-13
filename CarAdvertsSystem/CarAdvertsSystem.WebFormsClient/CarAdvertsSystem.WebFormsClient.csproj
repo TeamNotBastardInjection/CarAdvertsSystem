@@ -212,6 +212,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="MyTest.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -402,6 +403,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="MyTest.aspx.cs">
+      <DependentUpon>MyTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyTest.aspx.designer.cs">
+      <DependentUpon>MyTest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -433,6 +441,10 @@
     <ProjectReference Include="..\CarAdvertsSystem.Data.Models\CarAdvertsSystem.Data.Models.csproj">
       <Project>{4a6bdabf-46a4-45af-bd44-be14ac83fe1e}</Project>
       <Name>CarAdvertsSystem.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarAdvertsSystem.Data.Services\CarAdvertsSystem.Data.Services.csproj">
+      <Project>{274B8FDE-94D2-4155-B1CB-1E546499AB7A}</Project>
+      <Name>CarAdvertsSystem.Data.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\CarAdvertsSystem.Data\CarAdvertsSystem.Data.csproj">
       <Project>{e4333bb7-4bfd-4ffe-a520-3f82c1158693}</Project>

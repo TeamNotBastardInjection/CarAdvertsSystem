@@ -28,29 +28,29 @@ namespace CarAdvertsSystem.Data.Models
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
-        [Required]
+        //[Required]
         public int Year { get; set; }
 
-        [Required]
+        //[Required]
         public decimal Price { get; set; }
 
         // Extras
-        [Required]
+        //[Required]
         public int Power { get; set; }
 
-        [Required]
+        //[Required]
         public int EngineVolume { get; set; }
 
-        [Required]
+        //[Required]
         public EngineType EngineType { get; set; }
 
-        [Required]
+        //[Required]
         public TransmissionType TransmissionType { get; set; }
 
-        [Required]
+        //[Required]
         public int DistanceCoverage { get; set; }
 
-        [Required]
+        //[Required]
         public ColorType Color { get; set; }
 
         public int CityId { get; set; }
