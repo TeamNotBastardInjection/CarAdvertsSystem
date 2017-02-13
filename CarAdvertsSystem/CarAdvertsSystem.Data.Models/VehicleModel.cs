@@ -6,7 +6,7 @@ using CarAdvertsSystem.Data.Models.Contracts;
 
 namespace CarAdvertsSystem.Data.Models
 {
-    public class VehicleModel : IVechicleModel
+    public class VehicleModel : IVehicleModel
     {
         private ICollection<Advert> adverts;
 

@@ -46,6 +46,13 @@ namespace CarAdvertsSystem.Data.Migrations
                     new VehicleModel {Id = 10, Name = "80", CategoryId = 1, ManufacturerId = 1 }
                 );
 
+            context.Cities.AddOrUpdate(c => c.Id,
+                    new City { Id = 1, Name= "Sofia" },
+                    new City {  Id = 2, Name = "Dupnica"},
+                    new City {  Id = 3, Name = "Tyrnovo"},
+                    new City {  Id = 4, Name = "Haskovo"}
+                );
+
             //context.Adverts.AddOrUpdate(a => a.Id,
             //        new Advert {
             //            Title = "My first advert",

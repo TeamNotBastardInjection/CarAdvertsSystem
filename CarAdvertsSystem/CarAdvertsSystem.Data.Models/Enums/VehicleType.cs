@@ -1,6 +1,6 @@
 ﻿namespace CarAdvertsSystem.Data.Models.Enums
 {
-    public enum VethicleType
+    public enum VehicleType
     {
         New,
         SecondHand,

@@ -62,8 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvertServices.cs" />
+    <Compile Include="CategoryServices.cs" />
     <Compile Include="Contracts\IAdvertServices.cs" />
+    <Compile Include="ManufacturerServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VehicleModelServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
