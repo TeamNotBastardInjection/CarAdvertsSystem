@@ -35,6 +35,8 @@
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="Moq, Version=4.5.30.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.5.30\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
@@ -54,7 +56,8 @@
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\DeleteAdvertShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\GetAllAdvertsShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\GetByIdShould.cs" />
-    <Compile Include="CarAdvertsSystem.Data.Tests\TestClass.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\ConstructorShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\CreateShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

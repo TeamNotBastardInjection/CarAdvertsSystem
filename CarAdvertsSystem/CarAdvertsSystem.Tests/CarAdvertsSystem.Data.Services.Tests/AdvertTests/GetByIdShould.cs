@@ -74,7 +74,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.AdvertTest
         }
 
         [Test]
-        public void GetById_Should_NotReturnAdvert_IfNotAdvertYolo()
+        public void GetById_Should_NotReturnAdvert_IfThereIsNoAdvertYolo()
         {
             var mockedRepository = new Mock<IRepository<Advert>>();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
