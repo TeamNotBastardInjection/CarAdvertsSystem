@@ -6,6 +6,6 @@ namespace CarAdvertsSystem.Data.Models.Contracts
     {
         int Id { get; set; }
         ICollection<VehicleModel> VethicleModels { get; set; }
-        CategoryType Name { get; set; }
+        string Name { get; set; }
     }
 }

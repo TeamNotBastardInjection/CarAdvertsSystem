@@ -16,12 +16,11 @@ namespace CarAdvertsSystem.Data.Migrations
         {
 
             context.Categories.AddOrUpdate(c => c.Id,
-                    new Category { Id = 0, Name = CategoryType.Bus },
-                    new Category { Id = 1, Name = CategoryType.Caravan },
-                    new Category { Id = 2, Name = CategoryType.Car },
-                    new Category { Id = 3, Name = CategoryType.MotorBike },
-                    new Category { Id = 4, Name = CategoryType.SUV },
-                    new Category { Id = 5, Name = CategoryType.Truck }
+                    new Category { Id = 0, Name = "Bus" },
+                    new Category { Id = 1, Name = "Caravan" },
+                    new Category { Id = 2, Name = "Car" },
+                    new Category { Id = 3, Name = "MotorBicke" },
+                    new Category { Id = 5, Name = "SUV" }
                 );
 
             context.Manufacturers.AddOrUpdate(m => m.Id,

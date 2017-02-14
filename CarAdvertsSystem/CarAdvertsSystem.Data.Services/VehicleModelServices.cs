@@ -1,7 +1,6 @@
 ﻿using Bytes2you.Validation;
 using CarAdvertsSystem.Data.Contracts;
 using CarAdvertsSystem.Data.Models;
-using CarAdvertsSystem.Data.Models.Contracts;
 using System.Linq;
 
 namespace CarAdvertsSystem.Data.Services
@@ -38,55 +37,55 @@ namespace CarAdvertsSystem.Data.Services
             return this.vechicleModelRepository.GetById(id);
         }
 
-        /// <summary>
-        /// Creates new vechicle model by name.
-        /// </summary>
-        /// <param name="name"></param>
-        public void Create(string name)
-        {
-            Guard.WhenArgument(name.ToString(), "VehicleModel to Add is Null!!!").IsNull().Throw();
+        ///// <summary>
+        ///// Creates new vechicle model by name.
+        ///// </summary>
+        ///// <param name="name"></param>
+        //public void Create(string name)
+        //{
+        //    Guard.WhenArgument(name.ToString(), "VehicleModel to Add is Null!!!").IsNull().Throw();
 
-            using (var unitOfWork = this.unitOfWork)
-            {
-                var model = new VehicleModel() { Name = name };
+        //    using (var unitOfWork = this.unitOfWork)
+        //    {
+        //        var model = new VehicleModel() { Name = name };
 
-                this.vechicleModelRepository.Add(model);
+        //        this.vechicleModelRepository.Add(model);
 
-                unitOfWork.SaveChanges();
-            }
-        }
+        //        unitOfWork.SaveChanges();
+        //    }
+        //}
 
-        /// <summary>
-        /// Update vechicle model name by Id.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        public void UpdateVehicleModelNameById(int id, string name)
-        {
-            Guard.WhenArgument(name.ToString(), "VehicleModel to Add is Null!!!").IsNull().Throw();
+        ///// <summary>
+        ///// Update vechicle model name by Id.
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="name"></param>
+        //public void UpdateVehicleModelNameById(int id, string name)
+        //{
+        //    Guard.WhenArgument(name.ToString(), "VehicleModel to Add is Null!!!").IsNull().Throw();
 
-            using (var unitOfWork = this.unitOfWork)
-            {
-                this.vechicleModelRepository.GetById(id).Name = name;
+        //    using (var unitOfWork = this.unitOfWork)
+        //    {
+        //        this.vechicleModelRepository.GetById(id).Name = name;
 
-                unitOfWork.SaveChanges();
-            }
-        }
+        //        unitOfWork.SaveChanges();
+        //    }
+        //}
 
-        /// <summary>
-        /// Delete a Vechicle Model by Id.
-        /// </summary>
-        /// <param name="id"></param>
-        public void DeleteById(int id)
-        {
-            Guard.WhenArgument(id.ToString(), "The Id of the Vechicle Model cannot be Null!!!").IsNull().Throw();
+        ///// <summary>
+        ///// Delete a Vechicle Model by Id.
+        ///// </summary>
+        ///// <param name="id"></param>
+        //public void DeleteById(int id)
+        //{
+        //    Guard.WhenArgument(id.ToString(), "The Id of the Vechicle Model cannot be Null!!!").IsNull().Throw();
 
-            using (var unitOfWork = this.unitOfWork)
-            {
-                this.vechicleModelRepository.Delete(id);
+        //    using (var unitOfWork = this.unitOfWork)
+        //    {
+        //        this.vechicleModelRepository.Delete(id);
 
-                this.unitOfWork.SaveChanges();
-            }
-        }
+        //        this.unitOfWork.SaveChanges();
+        //    }
+        //}
     }
 }

@@ -18,8 +18,9 @@ namespace CarAdvertsSystem.Data.Models
         public int Id { get; set; }
         
         [Required]
+        [MaxLength(30)]
         [Index(IsUnique = true)]
-        public CategoryType Name { get; set; }
+        public string Name { get; set; }
 
         public virtual ICollection<VehicleModel> VethicleModels
         {

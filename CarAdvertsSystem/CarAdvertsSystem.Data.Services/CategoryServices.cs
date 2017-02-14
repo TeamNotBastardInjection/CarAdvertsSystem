@@ -1,7 +1,6 @@
 ﻿using Bytes2you.Validation;
 using CarAdvertsSystem.Data.Contracts;
 using CarAdvertsSystem.Data.Models;
-using System;
 using System.Linq;
 
 namespace CarAdvertsSystem.Data.Services
@@ -38,55 +37,55 @@ namespace CarAdvertsSystem.Data.Services
             return this.categoryRepository.GetById(id);
         }
 
-        /// <summary>
-        /// Creates new Category by name.
-        /// </summary>
-        /// <param name="name"></param>
-        public void Create(CategoryType name)
-        {
-            Guard.WhenArgument(name.ToString(), "Category to Add is Null!!!").IsNull().Throw();
+        ///// <summary>
+        ///// Creates new Category by name.
+        ///// </summary>
+        ///// <param name="name"></param>
+        //public void Create(string name)
+        //{
+        //    Guard.WhenArgument(name, "Category to Add is Null!!!").IsNull().Throw();
 
-            using (var unitOfWork = this.unitOfWork)
-            {
-                var category = new Category() { Name = name };
+        //    using (var unitOfWork = this.unitOfWork)
+        //    {
+        //        var category = new Category() { Name = name };
 
-                this.categoryRepository.Add(category);
+        //        this.categoryRepository.Add(category);
 
-                unitOfWork.SaveChanges();
-            }
-        }
+        //        unitOfWork.SaveChanges();
+        //    }
+        //}
 
-        /// <summary>
-        /// Update Category name by Id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        public void UpdateCategoryNameById(int id, string name)
-        {
-            Guard.WhenArgument(name.ToString(), "Category to Add is Null!!!").IsNull().Throw();
+        ///// <summary>
+        ///// Update Category name by Id
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="name"></param>
+        //public void UpdateCategoryNameById(int id, string name)
+        //{
+        //    Guard.WhenArgument(name, "Category to Add is Null!!!").IsNull().Throw();
 
-            using (var unitOfWork = this.unitOfWork)
-            {
-                this.categoryRepository.GetById(id).Name = (CategoryType)Enum.Parse(typeof(CategoryType), name, true);
+        //    using (var unitOfWork = this.unitOfWork)
+        //    {
+        //        this.categoryRepository.GetById(id).Name = name;
 
-                unitOfWork.SaveChanges();
-            }
-        }
+        //        unitOfWork.SaveChanges();
+        //    }
+        //}
 
-        /// <summary>
-        /// Delete categoy by Id
-        /// </summary>
-        /// <param name="id"></param>
-        public void DeleteById(int id)
-        {
-            Guard.WhenArgument(id.ToString(), "The Id of the Advert cannot be Null!!!").IsNull().Throw();
+        ///// <summary>
+        ///// Delete categoy by Id
+        ///// </summary>
+        ///// <param name="id"></param>
+        //public void DeleteById(int id)
+        //{
+        //    Guard.WhenArgument(id.ToString(), "The Id of the Advert cannot be Null!!!").IsNull().Throw();
 
-            using (var unitOfWork = this.unitOfWork)
-            {
-                this.categoryRepository.Delete(id);
+        //    using (var unitOfWork = this.unitOfWork)
+        //    {
+        //        this.categoryRepository.Delete(id);
 
-                this.unitOfWork.SaveChanges();
-            }
-        }
+        //        this.unitOfWork.SaveChanges();
+        //    }
+        //}
     }
 }

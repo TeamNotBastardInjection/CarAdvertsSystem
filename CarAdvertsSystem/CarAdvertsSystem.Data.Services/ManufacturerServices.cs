@@ -37,55 +37,55 @@ namespace CarAdvertsSystem.Data.Services
             return this.manufacturerRepository.GetById(id);
         }
 
-        /// <summary>
-        /// Creates new manufacturer by name.
-        /// </summary>
-        /// <param name="name"></param>
-        public void Create(string name)
-        {
-            Guard.WhenArgument(name.ToString(), "Manufacturer to Add is Null!!!").IsNull().Throw();
+        ///// <summary>
+        ///// Creates new manufacturer by name.
+        ///// </summary>
+        ///// <param name="name"></param>
+        //public void Create(string name)
+        //{
+        //    Guard.WhenArgument(name.ToString(), "Manufacturer to Add is Null!!!").IsNull().Throw();
 
-            using (var unitOfWork = this.unitOfWork)
-            {
-                var model = new Manufacturer() { Name = name };
+        //    using (var unitOfWork = this.unitOfWork)
+        //    {
+        //        var model = new Manufacturer() { Name = name };
 
-                this.manufacturerRepository.Add(model);
+        //        this.manufacturerRepository.Add(model);
 
-                unitOfWork.SaveChanges();
-            }
-        }
+        //        unitOfWork.SaveChanges();
+        //    }
+        //}
 
-        /// <summary>
-        /// Update manufacturer name by Id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        public void UpdateManufacturerNameById(int id, string name)
-        {
-            Guard.WhenArgument(name.ToString(), "Manufacturer to Add is Null!!!").IsNull().Throw();
+        ///// <summary>
+        ///// Update manufacturer name by Id
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="name"></param>
+        //public void UpdateManufacturerNameById(int id, string name)
+        //{
+        //    Guard.WhenArgument(name.ToString(), "Manufacturer to Add is Null!!!").IsNull().Throw();
 
-            using (var unitOfWork = this.unitOfWork)
-            {
-                this.manufacturerRepository.GetById(id).Name = name;
+        //    using (var unitOfWork = this.unitOfWork)
+        //    {
+        //        this.manufacturerRepository.GetById(id).Name = name;
 
-                unitOfWork.SaveChanges();
-            }
-        }
+        //        unitOfWork.SaveChanges();
+        //    }
+        //}
 
-        /// <summary>
-        /// Delete manufacturer by Id
-        /// </summary>
-        /// <param name="id"></param>
-        public void DeleteById(int id)
-        {
-            Guard.WhenArgument(id.ToString(), "The Id of the manufacturer cannot be Null!!!").IsNull().Throw();
+        ///// <summary>
+        ///// Delete manufacturer by Id
+        ///// </summary>
+        ///// <param name="id"></param>
+        //public void DeleteById(int id)
+        //{
+        //    Guard.WhenArgument(id.ToString(), "The Id of the manufacturer cannot be Null!!!").IsNull().Throw();
 
-            using (var unitOfWork = this.unitOfWork)
-            {
-                this.manufacturerRepository.Delete(id);
+        //    using (var unitOfWork = this.unitOfWork)
+        //    {
+        //        this.manufacturerRepository.Delete(id);
 
-                this.unitOfWork.SaveChanges();
-            }
-        }
+        //        this.unitOfWork.SaveChanges();
+        //    }
+        //}
     }
 }
