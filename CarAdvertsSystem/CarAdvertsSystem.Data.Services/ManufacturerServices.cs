@@ -2,10 +2,11 @@
 using CarAdvertsSystem.Data.Contracts;
 using CarAdvertsSystem.Data.Models;
 using System.Linq;
+using CarAdvertsSystem.Data.Services.Contracts;
 
 namespace CarAdvertsSystem.Data.Services
 {
-    public class ManufacturerServices
+    public class ManufacturerServices : IManufacturerServices
     {
         private readonly IRepository<Manufacturer> manufacturerRepository;
         private readonly IUnitOfWork unitOfWork;
