@@ -1,3 +1,4 @@
+using CarAdvertsSystem.WebFormsClient.App_Start.NinjectBindings;
 using CarAdvertsSystem.WebFormsClient.App_Start.NinjectModules;
 using WebFormsMvp.Binder;
 
@@ -64,7 +65,9 @@ namespace CarAdvertsSystem.WebFormsClient.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Load(new MvpNinjectModule());
+            kernel.Load(new MvpNinjectModule(),
+                new DataBindings(),
+                new ServicesBindings());
             // Connection between Ninject and MVP package
             PresenterBinder.Factory = kernel.Get<IPresenterFactory>();
         }        

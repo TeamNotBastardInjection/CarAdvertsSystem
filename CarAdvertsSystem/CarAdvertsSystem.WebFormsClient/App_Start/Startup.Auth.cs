@@ -57,9 +57,9 @@ namespace CarAdvertsSystem.WebFormsClient
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1823432051228789",
+               appSecret: "2d9c9ed1bd0c4563be50313ad2476b23");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
