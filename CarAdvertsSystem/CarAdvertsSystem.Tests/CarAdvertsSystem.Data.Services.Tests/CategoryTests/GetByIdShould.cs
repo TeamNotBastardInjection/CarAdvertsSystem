@@ -35,7 +35,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         }
 
         [Test]
-        public void GetById_Should_ReturnTheProperAdvertWithId_IfCalled()
+        public void GetById_Should_ReturnTheProperCategoryWithId_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
@@ -61,7 +61,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         }
 
         [Test]
-        public void GetById_ShouldThrowNullReferenceException_IfAdvertIsNull()
+        public void GetById_ShouldThrowNullReferenceException_IfCategoryIsNull()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
@@ -73,7 +73,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         }
 
         [Test]
-        public void GetById_Should_NotReturnAdvert_IfThereIsNoAdvertYolo()
+        public void GetById_Should_NotReturnAdvert_IfThereIsNoCategoryYolo()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
@@ -85,7 +85,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         }
 
         [Test]
-        public void GetById_Should_ReturnTheCorrectAdvert_IfCalled()
+        public void GetById_Should_ReturnTheCorrectCategory_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
