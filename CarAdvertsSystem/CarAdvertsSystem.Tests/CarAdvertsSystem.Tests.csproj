@@ -65,6 +65,9 @@
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\ManufacturerTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\ManufacturerTests\GetAllManufacturersShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\ManufacturerTests\GetByIdShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\VehicleModelTests\ConstructorShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\VehicleModelTests\GetAllVehicleModelsShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\VehicleModelTests\GetByIdShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\CreateShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\GenericRepositoryTests\ConstructorShould.cs" />
