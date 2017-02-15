@@ -59,6 +59,9 @@
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\DeleteAdvertShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\GetAllAdvertsShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\GetByIdShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\CategoryTests\ConstructorShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\CategoryTests\GetAllCategoriesShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\CategoryTests\GetByIdShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\CreateShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\GenericRepositoryTests\ConstructorShould.cs" />

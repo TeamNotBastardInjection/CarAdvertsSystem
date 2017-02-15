@@ -33,5 +33,18 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Tests.GenericRepositoryTe
                 Throws.ArgumentNullException.With.Message.Contains
                 ("An instance of DbContext is required to use this repository."));
         }
+
+        [Test]
+        public void ConstructorShould_ReturnCorrectContext_IfValidParamsPassed()
+        {
+            var mockedContext = new Mock<ICarAdvertsSystemDbContext>();
+            var mockedModel = new Mock<DbSet<IAdvert>>();
+            mockedContext.Setup(x => x.Set<IAdvert>()).Returns(mockedModel.Object);
+
+            var repository = new GenericRepository<IAdvert>(mockedContext.Object);
+
+            Assert.That(repository.Context, Is.Not.Null);
+            Assert.That(repository.Context, Is.EqualTo(mockedContext.Object));
+        }
     }
 }

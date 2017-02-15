@@ -13,6 +13,11 @@ namespace CarAdvertsSystem.Data
         {
         }
 
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
+
         public virtual IDbSet<Advert> Adverts { get; set; }
         public virtual IDbSet<City> Cities { get; set; }
         public virtual IDbSet<Category> Categories { get; set; }

@@ -18,9 +18,9 @@ namespace CarAdvertsSystem.Data.Repositories
             this.DbSet = this.Context.Set<T>();
         }
 
-        protected IDbSet<T> DbSet { get; set; }
+        public IDbSet<T> DbSet { get; set; }
 
-        protected ICarAdvertsSystemDbContext Context { get; set; }
+        public ICarAdvertsSystemDbContext Context { get; set; }
 
         public virtual IQueryable<T> All()
         {
@@ -68,11 +68,6 @@ namespace CarAdvertsSystem.Data.Repositories
                 this.DbSet.Attach(entity);
                 this.DbSet.Remove(entity);
             }
-        }
-
-        public T GetByTitle(object title)
-        {
-            return this.DbSet.Find(title);
         }
 
         public virtual void Delete(int id)

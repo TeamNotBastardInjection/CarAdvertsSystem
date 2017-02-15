@@ -56,11 +56,6 @@ namespace CarAdvertsSystem.Data.Services
             }
         }
 
-        public Advert GetByTitle(string title)
-        {
-            return this.advertRepository.GetByTitle(title);
-        }
-
         public int Count()
         {
             return this.advertRepository.All().Count();
