@@ -73,17 +73,15 @@ namespace CarAdvertsSystem.Data.Services
 
         public IQueryable<Advert> GetAdvertsByMultipleParameters(int vehicleModelId, int cityId, int minPrice, int maxPrice, int yearFrom, int yearTo)
         {
-            //var adverts = this.advertRepository
-            //                                .All()
-            //                                .Where(a => a.VehicleModelId == vehicleModelId &&
-            //                                            a.CityId == cityId &&
-            //                                            a.Price >= minPrice &&
-            //                                            a.Price <= maxPrice &&
-            //                                            a.Year >= yearFrom &&
-            //                                            a.Year <= yearTo);
-
-            var adverts = this.advertRepository.All();
-
+            var adverts = this.advertRepository
+                                            .All()
+                                            .Where(a => a.VehicleModelId == vehicleModelId &&
+                                                        a.CityId == cityId &&
+                                                        a.Price >= minPrice &&
+                                                        a.Price <= maxPrice &&
+                                                        a.Year >= yearFrom &&
+                                                        a.Year <= yearTo);
+            
             return adverts;
         }
     }

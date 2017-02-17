@@ -2,7 +2,7 @@
 {
     public static class ValidationConstants
     {
-        public const int AdvertTitleMinLength = 8;
+        public const int AdvertTitleMinLength = 1;
         public const int AdvertTitleMaxLength = 50;
         public const int AdvertDescriptionMinLength = 2;
         public const int AdvertDescriptionMaxLength = 50;

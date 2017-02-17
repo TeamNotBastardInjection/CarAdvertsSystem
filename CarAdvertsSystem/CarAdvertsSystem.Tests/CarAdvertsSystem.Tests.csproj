@@ -57,6 +57,7 @@
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\CountShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\DeleteAdvertByIdShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\DeleteAdvertShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\GetAdvertsByMultipleParametersShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\GetAllAdvertsShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\GetByIdShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\CategoryTests\ConstructorShould.cs" />

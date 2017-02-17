@@ -44,12 +44,22 @@ namespace CarAdvertsSystem.WebFormsClient
             var cityId = int.Parse(this.City.SelectedItem.Value);
             var vechisleId = int.Parse(this.VechisleModel.SelectedItem.Value);
             var price = int.Parse(this.Price.Text);
+            var year = int.Parse(this.Year.SelectedItem.Value);
             var power = int.Parse(this.Power.Text);
             var distanceCovarage = int.Parse(this.DistanceCovarage.Text);
             var description = this.Description.Text;
             var userId = User.Identity.GetUserId();
 
-            this.OnCreateAdvert?.Invoke(this, new CreateAdvertEventArgs(title, userId, cityId, vechisleId, price, power, distanceCovarage, description));
+            this.OnCreateAdvert?.Invoke(this, new CreateAdvertEventArgs(
+                title, 
+                userId, 
+                cityId, 
+                vechisleId, 
+                price, 
+                power, 
+                distanceCovarage, 
+                description, 
+                year));
         }
 
         protected void Category_SelectedIndexChanged(object sender, EventArgs e)

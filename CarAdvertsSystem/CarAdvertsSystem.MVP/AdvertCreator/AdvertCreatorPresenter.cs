@@ -55,7 +55,8 @@ namespace CarAdvertsSystem.MVP.AdvertCreator
                 Power = e.Power,
                 Price = e.Power,
                 DistanceCoverage = e.DistanceCovarage,
-                Description = e.Description
+                Description = e.Description,
+                Year = e.Year
             };
 
             this.advertService.AddAdvert(advert);

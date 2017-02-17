@@ -22,10 +22,15 @@ namespace CarAdvertsSystem.MVP.Search
 
         private void View_OnSearchAdverts(object sender, SearchEventArgs e)
         {
-            //var adverts = this.advertService.GetAdvertsByMultipleParameters(e.VehcicleModelId, e.CityId, e.MinPrice,
-            //    e.MaxPrice, e.YearFrom, e.YearTo);
+            var adverts = this.advertService.GetAdvertsByMultipleParameters(
+                e.VehcicleModelId,
+                e.CityId, 
+                e.MinPrice,
+                e.MaxPrice, 
+                e.YearFrom,
+                e.YearTo);
 
-            var adverts = this.advertService.GetAllAdverts();
+            //var adverts = this.advertService.GetAllAdverts();
 
             this.View.Model.Adverts = adverts;
         }
