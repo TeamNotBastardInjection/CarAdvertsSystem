@@ -444,6 +444,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploaded_Files\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarAdvertsSystem.Data.Models\CarAdvertsSystem.Data.Models.csproj">

@@ -33,8 +33,8 @@
         <ContentTemplate>
             <asp:Label Text="VechisleModel: " runat="server" AssociatedControlID="VechisleModel" />
             <asp:DropDownList runat="server" ID="VechisleModel"
-        DataTextField="Name" DataValueField="Id">
-    </asp:DropDownList>
+                DataTextField="Name" DataValueField="Id">
+            </asp:DropDownList>
         </ContentTemplate>
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="Manufacturer" EventName="SelectedIndexChanged" />
@@ -60,6 +60,12 @@
     <asp:Label Text="Description: " runat="server" AssociatedControlID="Description" />
     <asp:TextBox runat="server" ID="Description" />
     <br />
+
+    <asp:FileUpload ID="FileUploadControl" runat="server" />
+    <asp:Button runat="server" ID="UploadButton" Text="Upload" OnClick="UploadButton_Click" />
+    <br />
+    <br />
+    <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />
 
 
     <asp:Button Text="Create" runat="server" ID="CreateAdvert" OnClick="CreateAdvert_Click" />

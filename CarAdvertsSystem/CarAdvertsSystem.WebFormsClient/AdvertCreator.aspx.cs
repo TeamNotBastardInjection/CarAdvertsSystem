@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using CarAdvertsSystem.MVP.AdvertCreator;
@@ -81,5 +82,14 @@ namespace CarAdvertsSystem.WebFormsClient
             return years;
         }
 
+        protected void UploadButton_Click(object sender, EventArgs e)
+        {
+            if (FileUploadControl.HasFile)
+            {
+                string filename = Path.GetFileName(FileUploadControl.FileName);
+                FileUploadControl.SaveAs(Server.MapPath("~/Uploaded_Files/") + filename);
+                StatusLabel.Text = "Upload status: File uploaded!";
+            }
+        }
     }
 }
