@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using CarAdvertsSystem.Common.Constants;
 
 namespace CarAdvertsSystem.Data.Models
 {
@@ -15,11 +16,13 @@ namespace CarAdvertsSystem.Data.Models
         {
             this.adverts = new HashSet<Advert>();
         }
- 
-        [MaxLength(20)]
+        
+        [MinLength(ValidationConstants.UserFirstNameMinLength)]
+        [MaxLength(ValidationConstants.UserFirstNameMaxLength)]
         public string FirstName { get; set; }
 
-        [MaxLength(20)]
+        [MinLength(ValidationConstants.UserLastNameMinLength)]
+        [MaxLength(ValidationConstants.UserLastNameMaxLength)]
         public string LastName { get; set; }
 
         public bool IsDeleted { get; set; }

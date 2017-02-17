@@ -15,5 +15,11 @@
 
         public const int VechicleNameMinLength = 2;
         public const int VechicleNameMaxLength = 30;
+
+        public const int UserFirstNameMinLength = 5;
+        public const int UserFirstNameMaxLength = 20;
+
+        public const int UserLastNameMinLength = 5;
+        public const int UserLastNameMaxLength = 20;
     }
 }

@@ -15,7 +15,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.AdvertTest
     public class GetAllAdvertsShould
     {
         [Test]
-        public void GetAllAdvertsShould_BeCalled_IfParamsAreValid()
+        public void GetAllAdverts_Should_BeCalled_IfParamsAreValid()
         {
             var mockedRepository = new Mock<IRepository<Advert>>();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
