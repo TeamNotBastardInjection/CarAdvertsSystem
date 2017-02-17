@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="AdvertCreator\AdvertCreatorPresenter.cs" />
     <Compile Include="AdvertCreator\AdvertCreatorViewModel.cs" />
+    <Compile Include="AdvertCreator\CreateAdvertEventArgs.cs" />
     <Compile Include="AdvertCreator\IAdvertCreatorView.cs" />
     <Compile Include="AdvertsSearcher\AdvertSearcherPresenter.cs" />
     <Compile Include="AdvertsSearcher\AdvertSearcherViewModel.cs" />

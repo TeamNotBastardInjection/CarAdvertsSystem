@@ -12,5 +12,7 @@ namespace CarAdvertsSystem.MVP.AdvertCreator
         event EventHandler OnManufacturersGetData;
 
         event EventHandler OnVehicleModelsGetData;
+
+        event EventHandler<CreateAdvertEventArgs> OnCreateAdvert;
     }
 }

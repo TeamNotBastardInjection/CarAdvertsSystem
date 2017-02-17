@@ -1,8 +1,4 @@
-﻿using CarAdvertsSystem.Data.Models;
-using CarAdvertsSystem.Data.Services.Contracts;
-using CarAdvertsSystem.WebFormsClient.App_Start;
-using Microsoft.AspNet.Identity;
-using Ninject;
+﻿using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +15,7 @@ namespace CarAdvertsSystem.WebFormsClient
         public event EventHandler OnCategoriesGetData;
         public event EventHandler OnManufacturersGetData;
         public event EventHandler OnVehicleModelsGetData;
-
-        private readonly IAdvertServices advertService;
-
-        public AdvertCreator()
-        {
-            this.advertService = NinjectWebCommon.Kernel.Get<IAdvertServices>();
-        }
+        public event EventHandler<CreateAdvertEventArgs> OnCreateAdvert;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -47,8 +37,6 @@ namespace CarAdvertsSystem.WebFormsClient
         protected void CreateAdvert_Click(object sender, EventArgs e)
         {
             var title = this.AdvertTitle.Text;
-            var categoryId = int.Parse(this.Category.SelectedItem.Value);
-            //var manufacturerId = int.Parse(this.Manufacturer.SelectedItem.Value);
             var cityId = int.Parse(this.City.SelectedItem.Value);
             var vechisleId = int.Parse(this.VechisleModel.SelectedItem.Value);
             var price = int.Parse(this.Price.Text);
@@ -57,19 +45,7 @@ namespace CarAdvertsSystem.WebFormsClient
             var description = this.Description.Text;
             var userId = User.Identity.GetUserId();
 
-            var advert = new Advert()
-            {
-                Title = title,
-                CityId = cityId,
-                VehicleModelId = vechisleId,
-                UserId = userId,
-                Power = power,
-                Price = price,
-                DistanceCoverage = distanceCovarage,
-                Description = description
-            };
-
-            this.advertService.AddAdvert(advert);
+            this.OnCreateAdvert?.Invoke(this, new CreateAdvertEventArgs(title, userId, cityId, vechisleId, price, power, distanceCovarage, description));
         }
 
         protected void Category_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,5 +77,6 @@ namespace CarAdvertsSystem.WebFormsClient
 
             return years;
         }
+
     }
 }

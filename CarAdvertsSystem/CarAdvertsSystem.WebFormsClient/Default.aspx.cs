@@ -1,13 +1,10 @@
-﻿using CarAdvertsSystem.Data.Models;
-using CarAdvertsSystem.Data.Services.Contracts;
+﻿using CarAdvertsSystem.Data.Services.Contracts;
 using CarAdvertsSystem.WebFormsClient.App_Start;
 using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace CarAdvertsSystem.WebFormsClient
 {
