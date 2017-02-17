@@ -450,6 +450,10 @@
       <Project>{e4333bb7-4bfd-4ffe-a520-3f82c1158693}</Project>
       <Name>CarAdvertsSystem.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CarAdvertsSystem.MVP\CarAdvertsSystem.MVP.csproj">
+      <Project>{26C1CFD1-6B7B-4198-939B-5526C148E24C}</Project>
+      <Name>CarAdvertsSystem.MVP</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

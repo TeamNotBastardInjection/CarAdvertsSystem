@@ -1,45 +1,41 @@
-﻿using CarAdvertsSystem.Data;
-using CarAdvertsSystem.Data.Contracts;
-using CarAdvertsSystem.Data.Models;
-using CarAdvertsSystem.Data.Repositories;
-using CarAdvertsSystem.Data.Services;
+﻿using CarAdvertsSystem.Data.Models;
 using CarAdvertsSystem.Data.Services.Contracts;
-using CarAdvertsSystem.Data.UnitOfWork;
 using CarAdvertsSystem.WebFormsClient.App_Start;
 using Microsoft.AspNet.Identity;
 using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CarAdvertsSystem.MVP.AdvertCreator;
+using WebFormsMvp;
+using WebFormsMvp.Web;
 
 namespace CarAdvertsSystem.WebFormsClient
 {
-    public partial class AdvertCreator : System.Web.UI.Page
+    [PresenterBinding(typeof(AdvertCreatorPresenter))]
+    public partial class AdvertCreator : MvpPage<AdvertCreatorViewModel>, IAdvertCreatorView
     {
+        public event EventHandler OnCitiesGetData;
+        public event EventHandler OnCategoriesGetData;
+        public event EventHandler OnManufacturersGetData;
+        public event EventHandler OnVehicleModelsGetData;
+
         private readonly IAdvertServices advertService;
-        private readonly ICategoryServices categoryService;
-        private readonly IManufacturerServices manufacturerService;
-        private readonly IVehicleModelServices vehicleModelServices;
-        private readonly ICityServices cityService;
 
         public AdvertCreator()
         {
             this.advertService = NinjectWebCommon.Kernel.Get<IAdvertServices>();
-            this.categoryService = NinjectWebCommon.Kernel.Get<ICategoryServices>();
-            this.manufacturerService = NinjectWebCommon.Kernel.Get<IManufacturerServices>();
-            this.vehicleModelServices = NinjectWebCommon.Kernel.Get<IVehicleModelServices>();
-            this.cityService = NinjectWebCommon.Kernel.Get<ICityServices>();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
             {
-                var cities = this.cityService.GetAllCities().ToList().AsQueryable();
-                this.City.DataSource = cities;
+                this.OnCitiesGetData?.Invoke(this, null);
+                this.City.DataSource = this.Model.Cities.ToList();
 
-                var categories = this.categoryService.GetAllCategories().ToList().AsQueryable();
-                this.Category.DataSource = categories;
+                this.OnCategoriesGetData?.Invoke(this, null);
+                this.Category.DataSource = this.Model.Categories.ToList();
 
                 this.Year.DataSource = this.GetYears();
 
@@ -78,17 +74,17 @@ namespace CarAdvertsSystem.WebFormsClient
 
         protected void Category_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var manufacturers = this.manufacturerService.GetAllManufacturers().ToList().AsQueryable();
+            this.OnManufacturersGetData?.Invoke(this, null);
 
-            this.Manufacturer.DataSource = manufacturers;
+            this.Manufacturer.DataSource = this.Model.Manufacturers.ToList();
             this.DataBind();
         }
 
         protected void Manufacturer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var models = this.vehicleModelServices.GetAllVehicleModels().ToList().AsQueryable();
+            this.OnVehicleModelsGetData?.Invoke(this, null);
 
-            this.VechisleModel.DataSource = models;
+            this.VechisleModel.DataSource = this.Model.VehicleModels.ToList();
             this.DataBind();
         }
 
