@@ -203,6 +203,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AdvertCreator.aspx" />
+    <Content Include="Adverts.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -372,6 +373,13 @@
     </Compile>
     <Compile Include="AdvertCreator.aspx.designer.cs">
       <DependentUpon>AdvertCreator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Adverts.aspx.cs">
+      <DependentUpon>Adverts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Adverts.aspx.designer.cs">
+      <DependentUpon>Adverts.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">

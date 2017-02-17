@@ -13,7 +13,5 @@ namespace CarAdvertsSystem.MVP.AdvertsSearcher
         event EventHandler OnManufacturersGetData;
 
         event EventHandler OnVehicleModelsGetData;
-
-        event EventHandler<SearchAdvertsEventArgs> OnSearchAdverts;
     }
 }

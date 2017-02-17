@@ -18,14 +18,6 @@ namespace CarAdvertsSystem.WebFormsClient
         public event EventHandler OnCategoriesGetData;
         public event EventHandler OnManufacturersGetData;
         public event EventHandler OnVehicleModelsGetData;
-        public event EventHandler<SearchAdvertsEventArgs> OnSearchAdverts;
-
-        private IAdvertServices advertService;
-
-        public Default()
-        {
-            this.advertService = NinjectWebCommon.Kernel.Get<IAdvertServices>();
-        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -89,12 +81,16 @@ namespace CarAdvertsSystem.WebFormsClient
             var yearFrom = int.Parse(this.YearFrom.SelectedItem.Text);
             var yearTo = int.Parse(this.YearTo.SelectedItem.Text);
 
-            this.OnSearchAdverts?.Invoke(this, new SearchAdvertsEventArgs(cityId, minPrice, maxPrice, yearFrom, yearTo, vechicleModelId));
             
-            this.ResultAdverts.DataSource = this.Model.Adverts;
-            this.DataBind();
-            this.ResultAdverts.Visible = true;
+            
+            string queryParam =  string.Format("?v={0}&c={1}&mip={2}&map={3}&yf={4}&yt={5}",
+                vechicleModelId,
+                cityId,
+                minPrice,
+                maxPrice,
+                yearFrom,
+                yearTo);
+            Response.Redirect("~/adverts" + queryParam);
         }
-
     }
 }

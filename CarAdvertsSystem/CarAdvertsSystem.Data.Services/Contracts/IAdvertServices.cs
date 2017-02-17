@@ -11,5 +11,8 @@ namespace CarAdvertsSystem.Data.Services.Contracts
         void DeleteAdvertById(object advertId);
         IQueryable<Advert> GetAllAdverts();
         Advert GetById(int id);
+
+        IQueryable<Advert> GetAdvertsByMultipleParameters(int vehicleModelId, int cityId, int minPrice, int maxPrice,
+            int yearFrom, int yearTo);
     }
 }

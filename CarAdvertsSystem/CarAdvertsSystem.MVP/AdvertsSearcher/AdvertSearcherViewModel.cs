@@ -5,8 +5,6 @@ namespace CarAdvertsSystem.MVP.AdvertsSearcher
 {
     public class AdvertSearcherViewModel
     {
-        public IQueryable<Advert> Adverts { get; set; }
-
         public IQueryable<City> Cities { get; set; }
 
         public IQueryable<Category> Categories { get; set; }

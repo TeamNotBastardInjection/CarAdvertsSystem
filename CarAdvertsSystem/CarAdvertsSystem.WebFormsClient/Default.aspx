@@ -79,7 +79,4 @@
 
     <asp:Button ID="Search" Text="Search" runat="server" OnClick="Search_Click" />
 
-    <asp:DropDownList ID="ResultAdverts" runat="server" Visible="false">
-    </asp:DropDownList>
-
 </asp:Content>
