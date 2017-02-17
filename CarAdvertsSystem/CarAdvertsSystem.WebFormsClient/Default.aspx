@@ -1,42 +1,77 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CarAdvertsSystem.WebFormsClient._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CarAdvertsSystem.WebFormsClient.Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <h1>Searh Form For Vehcikle</h1>
+    <br />
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <asp:Label Text="Category" runat="server" AssociatedControlID="CategoriesList" />
+            <asp:DropDownList ID="CategoriesList" runat="server"
+                DataTextField="Name" DataValueField="Id" AutoPostBack="true"
+                OnSelectedIndexChanged="CategoriesList_SelectedIndexChanged">
+            </asp:DropDownList>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <br />
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div>
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <asp:Label Text="Manufacturer:" runat="server" AssociatedControlID="ManufacturersList" />
+            <asp:DropDownList ID="ManufacturersList" runat="server" TabIndex="0"
+                DataTextField="Name" DataValueField="Id" AutoPostBack="true"
+                OnSelectedIndexChanged="ManufacturersList_SelectedIndexChanged">
+            </asp:DropDownList>
+        </ContentTemplate>
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="CategoriesList" EventName="SelectedIndexChanged" />
+        </Triggers>
+    </asp:UpdatePanel>
+    <br />
+
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <asp:Label Text="Model:" runat="server" AssociatedControlID="ModelsList" />
+            <asp:DropDownList ID="ModelsList" runat="server"
+                DataTextField="Name" DataValueField="Id">
+            </asp:DropDownList>
+        </ContentTemplate>
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="ManufacturersList" EventName="SelectedIndexChanged" />
+        </Triggers>
+    </asp:UpdatePanel>
+
+    <asp:Label Text="Min Price:" runat="server" AssociatedControlID="MinPrice" />
+    <asp:TextBox ID="MinPrice" runat="server" />
+
+    <asp:Label Text="Max Price:" runat="server" AssociatedControlID="MaxPrice" />
+    <asp:TextBox ID="MaxPrice" runat="server" />
+    <br />
+
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <asp:Label Text="Year from:" runat="server" AssociatedControlID="YearFrom" />
+            <asp:DropDownList ID="YearFrom" runat="server" AutoPostBack="true" OnSelectedIndexChanged="YearFrom_SelectedIndexChanged">
+            </asp:DropDownList>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <asp:Label Text="to:" runat="server" AssociatedControlID="YearTo" />
+            <asp:DropDownList ID="YearTo" runat="server" AutoPostBack="true">
+            </asp:DropDownList>
+        </ContentTemplate>
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="YearFrom" EventName="SelectedIndexChanged" />
+        </Triggers>
+    </asp:UpdatePanel>
+    <br />
+    <br />
+
+    <asp:Button ID="Search" Text="Search" runat="server" OnClick="Search_Click" />
+
+    <asp:DropDownList ID="ResultAdverts" runat="server" Visible="false">
+    </asp:DropDownList>
 
 </asp:Content>

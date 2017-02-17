@@ -10,87 +10,105 @@
 namespace CarAdvertsSystem.WebFormsClient {
     
     
-    public partial class Default {
+    public partial class AdvertCreator {
         
         /// <summary>
-        /// CategoriesList control.
+        /// AdvertTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CategoriesList;
+        protected global::System.Web.UI.WebControls.TextBox AdvertTitle;
         
         /// <summary>
-        /// ManufacturersList control.
+        /// City control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ManufacturersList;
+        protected global::System.Web.UI.WebControls.DropDownList City;
         
         /// <summary>
-        /// ModelsList control.
+        /// Category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ModelsList;
+        protected global::System.Web.UI.WebControls.DropDownList Category;
         
         /// <summary>
-        /// MinPrice control.
+        /// Manufacturer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MinPrice;
+        protected global::System.Web.UI.WebControls.DropDownList Manufacturer;
         
         /// <summary>
-        /// MaxPrice control.
+        /// VechisleModel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MaxPrice;
+        protected global::System.Web.UI.WebControls.DropDownList VechisleModel;
         
         /// <summary>
-        /// YearFrom control.
+        /// Year control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList YearFrom;
+        protected global::System.Web.UI.WebControls.DropDownList Year;
         
         /// <summary>
-        /// YearTo control.
+        /// Price control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList YearTo;
+        protected global::System.Web.UI.WebControls.TextBox Price;
         
         /// <summary>
-        /// Search control.
+        /// Power control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Search;
+        protected global::System.Web.UI.WebControls.TextBox Power;
         
         /// <summary>
-        /// ResultAdverts control.
+        /// DistanceCovarage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ResultAdverts;
+        protected global::System.Web.UI.WebControls.TextBox DistanceCovarage;
+        
+        /// <summary>
+        /// Description control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Description;
+        
+        /// <summary>
+        /// CreateAdvert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CreateAdvert;
     }
 }
