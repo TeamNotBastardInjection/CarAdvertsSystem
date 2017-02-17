@@ -1,11 +1,9 @@
-﻿using CarAdvertsSystem.Data.Services.Contracts;
-using CarAdvertsSystem.WebFormsClient.App_Start;
-using Ninject;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI;
+
 using CarAdvertsSystem.MVP.AdvertsSearcher;
+
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
@@ -71,7 +69,6 @@ namespace CarAdvertsSystem.WebFormsClient
             this.DataBind();
         }
 
-        // this logic must be in MVP
         protected void Search_Click(object sender, EventArgs e)
         {
             var vechicleModelId = int.Parse(this.ModelsList.SelectedItem.Value);
@@ -80,16 +77,9 @@ namespace CarAdvertsSystem.WebFormsClient
             var maxPrice = int.Parse(this.MaxPrice.Text);
             var yearFrom = int.Parse(this.YearFrom.SelectedItem.Text);
             var yearTo = int.Parse(this.YearTo.SelectedItem.Text);
+                  
+            string queryParam = $"?v={vechicleModelId}&c={cityId}&mip={minPrice}&map={maxPrice}&yf={yearFrom}&yt={yearTo}";
 
-            
-            
-            string queryParam =  string.Format("?v={0}&c={1}&mip={2}&map={3}&yf={4}&yt={5}",
-                vechicleModelId,
-                cityId,
-                minPrice,
-                maxPrice,
-                yearFrom,
-                yearTo);
             Response.Redirect("~/adverts" + queryParam);
         }
     }

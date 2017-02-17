@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNet.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using CarAdvertsSystem.MVP.AdvertCreator;
+
+using Microsoft.AspNet.Identity;
+
 using WebFormsMvp;
 using WebFormsMvp.Web;
 

@@ -27,7 +27,7 @@ namespace CarAdvertsSystem.WebFormsClient
 
             this.OnSearchAdverts?.Invoke(this, new SearchEventArgs(cityId, minPrice, maxPrice, yearFrom, yearTo, vmId));
 
-            return this.Model.Adverts;
+            return this.Model.Adverts.ToList().AsQueryable();
         }
     }
 }
