@@ -40,6 +40,14 @@
             <asp:AsyncPostBackTrigger ControlID="ManufacturersList" EventName="SelectedIndexChanged" />
         </Triggers>
     </asp:UpdatePanel>
+    <br/> 
+
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <asp:Label runat="server" Text="City: " AssociatedControlID="CitiesList" />
+            <asp:DropDownList runat="server" ID="CitiesList" DataTextField="Name" DataValueField="Id" />
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
     <asp:Label Text="Min Price:" runat="server" AssociatedControlID="MinPrice" />
     <asp:TextBox ID="MinPrice" runat="server" />

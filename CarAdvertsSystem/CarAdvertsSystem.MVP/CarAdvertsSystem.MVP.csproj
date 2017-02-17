@@ -64,11 +64,10 @@
     <Compile Include="AdvertsSearcher\AdvertSearcherPresenter.cs" />
     <Compile Include="AdvertsSearcher\AdvertSearcherViewModel.cs" />
     <Compile Include="AdvertsSearcher\IAdvertSearcherView.cs" />
+    <Compile Include="AdvertsSearcher\SearchAdvertsEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AdvertCreator\EventArgs\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

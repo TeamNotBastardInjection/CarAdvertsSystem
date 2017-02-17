@@ -5,21 +5,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
+using CarAdvertsSystem.MVP.AdvertsSearcher;
+using WebFormsMvp;
+using WebFormsMvp.Web;
 
 namespace CarAdvertsSystem.WebFormsClient
 {
-    public partial class Default : Page
+    [PresenterBinding(typeof(AdvertSearcherPresenter))]
+    public partial class Default : MvpPage<AdvertSearcherViewModel>, IAdvertSearcherView
     {
-        private ICategoryServices categoriesService;
-        private IManufacturerServices manufacturerService;
-        private IVehicleModelServices vehicleModelServices;
+        public event EventHandler OnCitiesGetData;
+        public event EventHandler OnCategoriesGetData;
+        public event EventHandler OnManufacturersGetData;
+        public event EventHandler OnVehicleModelsGetData;
+        public event EventHandler<SearchAdvertsEventArgs> OnSearchAdverts;
+
         private IAdvertServices advertService;
 
         public Default()
         {
-            this.categoriesService = NinjectWebCommon.Kernel.Get<ICategoryServices>();
-            this.manufacturerService = NinjectWebCommon.Kernel.Get<IManufacturerServices>();
-            this.vehicleModelServices = NinjectWebCommon.Kernel.Get<IVehicleModelServices>();
             this.advertService = NinjectWebCommon.Kernel.Get<IAdvertServices>();
         }
 
@@ -27,8 +31,11 @@ namespace CarAdvertsSystem.WebFormsClient
         {
             if (!this.IsPostBack)
             {
-                var categories = categoriesService.GetAllCategories().ToList().AsQueryable();
-                this.CategoriesList.DataSource = categories;
+                this.OnCategoriesGetData?.Invoke(this, null);
+                this.CategoriesList.DataSource = this.Model.Categories.ToList();
+
+                this.OnCitiesGetData?.Invoke(this, null);
+                this.CitiesList.DataSource = this.Model.Cities.ToList();
 
                 this.YearFrom.DataSource = GetYears();
                 this.YearTo.DataSource = GetYears();
@@ -39,17 +46,15 @@ namespace CarAdvertsSystem.WebFormsClient
 
         protected void CategoriesList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var manufacturers = this.manufacturerService.GetAllManufacturers().ToList().AsQueryable();
-
-            this.ManufacturersList.DataSource = manufacturers;
+            this.OnManufacturersGetData?.Invoke(this, null);
+            this.ManufacturersList.DataSource = this.Model.Manufacturers.ToList();
             this.DataBind();
         }
 
         protected void ManufacturersList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var models = this.vehicleModelServices.GetAllVehicleModels().ToList().AsQueryable();
-
-            this.ModelsList.DataSource = models;
+            this.OnVehicleModelsGetData?.Invoke(this, null);
+            this.ModelsList.DataSource = this.Model.VehicleModels.ToList();
             this.DataBind();
         }
         
@@ -77,27 +82,19 @@ namespace CarAdvertsSystem.WebFormsClient
         // this logic must be in MVP
         protected void Search_Click(object sender, EventArgs e)
         {
-            var category = int.Parse(this.CategoriesList.SelectedItem.Value);
-            var manufacturer = int.Parse(this.ManufacturersList.SelectedItem.Value);
-            var model = int.Parse(this.ManufacturersList.SelectedItem.Value);
+            var vechicleModelId = int.Parse(this.ModelsList.SelectedItem.Value);
+            var cityId = int.Parse(this.CitiesList.SelectedItem.Value);
             var minPrice = int.Parse(this.MinPrice.Text);
             var maxPrice = int.Parse(this.MaxPrice.Text);
             var yearFrom = int.Parse(this.YearFrom.SelectedItem.Text);
             var yearTo = int.Parse(this.YearTo.SelectedItem.Text);
 
-            // Triabva da se naprvi da raboti pravilno zaiavkata
-            var adverts = this.advertService.GetAllAdverts()
-                                .Where(a => a.VehicleModelId == model)
-                                .Where(a => a.Price >= minPrice)
-                                .Where(a => a.Price <= maxPrice)
-                                .Where(a => a.Year >= yearFrom)
-                                .Where(a => a.Year <= yearTo)
-                                .ToList()
-                                .AsQueryable();
-
-            this.ResultAdverts.DataSource = adverts;
+            this.OnSearchAdverts?.Invoke(this, new SearchAdvertsEventArgs(cityId, minPrice, maxPrice, yearFrom, yearTo, vechicleModelId));
+            
+            this.ResultAdverts.DataSource = this.Model.Adverts;
             this.DataBind();
             this.ResultAdverts.Visible = true;
         }
+
     }
 }

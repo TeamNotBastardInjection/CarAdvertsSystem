@@ -6,6 +6,14 @@ namespace CarAdvertsSystem.MVP.AdvertsSearcher
 {
     public interface IAdvertSearcherView : IView<AdvertSearcherViewModel>
     {
-        event EventHandler OnAdvertsGetData;
+        event EventHandler OnCitiesGetData;
+
+        event EventHandler OnCategoriesGetData;
+
+        event EventHandler OnManufacturersGetData;
+
+        event EventHandler OnVehicleModelsGetData;
+
+        event EventHandler<SearchAdvertsEventArgs> OnSearchAdverts;
     }
 }
