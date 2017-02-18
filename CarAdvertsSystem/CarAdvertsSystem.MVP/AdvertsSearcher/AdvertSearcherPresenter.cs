@@ -45,6 +45,8 @@ namespace CarAdvertsSystem.MVP.AdvertsSearcher
         private void View_OnManufacturersGetData(object sender, EventArgs e)
         {
             this.View.Model.Manufacturers = this.manufacturerService.GetAllManufacturers();
+            //this.View.Model.Manufacturers = 
+            //    this.manufacturerService.GetManufacturersByCategoryId(2);
         }
 
         private void View_OnCategoriesGetData(object sender, EventArgs e)
