@@ -2,7 +2,7 @@
 
 namespace CarAdvertsSystem.MVP.EditUsers
 {
-    internal class IdEventArgs : EventArgs
+    public class IdEventArgs : EventArgs
     {
         public Guid Id { get; private set; }
 
