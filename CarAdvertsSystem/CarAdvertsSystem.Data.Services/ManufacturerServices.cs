@@ -8,18 +8,15 @@ namespace CarAdvertsSystem.Data.Services
 {
     public class ManufacturerServices : IManufacturerServices
     {
-        private readonly IRepository<VehicleModel> vehicleModelRepository;
         private readonly IRepository<Manufacturer> manufacturerRepository;
         private readonly IUnitOfWork unitOfWork;
 
         public ManufacturerServices(IRepository<Manufacturer> manufacturerRepository,
-            IRepository<VehicleModel> vehicleModelRepository,
             IUnitOfWork unitOfWork)
         {
             Guard.WhenArgument(manufacturerRepository, "Manufacturer Repository is Null!!!").IsNull().Throw();
             Guard.WhenArgument(unitOfWork, "Unit of Work is Null!!!").IsNull().Throw();
 
-            this.vehicleModelRepository = vehicleModelRepository;
             this.manufacturerRepository = manufacturerRepository;
             this.unitOfWork = unitOfWork;
         }
@@ -49,14 +46,14 @@ namespace CarAdvertsSystem.Data.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Returns IQeryable<Manufacturer>.</returns>
-        public IQueryable<Manufacturer> GetManufacturersByCategoryId(int id)
-        {
-            var manufacturers = vehicleModelRepository.All()
-                                    .Where(vm => vm.CategoryId == id)
-                                    .Select(vm => this.GetById(vm.ManufacturerId));
+        //public IQueryable<Manufacturer> GetManufacturersByCategoryId(int id)
+        //{
+        //    var manufacturers = vehicleModelRepository.All()
+        //                            .Where(vm => vm.CategoryId == id)
+        //                            .Select(vm => this.GetById(vm.ManufacturerId));
 
-            return manufacturers;
-        }
+        //    return manufacturers;
+        //}
 
     }
 }
