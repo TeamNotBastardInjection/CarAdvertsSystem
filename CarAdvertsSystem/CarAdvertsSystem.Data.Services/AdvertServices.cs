@@ -40,7 +40,7 @@ namespace CarAdvertsSystem.Data.Services
             {
                 this.advertRepository.Delete(advertToDelete);
 
-                this.unitOfWork.SaveChanges();
+                unitOfWork.SaveChanges();
             }
         }
 
@@ -52,7 +52,7 @@ namespace CarAdvertsSystem.Data.Services
             {
                 this.advertRepository.Delete((int)advertId);
 
-                this.unitOfWork.SaveChanges();
+                unitOfWork.SaveChanges();
             }
         }
 
@@ -83,6 +83,16 @@ namespace CarAdvertsSystem.Data.Services
                                                         a.Year <= yearTo);
             
             return adverts;
+        }
+
+        public void UpdateAdvert(Advert advert)
+        {
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.advertRepository.Update(advert);
+
+                unitOfWork.SaveChanges();
+            }
         }
     }
 }

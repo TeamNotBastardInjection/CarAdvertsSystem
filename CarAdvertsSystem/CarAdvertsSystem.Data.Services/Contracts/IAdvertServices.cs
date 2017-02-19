@@ -12,6 +12,8 @@ namespace CarAdvertsSystem.Data.Services.Contracts
         IQueryable<Advert> GetAllAdverts();
         Advert GetById(int id);
 
+        void UpdateAdvert(Advert advert);
+
         IQueryable<Advert> GetAdvertsByMultipleParameters(int vehicleModelId, int cityId, int minPrice, int maxPrice,
             int yearFrom, int yearTo);
     }

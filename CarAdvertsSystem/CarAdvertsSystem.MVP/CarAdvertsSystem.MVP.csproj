@@ -66,9 +66,10 @@
     <Compile Include="AdvertsSearcher\AdvertSearcherViewModel.cs" />
     <Compile Include="AdvertsSearcher\IAdvertSearcherView.cs" />
     <Compile Include="AdvertsSearcher\SearchAdvertsEventArgs.cs" />
-    <Compile Include="EditUsers\EditUsersViewModel.cs" />
-    <Compile Include="EditUsers\IdEventArgs.cs" />
-    <Compile Include="EditUsers\IEditUsersView.cs" />
+    <Compile Include="EditAdverts\EditAdvertsPresenter.cs" />
+    <Compile Include="EditAdverts\EditAdvertsViewModel.cs" />
+    <Compile Include="EditAdverts\IdEventAdvertArgs.cs" />
+    <Compile Include="EditAdverts\IEditAdvertsView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search\ISearchView.cs" />
     <Compile Include="Search\SearcherPresenter.cs" />
