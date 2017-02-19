@@ -117,7 +117,7 @@ namespace CarAdvertsSystem.WebFormsClient
         /// <param name="e"></param>
         protected void UploadFiles()
         {
-            var filePaths = new HashSet<string>();
+            var filePaths = new List<string>();
             if (UploadImages.HasFiles)
             {
                 // Rename files to be with unique names and save them

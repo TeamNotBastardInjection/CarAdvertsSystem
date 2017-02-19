@@ -34,13 +34,13 @@
                     <asp:HyperLink NavigateUrl='<%# $"~/advertdetailview.aspx?id={Item.Id}" %>' runat="server" Text="<%#: Item.Title %>" />
                     Price: <%#: $"{Item.Price:c}" %>
                     <%--<asp:Image ImageUrl="~/Uploaded_Files/1.jpg" runat="server" Width="150px"/>--%>
-                    <asp:Image ImageUrl="<%#: Item.Pictures %>" runat="server" Width="150px" />
+                    <asp:Image ImageUrl="<%#: GetFirstPicturePathByAdvertId(Item.Id) %>" runat="server" Width="150px" />
                 </div>
             </ItemTemplate>
         </asp:ListView>
 
         <asp:DataPager ID="DataPagerAdverts" runat="server"
-            PagedControlID="ListViewAdverts" PageSize="1"
+            PagedControlID="ListViewAdverts" PageSize="2"
             QueryStringField="page">
             <Fields>
                 <asp:NextPreviousPagerField ShowFirstPageButton="true"

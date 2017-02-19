@@ -11,13 +11,22 @@ namespace CarAdvertsSystem.MVP.Search
     public class SearcherPresenter : Presenter<ISearchView>
     {
         private readonly IAdvertServices advertService;
+        private readonly IPictureServices pictureSerrvice;
 
-        public SearcherPresenter(ISearchView view, IAdvertServices advertService) 
+        public SearcherPresenter(ISearchView view, IAdvertServices advertService, IPictureServices pictureSerrvice) 
             : base(view)
         {
             this.advertService = advertService;
+            this.pictureSerrvice = pictureSerrvice;
 
             this.View.OnSearchAdverts += View_OnSearchAdverts;
+            this.View.OnGetPicturePath += View_OnGetPicturePath;
+        }
+
+        private void View_OnGetPicturePath(object sender, GetPicturePathEventArgs e)
+        {
+            var path =  this.pictureSerrvice.GetFirstPicturesNameByAdvertId(e.AdvertId);
+            this.View.Model.PicturePath = path;
         }
 
         private void View_OnSearchAdverts(object sender, SearchEventArgs e)

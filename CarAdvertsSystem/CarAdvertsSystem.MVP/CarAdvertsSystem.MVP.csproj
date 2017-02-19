@@ -71,6 +71,7 @@
     <Compile Include="EditAdverts\IdEventAdvertArgs.cs" />
     <Compile Include="EditAdverts\IEditAdvertsView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\GetPicturePathEventArgs.cs" />
     <Compile Include="Search\ISearchView.cs" />
     <Compile Include="Search\SearcherPresenter.cs" />
     <Compile Include="Search\SearchEventArgs.cs" />

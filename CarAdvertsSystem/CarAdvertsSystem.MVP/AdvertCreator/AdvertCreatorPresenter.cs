@@ -47,7 +47,7 @@ namespace CarAdvertsSystem.MVP.AdvertCreator
 
         private void View_OnCreateAdvert(object sender, CreateAdvertEventArgs e)
         {
-            var pictureCollection = new HashSet<Picture>();
+            var pictureCollection = new List<Picture>();
             foreach (var pictrurePath in e.PictureFilePaths)
             {
                 pictureCollection.Add(new Picture() { Name = pictrurePath });

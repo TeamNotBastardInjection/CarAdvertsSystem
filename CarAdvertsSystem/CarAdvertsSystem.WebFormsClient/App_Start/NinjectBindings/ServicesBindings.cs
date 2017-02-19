@@ -1,4 +1,6 @@
-﻿using Ninject.Modules;
+﻿using CarAdvertsSystem.Data.Services;
+using CarAdvertsSystem.Data.Services.Contracts;
+using Ninject.Modules;
 using Ninject.Extensions.Conventions;
 
 namespace CarAdvertsSystem.WebFormsClient.App_Start.NinjectBindings
