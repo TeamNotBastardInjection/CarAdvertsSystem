@@ -18,8 +18,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetAllManufacturersShould_BeCalled_IfParamsAreValid()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             manufacturerService.GetAllManufacturers();
 
@@ -30,8 +30,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetAllManufacturers_Should_NotBeCalled_IfItIsNeverCalled()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             mockedRepository.Verify(rep => rep.All(), Times.Never);
         }
@@ -40,8 +39,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetAllManufacturers_Should_ReturnIQueryable_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             IEnumerable<Manufacturer> expectedManufacturerResult = new List<Manufacturer>() { new Manufacturer(), new Manufacturer() };
             mockedRepository.Setup(rep => rep.All()).Returns(() => expectedManufacturerResult.AsQueryable());
@@ -53,8 +51,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetAllManufacturers_Should_DoItsJobCorrectly_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             IEnumerable<Manufacturer> expectedManufacturerResult = new List<Manufacturer>() { new Manufacturer(), new Manufacturer() };
             mockedRepository.Setup(rep => rep.All()).Returns(() => expectedManufacturerResult.AsQueryable());
@@ -66,8 +63,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetAllManufacturers_Should_ReturnEmptyCollection_IfThereAreNoManufacturersAdded()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             IEnumerable<Manufacturer> expectedManufacturerResult = new List<Manufacturer>();
             mockedRepository.Setup(rep => rep.All()).Returns(() => expectedManufacturerResult.AsQueryable());
@@ -79,8 +75,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetAllManufacturers_Should_ThrowArgumentNullException_IfPassedManufacturersAreNull()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             IEnumerable<Manufacturer> expectedManufacturerResult = null;
             mockedRepository.Setup(rep => rep.All()).Returns(() => expectedManufacturerResult.AsQueryable());

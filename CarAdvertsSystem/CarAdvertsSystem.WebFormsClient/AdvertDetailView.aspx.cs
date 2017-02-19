@@ -10,7 +10,7 @@ using Ninject;
 
 namespace CarAdvertsSystem.WebFormsClient
 {
-    public partial class AdvertDetailView : System.Web.UI.Page
+    public partial class AdvertDetailView : Page
     {
         private readonly IAdvertServices advertService;
 

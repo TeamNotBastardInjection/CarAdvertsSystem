@@ -1,4 +1,5 @@
 ﻿using System;
+
 using CarAdvertsSystem.Data.Contracts;
 using CarAdvertsSystem.Data.Models;
 using CarAdvertsSystem.Data.Services;
@@ -15,8 +16,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetById_Should_BeCalledOnce_IfParamsAreValid()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vehicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vehicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             var vehicleModel = new Mock<VehicleModel>();
             vehicleModelService.GetById(vehicleModel.Object.Id);
@@ -28,8 +28,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetById_Should_NotBeCalled_IfNotCalledYolo()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vehicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vehicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             mockedRepository.Verify(rep => rep.GetById(1), Times.Never);
         }
@@ -38,8 +37,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetById_Should_ReturnTheProperVehicleModelWithId_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vehicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vehicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             var vehicleModelWithId = new Mock<VehicleModel>();
             mockedRepository.Setup(rep => rep.GetById(vehicleModelWithId.Object.Id)).Returns(() => vehicleModelWithId.Object);
@@ -51,8 +49,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetById_Should_Work_IfCalledWithValidParams()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vehicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vehicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             var vehicleModelWithId = new Mock<VehicleModel>();
             mockedRepository.Setup(rep => rep.GetById(vehicleModelWithId.Object.Id)).Returns(() => vehicleModelWithId.Object);
@@ -64,8 +61,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetById_ShouldThrowNullReferenceException_IfVehicleModelIsNull()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vehicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vehicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             Mock<VehicleModel> vehicleModelWithId = null;
 
@@ -76,8 +72,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetById_Should_NotReturnAdvert_IfThereIsNoVehicleModelYolo()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vehicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vehicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             mockedRepository.Setup(rep => rep.GetById(0)).Returns(() => null);
 
@@ -88,8 +83,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetById_Should_ReturnTheCorrectVehicleModel_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vehicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vehicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             var vehicleModel = new Mock<VehicleModel>();
             var secondVehicleModel = new Mock<VehicleModel>();

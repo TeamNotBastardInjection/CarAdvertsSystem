@@ -1,27 +1,22 @@
-﻿using Bytes2you.Validation;
+﻿using System.Linq;
+
 using CarAdvertsSystem.Data.Contracts;
 using CarAdvertsSystem.Data.Models;
 using CarAdvertsSystem.Data.Services.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using Bytes2you.Validation;
 
 namespace CarAdvertsSystem.Data.Services
 {
     public class CityServices : ICityServices
     {
         private readonly IRepository<City> cityRepository;
-        private readonly IUnitOfWork unitOfWork;
 
-        public CityServices(IRepository<City> cityRepository, IUnitOfWork unitOfWork)
+        public CityServices(IRepository<City> cityRepository)
         {
             Guard.WhenArgument(cityRepository, "City Repository is Null!!!").IsNull().Throw();
-            Guard.WhenArgument(unitOfWork, "Unit of Work is Null!!!").IsNull().Throw();
 
             this.cityRepository = cityRepository;
-            this.unitOfWork = unitOfWork;
         }
 
         /// <summary>
@@ -41,6 +36,5 @@ namespace CarAdvertsSystem.Data.Services
         {
             return this.cityRepository.GetById(id);
         }
-
     }
 }
