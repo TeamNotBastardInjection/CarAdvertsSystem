@@ -13,7 +13,7 @@
         </Images>
     </ninja:Carousel>--%>
     
-
+    <div class="jumbotron">
     <asp:UpdatePanel runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <asp:Label Text="Category" runat="server" AssociatedControlID="CategoriesList" />
@@ -88,5 +88,5 @@
     <br />
 
     <asp:Button ID="Search" Text="Search" runat="server" OnClick="Search_Click" />
-
+    </div>
 </asp:Content>

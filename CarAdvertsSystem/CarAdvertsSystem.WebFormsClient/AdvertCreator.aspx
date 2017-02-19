@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Create Advert Form</h1>
-
+    <div class="jumbotron">
     <asp:Label Text="Title: " runat="server" AssociatedControlID="AdvertTitle" />
     <asp:TextBox runat="server" ID="AdvertTitle" />
     <br />
@@ -67,13 +67,13 @@
     <br />
     <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />--%>
 
-    <div>
+
         <div>Upload one or many files.</div>
         <asp:FileUpload runat="server" ID="UploadImages" AllowMultiple="true" />
         <asp:Label ID="listofuploadedfiles" runat="server" />
-    </div>
+    
 
 
     <asp:Button Text="Create" runat="server" ID="CreateAdvert" OnClick="CreateAdvert_Click" />
-
+    </div>
 </asp:Content>

@@ -34,9 +34,11 @@
             </div>
         </ItemTemplate>
     </asp:FormView>
+    <div class="jumbotron2">
     <asp:Repeater ID="RepeaterImages" runat="server" ItemType="CarAdvertsSystem.Data.Models.Picture">
             <ItemTemplate>
                 <asp:Image ImageUrl='<%# $"Uploaded_Files/{Item.Name}" %>' runat="server" Width="200px"/>
             </ItemTemplate>
         </asp:Repeater>
+        </div>
 </asp:Content>
