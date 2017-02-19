@@ -25,7 +25,7 @@ namespace CarAdvertsSystem.MVP.Search
 
         private void View_OnGetPicturePath(object sender, GetPicturePathEventArgs e)
         {
-            var path =  this.pictureSerrvice.GetFirstPicturesNameByAdvertId(e.AdvertId);
+            var path = this.pictureSerrvice.GetFirstPicturesNameByAdvertId(e.AdvertId);
             this.View.Model.PicturePath = path;
         }
 

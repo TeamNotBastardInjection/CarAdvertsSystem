@@ -62,6 +62,11 @@
     <Compile Include="AdvertCreator\AdvertCreatorViewModel.cs" />
     <Compile Include="AdvertCreator\CreateAdvertEventArgs.cs" />
     <Compile Include="AdvertCreator\IAdvertCreatorView.cs" />
+    <Compile Include="AdvertDetail\AdvertDetailPresenter.cs" />
+    <Compile Include="AdvertDetail\AdvertDetailViewModel.cs" />
+    <Compile Include="AdvertDetail\GetAdvertsByIdEventArgs.cs" />
+    <Compile Include="AdvertDetail\GetPicturesEventArgs.cs" />
+    <Compile Include="AdvertDetail\IAdvertDetailView.cs" />
     <Compile Include="AdvertsSearcher\AdvertSearcherPresenter.cs" />
     <Compile Include="AdvertsSearcher\AdvertSearcherViewModel.cs" />
     <Compile Include="AdvertsSearcher\IAdvertSearcherView.cs" />
