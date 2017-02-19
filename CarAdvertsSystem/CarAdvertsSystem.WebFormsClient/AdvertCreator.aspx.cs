@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 using System.Web;
+using CarAdvertsSystem.WebFormsClient.Controls;
 
 namespace CarAdvertsSystem.WebFormsClient
 {
@@ -68,6 +69,8 @@ namespace CarAdvertsSystem.WebFormsClient
                 description, 
                 year,
                 this.PictureFilePaths));
+
+            ErrorSuccessNotifier.AddSuccessMessage("Advert Added Yolo!!!");
         }
 
         protected void Category_SelectedIndexChanged(object sender, EventArgs e)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using CarAdvertsSystem.MVP.AdvertsSearcher;
-
+using CarAdvertsSystem.WebFormsClient.Controls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
@@ -71,6 +71,8 @@ namespace CarAdvertsSystem.WebFormsClient
 
         protected void Search_Click(object sender, EventArgs e)
         {
+            ErrorSuccessNotifier.AddSuccessMessage("Yolololol");
+
             var vechicleModelId = int.Parse(this.ModelsList.SelectedItem.Value);
             var cityId = int.Parse(this.CitiesList.SelectedItem.Value);
             var minPrice = int.Parse(this.MinPrice.Text);
@@ -81,8 +83,7 @@ namespace CarAdvertsSystem.WebFormsClient
             string queryParam = $"?v={vechicleModelId}&c={cityId}&mip={minPrice}&map={maxPrice}&yf={yearFrom}&yt={yearTo}";
 
             Response.Redirect("~/adverts" + queryParam);
-        }
 
-       
+        }     
     }
 }

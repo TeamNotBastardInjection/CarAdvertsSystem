@@ -212,8 +212,16 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\NotificationControl\Images\error-icon.png" />
+    <Content Include="Content\NotificationControl\Images\info-icon.png" />
+    <Content Include="Content\NotificationControl\Images\success-icon.png" />
+    <Content Include="Content\NotificationControl\Images\warning-icon.png" />
+    <Content Include="Content\NotificationControl\Scripts\ErrorSuccessNotifier.js" />
+    <Content Include="Content\NotificationControl\Scripts\jquery-1.3.2.js" />
+    <Content Include="Content\NotificationControl\Styles\NotificationControl.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Controls\Carousel.ascx" />
+    <Content Include="Controls\NotificationControl.ascx" />
     <Content Include="Controls\test.ascx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -435,6 +443,12 @@
     </Compile>
     <Compile Include="Controls\Carousel.ascx.designer.cs">
       <DependentUpon>Carousel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NotificationControl.ascx.cs">
+      <DependentUpon>NotificationControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NotificationControl.ascx.designer.cs">
+      <DependentUpon>NotificationControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\test.ascx.cs">
       <DependentUpon>test.ascx</DependentUpon>

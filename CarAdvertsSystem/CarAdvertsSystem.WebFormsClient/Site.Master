@@ -1,4 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CarAdvertsSystem.WebFormsClient.SiteMaster" %>
+<%@ Register src="~/Controls/NotificationControl.ascx"
+    tagname="ErrorSuccessNotifier" tagprefix="userControls" %>
+
 
 <!DOCTYPE html>
 
@@ -7,6 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - My ASP.NET Application</title>
+    <link href="~/Content/NotificationControl/Styles/NotificationControl.css" rel="stylesheet" type="text/css" />
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -72,6 +76,10 @@
                     </asp:LoginView>
                 </div>
             </div>
+        </div>
+        <div class="main">
+            <userControls:ErrorSuccessNotifier ID="ErrorSuccessNotifier" runat="server" />
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"/>
         </div>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
