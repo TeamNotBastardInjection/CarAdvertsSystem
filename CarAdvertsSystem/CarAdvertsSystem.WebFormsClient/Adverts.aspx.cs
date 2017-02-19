@@ -3,8 +3,10 @@ using System.Linq;
 using System.Web.ModelBinding;
 
 using CarAdvertsSystem.Data.Models;
+using CarAdvertsSystem.Data.Services.Contracts;
 using CarAdvertsSystem.MVP.Search;
-
+using CarAdvertsSystem.WebFormsClient.App_Start;
+using Ninject;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
@@ -14,6 +16,13 @@ namespace CarAdvertsSystem.WebFormsClient
     public partial class Adverts : MvpPage<SearchViewModel>, ISearchView
     {
         public event EventHandler<SearchEventArgs> OnSearchAdverts;
+
+        private readonly IAdvertServices advertService;
+
+        public Adverts()
+        {
+            this.advertService = NinjectWebCommon.Kernel.Get<IAdvertServices>();
+        }
 
         public IQueryable<Advert> Reapeater_GetData([QueryString] string vM, [QueryString] string c, [QueryString] string miP, [QueryString] string maP, [QueryString] string yF, [QueryString] string yT)
         {
@@ -28,6 +37,15 @@ namespace CarAdvertsSystem.WebFormsClient
             this.OnSearchAdverts?.Invoke(this, new SearchEventArgs(cityId, minPrice, maxPrice, yearFrom, yearTo, vmId));
 
             return this.Model.Adverts.ToList().AsQueryable();
+        }
+
+        public string GetFirstPictureFilePath(int advertId)
+        {
+            var advert = this.advertService.GetById(advertId);
+
+            var filePath = advert.Pictures.Select(p => p.Name);
+
+            return $"~/Uploaded_Files/{filePath}";
         }
     }
 }

@@ -3,21 +3,6 @@
     Inherits="CarAdvertsSystem.WebFormsClient.Adverts" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-    <%--<asp:Repeater runat="server" ID="ReapeaterAdverts" ItemType="CarAdvertsSystem.Data.Models.Advert" SelectMethod="Reapeater_GetData">
-        <HeaderTemplate>
-            <ul>
-        </HeaderTemplate>
-        <ItemTemplate>
-            <li>
-                <div><%#: Item.Title %></div>
-                <div><%#: Item.Id %></div>
-            </li>
-        </ItemTemplate>
-        <FooterTemplate>
-            </ul>
-        </FooterTemplate>
-    </asp:Repeater>--%>
     <asp:ListView ID="ListViewAdverts" runat="server" SelectMethod="Reapeater_GetData"
             ItemType="CarAdvertsSystem.Data.Models.Advert" >
             <LayoutTemplate>
@@ -34,7 +19,7 @@
                     <asp:HyperLink NavigateUrl='<%# $"~/advertdetailview.aspx?id={Item.Id}" %>' runat="server" Text="<%#: Item.Title %>" />
                     Price: <%#: $"{Item.Price:c}" %>
                     <%--<asp:Image ImageUrl="~/Uploaded_Files/1.jpg" runat="server" Width="150px"/>--%>
-                    <asp:Image ImageUrl="<%#: Item.Pictures %>" runat="server" Width="150px" />
+                    <asp:Image ImageUrl="<%#: GetFirstPictureFilePath(Item.Id) %>" runat="server" Width="150px" />
                 </div>
             </ItemTemplate>
         </asp:ListView>
