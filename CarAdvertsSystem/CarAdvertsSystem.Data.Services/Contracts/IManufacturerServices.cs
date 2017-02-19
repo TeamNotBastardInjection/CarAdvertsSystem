@@ -7,6 +7,6 @@ namespace CarAdvertsSystem.Data.Services.Contracts
     {
         IQueryable<Manufacturer> GetAllManufacturers();
         Manufacturer GetById(int id);
-        IQueryable<Manufacturer> GetManufacturersByCategoryId(int id);
+        //IQueryable<Manufacturer> GetManufacturersByCategoryId(int id);
     }
 }
