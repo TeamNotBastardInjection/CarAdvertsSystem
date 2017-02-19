@@ -32,5 +32,15 @@ namespace CarAdvertsSystem.WebFormsClient
 
             return this.Model.Adverts.ToList().AsQueryable();
         }
+
+        public string GetFirstPictureFilePath(int advertId)
+        {
+            this.OnGetPicturePath?.Invoke(this, new GetPicturePathEventArgs(advertId));
+
+            var picturePath = this.Model.PicturePath;
+
+            return $"~/Uploaded_Files/{picturePath}";
+        }
+
     }
 }
