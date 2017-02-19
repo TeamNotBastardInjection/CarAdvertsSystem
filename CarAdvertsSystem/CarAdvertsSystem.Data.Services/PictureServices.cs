@@ -12,18 +12,20 @@ namespace CarAdvertsSystem.Data.Services
     {
         private readonly IRepository<Picture> pictureRepository;
 
-        public PictureServices(IRepository<Picture> pictureRepository, IUnitOfWork unitOfWork)
+        public PictureServices(IRepository<Picture> pictureRepository)
         {
             Guard.WhenArgument(pictureRepository, "Picture Repository is Null!!!").IsNull().Throw();
 
             this.pictureRepository = pictureRepository;
         }
 
-        public ICollection<string> GetAllPictureNamesByAdvertId(int advertId)
+        public IQueryable<Picture> GetPicturesByAdvertId(int advertId)
         {
-            var picturesPaths = this.pictureRepository.All().Where(p => p.AdvertId == advertId).Select(p => p.Name).ToList();
+            var pictures = this.pictureRepository
+                                                .All()
+                                                .Where(p => p.AdvertId == advertId);
 
-            return picturesPaths;
+            return pictures;
         }
 
         public string GetFirstPicturesNameByAdvertId(int advertId)

@@ -18,8 +18,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.PictureTes
         public void ReturnCorrectString_WhenValidIdParameter()
         {
             var mockedRepository = new Mock<IRepository<Picture>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var pictureService = new PictureServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var pictureService = new PictureServices(mockedRepository.Object);
 
             int advertId = 1;
             string expectedResult = "1.jpg";
@@ -42,7 +41,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.PictureTes
         {
             var mockedRepository = new Mock<IRepository<Picture>>();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var pictureService = new PictureServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var pictureService = new PictureServices(mockedRepository.Object);
 
             int testAdvertId = 2;
 
