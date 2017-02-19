@@ -38,7 +38,9 @@ namespace CarAdvertsSystem.MVP.AdvertDetail
 
         private void View_OnGetPicturesByAdvertId(object sender, GetPicturesEventArgs e)
         {
-            throw new System.NotImplementedException();
+            var pictures = this.pictureService.GetPicturesByAdvertId(e.AdvertId);
+
+            this.View.Model.Pictures = pictures;
         }
     }
 }
