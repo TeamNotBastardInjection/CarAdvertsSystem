@@ -7,6 +7,6 @@ namespace CarAdvertsSystem.MVP.Search
     {
         public IQueryable<Advert> Adverts { get; set; }
 
-        public  string PicturePath { get; set; }
+        public string PicturePath { get; set; }
     }
 }
