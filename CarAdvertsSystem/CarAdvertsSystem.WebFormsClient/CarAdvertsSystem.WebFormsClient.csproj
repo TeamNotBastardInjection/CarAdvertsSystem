@@ -207,6 +207,7 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Admin\EditAdverts.aspx" />
     <Content Include="AdvertCreator.aspx" />
+    <Content Include="AdvertDetailView.aspx" />
     <Content Include="Adverts.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -386,6 +387,13 @@
     </Compile>
     <Compile Include="AdvertCreator.aspx.designer.cs">
       <DependentUpon>AdvertCreator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdvertDetailView.aspx.cs">
+      <DependentUpon>AdvertDetailView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdvertDetailView.aspx.designer.cs">
+      <DependentUpon>AdvertDetailView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Adverts.aspx.cs">
       <DependentUpon>Adverts.aspx</DependentUpon>

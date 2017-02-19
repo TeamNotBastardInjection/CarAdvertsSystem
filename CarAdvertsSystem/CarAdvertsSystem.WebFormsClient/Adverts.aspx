@@ -31,8 +31,10 @@
 
             <ItemTemplate>
                 <div>
-                    <h4><%#: Item.Title %></h4>
-                    Price: <%#: String.Format("{0:c}", Item.Price) %>
+                    <asp:HyperLink NavigateUrl='<%# $"~/advertdetailview.aspx?id={Item.Id}" %>' runat="server" Text="<%#: Item.Title %>" />
+                    Price: <%#: $"{Item.Price:c}" %>
+                    <%--<asp:Image ImageUrl="~/Uploaded_Files/1.jpg" runat="server" Width="150px"/>--%>
+                    <asp:Image ImageUrl="<%#: Item.Pictures %>" runat="server" Width="150px" />
                 </div>
             </ItemTemplate>
         </asp:ListView>
