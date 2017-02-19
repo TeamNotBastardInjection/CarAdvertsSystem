@@ -18,8 +18,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         public void GetAllCategoriesShould_BeCalled_IfParamsAreValid()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             categoryService.GetAllCategories();
 
@@ -30,8 +29,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         public void GetAllCategories_Should_NotBeCalled_IfItIsNeverCalled()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             mockedRepository.Verify(rep => rep.All(), Times.Never);
         }
@@ -40,8 +39,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         public void GetAllCategories_Should_ReturnIQueryable_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             IEnumerable<Category> expectedCategoriesResult = new List<Category>() { new Category(), new Category() };
             mockedRepository.Setup(rep => rep.All()).Returns(() => expectedCategoriesResult.AsQueryable());
@@ -53,8 +52,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         public void GetAllCategories_Should_DoItsJobCorrectly_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             IEnumerable<Category> expectedCategoriesResult = new List<Category>() { new Category(), new Category() };
             mockedRepository.Setup(rep => rep.All()).Returns(() => expectedCategoriesResult.AsQueryable());
@@ -63,11 +62,11 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         }
 
         [Test]
-        public void GetAllCategories_Should_ReturnEmptyCollection_IfThereAreNoAdvertsAdded()
+        public void GetAllCategories_Should_ReturnEmptyCollection_IfThereAreNoCategoryAdded()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             IEnumerable<Category> expectedCategoriesResult = new List<Category>();
             mockedRepository.Setup(rep => rep.All()).Returns(() => expectedCategoriesResult.AsQueryable());
@@ -76,11 +75,10 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         }
 
         [Test]
-        public void GetAllCategories_Should_ThrowArgumentNullException_IfPassedAdvertsAreNull()
+        public void GetAllCategories_Should_ThrowArgumentNullException_IfPassedCategoryIsNull()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             IEnumerable<Category> expectedCategoriesResult = null;
             mockedRepository.Setup(rep => rep.All()).Returns(() => expectedCategoriesResult.AsQueryable());

@@ -16,8 +16,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void Constructor_Should_CreateManufacturerServices_IfParamsAreValid()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             Assert.That(manufacturerService, Is.InstanceOf<ManufacturerServices>());
         }
@@ -26,20 +26,10 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void Constructor_Should_ThrowNullReferenceException_IfPassedRepositoryIsNull()
         {
             Mock<IRepository<Manufacturer>> mockedRepository = null;
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+
 
             Assert.Throws<NullReferenceException>(
-                () => new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object));
-        }
-
-        [Test]
-        public void Constuctor_Should_ThrowNullReferenceException_IfPassedUnitOfWorkIsNull()
-        {
-            var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            Mock<IUnitOfWork> mockedUnitOfWork = null;
-
-            Assert.Throws<NullReferenceException>(
-                () => new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object));
+                () => new ManufacturerServices(mockedRepository.Object));
         }
     }
 }

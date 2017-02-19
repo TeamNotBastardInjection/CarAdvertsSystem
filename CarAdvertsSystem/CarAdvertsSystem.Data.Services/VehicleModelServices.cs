@@ -1,23 +1,22 @@
-﻿using Bytes2you.Validation;
+﻿using System.Linq;
+
 using CarAdvertsSystem.Data.Contracts;
 using CarAdvertsSystem.Data.Models;
-using System.Linq;
 using CarAdvertsSystem.Data.Services.Contracts;
+
+using Bytes2you.Validation;
 
 namespace CarAdvertsSystem.Data.Services
 {
     public class VehicleModelServices : IVehicleModelServices
     {
         private readonly IRepository<VehicleModel> vechicleModelRepository;
-        private readonly IUnitOfWork unitOfWork;
 
-        public VehicleModelServices(IRepository<VehicleModel> vechicleModelRepository, IUnitOfWork unitOfWork)
+        public VehicleModelServices(IRepository<VehicleModel> vechicleModelRepository)
         {
             Guard.WhenArgument(vechicleModelRepository, "VehicleModel Repository is Null!!!").IsNull().Throw();
-            Guard.WhenArgument(unitOfWork, "Unit of Work is Null!!!").IsNull().Throw();
 
             this.vechicleModelRepository = vechicleModelRepository;
-            this.unitOfWork = unitOfWork;
         }
 
         /// <summary>

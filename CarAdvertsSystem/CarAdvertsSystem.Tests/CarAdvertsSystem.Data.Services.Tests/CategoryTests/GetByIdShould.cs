@@ -1,4 +1,5 @@
 ﻿using System;
+
 using CarAdvertsSystem.Data.Contracts;
 using CarAdvertsSystem.Data.Models;
 using CarAdvertsSystem.Data.Services;
@@ -15,8 +16,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         public void GetById_Should_BeCalledOnce_IfParamsAreValid()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             var category = new Mock<Category>();
             categoryService.GetById(category.Object.Id);
@@ -28,8 +29,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         public void GetById_Should_NotBeCalled_IfNotCalledYolo()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             mockedRepository.Verify(rep => rep.GetById(1), Times.Never);
         }
@@ -38,8 +39,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         public void GetById_Should_ReturnTheProperCategoryWithId_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             var categoryWithId = new Mock<Category>();
             mockedRepository.Setup(rep => rep.GetById(categoryWithId.Object.Id)).Returns(() => categoryWithId.Object);
@@ -51,8 +52,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         public void GetById_Should_Work_IfCalledWithValidParams()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             var categorytWithId = new Mock<Category>();
             mockedRepository.Setup(rep => rep.GetById(categorytWithId.Object.Id)).Returns(() => categorytWithId.Object);
@@ -64,8 +65,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         public void GetById_ShouldThrowNullReferenceException_IfCategoryIsNull()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             Mock<Category> advertThatIsNull = null;
 
@@ -76,8 +77,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         public void GetById_Should_NotReturnAdvert_IfThereIsNoCategoryYolo()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             mockedRepository.Setup(rep => rep.GetById(0)).Returns(() => null);
 
@@ -88,8 +89,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.CategoryTe
         public void GetById_Should_ReturnTheCorrectCategory_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<Category>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var categoryService = new CategoryServices(mockedRepository.Object, mockedUnitOfWork.Object);
+
+            var categoryService = new CategoryServices(mockedRepository.Object);
 
             var category = new Mock<Category>();
             var secondCategory = new Mock<Category>();

@@ -1,8 +1,10 @@
-﻿using Bytes2you.Validation;
+﻿using System.Linq;
+
 using CarAdvertsSystem.Data.Contracts;
 using CarAdvertsSystem.Data.Models;
 using CarAdvertsSystem.Data.Services.Contracts;
-using System.Linq;
+
+using Bytes2you.Validation;
 
 namespace CarAdvertsSystem.Data.Services
 {
@@ -34,6 +36,5 @@ namespace CarAdvertsSystem.Data.Services
         {
             return this.cityRepository.GetById(id);
         }
-
     }
 }

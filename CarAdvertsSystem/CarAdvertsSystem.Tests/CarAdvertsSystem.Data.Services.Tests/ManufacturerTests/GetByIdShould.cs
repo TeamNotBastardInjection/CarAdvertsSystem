@@ -16,8 +16,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetById_Should_BeCalledOnce_IfParamsAreValid()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             var manufacturer = new Mock<Manufacturer>();
             manufacturerService.GetById(manufacturer.Object.Id);
@@ -29,8 +28,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetById_Should_NotBeCalled_IfNotCalledYolo()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             mockedRepository.Verify(rep => rep.GetById(1), Times.Never);
         }
@@ -39,8 +37,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetById_Should_ReturnTheProperManufacturerWithId_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             var manufacturerWithId = new Mock<Manufacturer>();
             mockedRepository.Setup(rep => rep.GetById(manufacturerWithId.Object.Id)).Returns(() => manufacturerWithId.Object);
@@ -52,8 +49,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetById_Should_Work_IfCalledWithValidParams()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             var manufacturerWithId = new Mock<Manufacturer>();
             mockedRepository.Setup(rep => rep.GetById(manufacturerWithId.Object.Id)).Returns(() => manufacturerWithId.Object);
@@ -65,8 +61,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetById_ShouldThrowNullReferenceException_IfManufacturerIsNull()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             Mock<Manufacturer> manufacturerWithId = null;
 
@@ -77,8 +72,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetById_Should_NotReturnAdvert_IfThereIsNoManufacturerYolo()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             mockedRepository.Setup(rep => rep.GetById(0)).Returns(() => null);
 
@@ -89,8 +83,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.Manufactur
         public void GetById_Should_ReturnTheCorrectManufacturer_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<Manufacturer>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var manufacturerService = new ManufacturerServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var manufacturerService = new ManufacturerServices(mockedRepository.Object);
 
             var manufacturer = new Mock<Manufacturer>();
             var secondManufacturer = new Mock<Manufacturer>();

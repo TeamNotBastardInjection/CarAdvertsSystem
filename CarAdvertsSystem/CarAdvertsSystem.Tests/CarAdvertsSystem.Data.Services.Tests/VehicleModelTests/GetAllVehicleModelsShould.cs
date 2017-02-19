@@ -18,8 +18,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetAllVehicleModels_Should_BeCalled_IfParamsAreValid()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vechicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vechicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             vechicleModelService.GetAllVehicleModels();
 
@@ -30,8 +29,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetAllVehicleModels_Should_NotBeCalled_IfItIsNeverCalled()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vechicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vechicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             mockedRepository.Verify(rep => rep.All(), Times.Never);
         }
@@ -40,8 +38,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetAllVehicleModels_Should_ReturnIQueryable_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vechicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vechicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             IEnumerable<VehicleModel> expectedVehicleModelResult = new List<VehicleModel>() { new VehicleModel(), new VehicleModel() };
             mockedRepository.Setup(rep => rep.All()).Returns(() => expectedVehicleModelResult.AsQueryable());
@@ -53,8 +50,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetAllVehicleModels_Should_DoItsJobCorrectly_IfCalled()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vechicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vechicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             IEnumerable<VehicleModel> expectedVehicleModelResult = new List<VehicleModel>() { new VehicleModel(), new VehicleModel() };
             mockedRepository.Setup(rep => rep.All()).Returns(() => expectedVehicleModelResult.AsQueryable());
@@ -66,8 +62,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetAllVehicleModels_Should_ReturnEmptyCollection_IfThereAreNoVehicleModelsAdded()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vechicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vechicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             IEnumerable<VehicleModel> expectedVehicleModelResult = new List<VehicleModel>();
             mockedRepository.Setup(rep => rep.All()).Returns(() => expectedVehicleModelResult.AsQueryable());
@@ -79,8 +74,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Services.Tests.VehicleMod
         public void GetAllVehicleModels_Should_ThrowArgumentNullException_IfPassedVehicleModelsAreNull()
         {
             var mockedRepository = new Mock<IRepository<VehicleModel>>();
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var vechicleModelService = new VehicleModelServices(mockedRepository.Object, mockedUnitOfWork.Object);
+            var vechicleModelService = new VehicleModelServices(mockedRepository.Object);
 
             IEnumerable<VehicleModel> expectedVehicleModelResult = null;
             mockedRepository.Setup(rep => rep.All()).Returns(() => expectedVehicleModelResult.AsQueryable());
