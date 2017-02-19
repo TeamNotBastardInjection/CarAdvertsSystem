@@ -73,7 +73,9 @@
     <Compile Include="Contracts\IVethicleModel.cs" />
     <Compile Include="Contracts\ICity.cs" />
     <Compile Include="Contracts\IManufacturer.cs" />
+    <Compile Include="Contracts\IPicture.cs" />
     <Compile Include="Manufacturer.cs" />
+    <Compile Include="Picture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
     <Compile Include="VehicleModel.cs" />

@@ -61,11 +61,17 @@
     <asp:TextBox runat="server" ID="Description" />
     <br />
 
-    <asp:FileUpload ID="FileUploadControl" runat="server" />
+<%--    <asp:FileUpload ID="FileUploadControl" runat="server" />
     <asp:Button runat="server" ID="UploadButton" Text="Upload" OnClick="UploadButton_Click" />
     <br />
     <br />
-    <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />
+    <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />--%>
+
+    <div>
+        <div>Upload one or many files.</div>
+        <asp:FileUpload runat="server" ID="UploadImages" AllowMultiple="true" />
+        <asp:Label ID="listofuploadedfiles" runat="server" />
+    </div>
 
 
     <asp:Button Text="Create" runat="server" ID="CreateAdvert" OnClick="CreateAdvert_Click" />

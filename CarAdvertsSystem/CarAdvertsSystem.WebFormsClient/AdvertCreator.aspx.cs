@@ -9,17 +9,22 @@ using Microsoft.AspNet.Identity;
 
 using WebFormsMvp;
 using WebFormsMvp.Web;
+using System.Web;
 
 namespace CarAdvertsSystem.WebFormsClient
 {
     [PresenterBinding(typeof(AdvertCreatorPresenter))]
     public partial class AdvertCreator : MvpPage<AdvertCreatorViewModel>, IAdvertCreatorView
     {
+        private static int counter = 1;
+        
         public event EventHandler OnCitiesGetData;
         public event EventHandler OnCategoriesGetData;
         public event EventHandler OnManufacturersGetData;
         public event EventHandler OnVehicleModelsGetData;
         public event EventHandler<CreateAdvertEventArgs> OnCreateAdvert;
+
+        public ICollection<string> PictureFilePaths { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,6 +45,8 @@ namespace CarAdvertsSystem.WebFormsClient
 
         protected void CreateAdvert_Click(object sender, EventArgs e)
         {
+            this.UploadFiles();
+
             var title = this.AdvertTitle.Text;
             var cityId = int.Parse(this.City.SelectedItem.Value);
             var vechisleId = int.Parse(this.VechisleModel.SelectedItem.Value);
@@ -59,7 +66,8 @@ namespace CarAdvertsSystem.WebFormsClient
                 power, 
                 distanceCovarage, 
                 description, 
-                year));
+                year,
+                this.PictureFilePaths));
         }
 
         protected void Category_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,14 +100,48 @@ namespace CarAdvertsSystem.WebFormsClient
             return years;
         }
 
-        protected void UploadButton_Click(object sender, EventArgs e)
+        //protected void UploadButton_Click(object sender, EventArgs e)
+        //{
+        //    if (FileUploadControl.HasFile)
+        //    {
+        //        string filename = Path.GetFileName(FileUploadControl.FileName);
+        //        FileUploadControl.SaveAs(Server.MapPath("~/Uploaded_Files/") + filename);
+        //        StatusLabel.Text = "Upload status: File uploaded!";
+        //    }
+        //}
+
+        /// <summary>
+        /// Upload and save multiple files;
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void UploadFiles()
         {
-            if (FileUploadControl.HasFile)
+            var filePaths = new HashSet<string>();
+            if (UploadImages.HasFiles)
             {
-                string filename = Path.GetFileName(FileUploadControl.FileName);
-                FileUploadControl.SaveAs(Server.MapPath("~/Uploaded_Files/") + filename);
-                StatusLabel.Text = "Upload status: File uploaded!";
+                // Rename files to be with unique names and save them
+                foreach (HttpPostedFile uploadedFile in UploadImages.PostedFiles)
+                {
+                    // Get file extension and create new file name
+                    FileInfo fi = new FileInfo(uploadedFile.FileName);
+                    string ext = fi.Extension;
+                    var newFileName = $"{counter}{ext}";
+
+                    // Save file to a server side
+                    uploadedFile.SaveAs(System.IO.Path.Combine(Server.MapPath("~/Uploaded_Files/"), newFileName));
+
+                    // Save file path to a Sql database
+                    filePaths.Add(newFileName);
+
+                    // Add file name to the control
+                    listofuploadedfiles.Text += String.Format("{0}<br />", uploadedFile.FileName);
+
+                    counter++;
+                }
             }
+
+            this.PictureFilePaths = filePaths;
         }
     }
 }

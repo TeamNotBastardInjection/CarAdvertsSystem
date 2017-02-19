@@ -5,6 +5,7 @@ using CarAdvertsSystem.Data.Services.Contracts;
 using WebFormsMvp;
 using Bytes2you.Validation;
 using CarAdvertsSystem.Data.Models;
+using System.Collections.Generic;
 
 namespace CarAdvertsSystem.MVP.AdvertCreator
 {
@@ -46,6 +47,12 @@ namespace CarAdvertsSystem.MVP.AdvertCreator
 
         private void View_OnCreateAdvert(object sender, CreateAdvertEventArgs e)
         {
+            var pictureCollection = new HashSet<Picture>();
+            foreach (var pictrurePath in e.PictureFilePaths)
+            {
+                pictureCollection.Add(new Picture() { Name = pictrurePath });
+            }
+
             var advert = new Advert()
             {
                 Title = e.Title,
@@ -56,7 +63,8 @@ namespace CarAdvertsSystem.MVP.AdvertCreator
                 Price = e.Power,
                 DistanceCoverage = e.DistanceCovarage,
                 Description = e.Description,
-                Year = e.Year
+                Year = e.Year,
+                Pictures = pictureCollection
             };
 
             this.advertService.AddAdvert(advert);

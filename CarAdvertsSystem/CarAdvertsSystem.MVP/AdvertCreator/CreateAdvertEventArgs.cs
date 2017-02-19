@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CarAdvertsSystem.Data.Models;
+using System;
+using System.Collections.Generic;
 
 namespace CarAdvertsSystem.MVP.AdvertCreator
 {
@@ -14,6 +16,7 @@ namespace CarAdvertsSystem.MVP.AdvertCreator
         public int DistanceCovarage { get; private set; }
         public string Description { get; private set; }
         public int Year { get; private set; }
+        public ICollection<string> PictureFilePaths { get; private set; }
 
         public CreateAdvertEventArgs(
             string title,
@@ -24,7 +27,8 @@ namespace CarAdvertsSystem.MVP.AdvertCreator
             int power,
             int distanceCovarage,
             string description,
-            int year)
+            int year,
+            ICollection<string> pictureFilePaths)
         {
             this.Title = title;
             this.UserId = userId;
@@ -35,6 +39,7 @@ namespace CarAdvertsSystem.MVP.AdvertCreator
             this.DistanceCovarage = distanceCovarage;
             this.Description = description;
             this.Year = year;
+            this.PictureFilePaths = pictureFilePaths;
         }
     }
 }

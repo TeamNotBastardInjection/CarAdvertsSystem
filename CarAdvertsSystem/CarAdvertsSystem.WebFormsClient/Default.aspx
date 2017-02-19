@@ -1,8 +1,18 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CarAdvertsSystem.WebFormsClient.Default" %>
 
+<%--<%@ Register Src="Controls/Carousel.ascx" TagName="Carousel"  TagPrefix="ninja" %> 
+<%@ Register Src="Controls/test.ascx" TagName="aaa"  TagPrefix="test" %> --%>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Searh Form For Vehcikle</h1>
     <br />
+
+    <%--<ninja:Carousel runat="server" >
+        <Images >
+            <Image>
+        </Images>
+    </ninja:Carousel>--%>
+    
 
     <asp:UpdatePanel runat="server" UpdateMode="Conditional">
         <ContentTemplate>
@@ -40,7 +50,7 @@
             <asp:AsyncPostBackTrigger ControlID="ManufacturersList" EventName="SelectedIndexChanged" />
         </Triggers>
     </asp:UpdatePanel>
-    <br/> 
+    <br />
 
     <asp:UpdatePanel runat="server" UpdateMode="Conditional">
         <ContentTemplate>

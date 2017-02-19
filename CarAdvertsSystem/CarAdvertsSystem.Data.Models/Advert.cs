@@ -3,11 +3,19 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using CarAdvertsSystem.Common.Constants;
 using CarAdvertsSystem.Data.Models.Contracts;
+using System.Collections.Generic;
 
 namespace CarAdvertsSystem.Data.Models
 {
     public class Advert : IAdvert
     {
+        private ICollection<Picture> pictures;
+
+        public Advert()
+        {
+            this.pictures = new HashSet<Picture>();
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -61,5 +69,18 @@ namespace CarAdvertsSystem.Data.Models
         [MinLength(ValidationConstants.AdvertDescriptionMinLength)]
         [MaxLength(ValidationConstants.AdvertDescriptionMaxLength)]
         public string Description { get; set; }
+
+        public virtual ICollection<Picture> Pictures
+        {
+            get
+            {
+                return this.pictures;
+            }
+
+            set
+            {
+                this.pictures = value;
+            }
+        }
     }
 }

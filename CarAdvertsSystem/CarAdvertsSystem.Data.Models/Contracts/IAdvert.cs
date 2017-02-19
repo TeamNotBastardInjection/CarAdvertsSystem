@@ -1,5 +1,5 @@
 ﻿using CarAdvertsSystem.Data.Models.Enums;
-using System;
+using System.Collections.Generic;
 
 namespace CarAdvertsSystem.Data.Models.Contracts
 {
@@ -23,5 +23,7 @@ namespace CarAdvertsSystem.Data.Models.Contracts
         VehicleModel VehicleModel { get; set; }
         int VehicleModelId { get; set; }
         int Year { get; set; }
+        ICollection<Picture> Pictures { get; set; }
+
     }
 }
