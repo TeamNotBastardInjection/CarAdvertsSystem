@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using CarAdvertsSystem.Data.Models;
 using System.ComponentModel.DataAnnotations;
@@ -10,6 +11,30 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Models.Tests.Manufacturer
     [TestFixture]
     public class ManufacturerTests
     {
+        // ----- Tests for constuctur
+
+        [Test]
+        public void Constructor_ShouldHaveParameterlessConstructor()
+        {
+            // Arrange & Act
+            var manufacturer = new Manufacturer();
+
+            // Assert
+            Assert.IsInstanceOf<Manufacturer>(manufacturer);
+        }
+
+        [Test]
+        public void Constructor_ShouldInitializeVehicleModelCollectionCorrectly()
+        {
+            var manufacturer = new Manufacturer();
+
+            var vehicleModel = manufacturer.Models;
+
+            Assert.That(vehicleModel, Is.Not.Null.And.InstanceOf<HashSet<VehicleModel>>());
+        }
+
+        // ----- Tests for Id property
+
         [Test]
         public void Id_ShouldHaveKeyAttribute()
         {
@@ -35,6 +60,8 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Models.Tests.Manufacturer
             //Assert
             Assert.AreEqual(testId, manufacturer.Id);
         }
+
+        // Tests for Name property
 
         [Test]
         public void Name_ShouldHaveRequiredAttribute()
@@ -107,7 +134,18 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Models.Tests.Manufacturer
             Assert.AreEqual(manufacturer.Name, testName);
         }
 
+        // ----- Tests for VechicleModel collection
 
-        // I should add tests for models.
+        [TestCase(123)]
+        [TestCase(12)]
+        public void VehicleModelCollection_ShouldGetAndSetDataCorrectly(int testId)
+        {
+            var vehicleModel = new VehicleModel() { Id = testId };
+            var set = new HashSet<VehicleModel> { vehicleModel };
+
+            var manufacturer = new Manufacturer() { Models = set };
+
+            Assert.AreEqual(manufacturer.Models.First().Id, testId);
+        }
     }
 }
