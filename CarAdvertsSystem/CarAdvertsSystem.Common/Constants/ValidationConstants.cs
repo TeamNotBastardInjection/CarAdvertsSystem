@@ -27,5 +27,6 @@
         public const int CategoryNameMaxLength = 30;
 
         public const int PictureNameMinLength = 1;
+        public const int PictureNameMaxLength = 30;
     }
 }
