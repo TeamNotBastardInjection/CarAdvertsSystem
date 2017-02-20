@@ -89,6 +89,9 @@
     <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\CreateShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\GenericRepositoryTests\ConstructorShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\ConstructorShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\DisposeShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\SaveChangesShould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\ConstructorSould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\Mocks\FackeSearchView.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\View_OnGetPicturePath_Should.cs" />
