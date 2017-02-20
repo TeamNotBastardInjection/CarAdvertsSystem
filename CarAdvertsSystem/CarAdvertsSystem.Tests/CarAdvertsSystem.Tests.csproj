@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\AdvertTests\TestClass1.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Models.Tests\CategoriesTests\CategoryTests.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Models.Tests\CitiesTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\ManufacturersTests\ManufacturerTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\VehicleModelsTests\VehicleModelTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\AddAdvertShould.cs" />
@@ -69,8 +71,9 @@
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\ManufacturerTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\ManufacturerTests\GetAllManufacturersShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\ManufacturerTests\GetByIdShould.cs" />
-    <Compile Include="CarAdvertsSystem.Data.Services.Tests\PictureTests\GetPicturesByAdvertIdShould.cs" />
-    <Compile Include="CarAdvertsSystem.Data.Services.Tests\PictureTests\GetFirstPicturesNameByAdvertIdShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\PicturesTests\GetPicturesByAdvertIdShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\PicturesTests\GetFirstPicturesNameByAdvertIdShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Models.Tests\PictureTests\PictureTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\VehicleModelTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\VehicleModelTests\GetAllVehicleModelsShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\VehicleModelTests\GetByIdShould.cs" />
