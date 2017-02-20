@@ -88,6 +88,9 @@
     <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\CreateShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\GenericRepositoryTests\ConstructorShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\ConstructorShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\DisposeShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\SaveChangesShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
