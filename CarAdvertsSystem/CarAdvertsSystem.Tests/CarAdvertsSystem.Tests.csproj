@@ -35,7 +35,14 @@
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="Moq, Version=4.5.30.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.5.30\lib\net45\Moq.dll</HintPath>
@@ -50,7 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\AdvertTests\AdvertTests.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Models.Tests\CategoriesTests\CategoryTests.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Models.Tests\CitiesTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\ManufacturersTests\ManufacturerTests.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Models.Tests\PictureTests\PictureTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\VehicleModelsTests\VehicleModelTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\AddAdvertShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\ConstructorShould.cs" />
@@ -69,8 +79,8 @@
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\ManufacturerTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\ManufacturerTests\GetAllManufacturersShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\ManufacturerTests\GetByIdShould.cs" />
-    <Compile Include="CarAdvertsSystem.Data.Services.Tests\PictureTests\GetPicturesByAdvertIdShould.cs" />
-    <Compile Include="CarAdvertsSystem.Data.Services.Tests\PictureTests\GetFirstPicturesNameByAdvertIdShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\PicturesTests\GetFirstPicturesNameByAdvertIdShould.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Services.Tests\PicturesTests\GetPicturesByAdvertIdShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\VehicleModelTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\VehicleModelTests\GetAllVehicleModelsShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\VehicleModelTests\GetByIdShould.cs" />
