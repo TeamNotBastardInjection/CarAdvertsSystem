@@ -6,6 +6,7 @@ using WebFormsMvp;
 using Bytes2you.Validation;
 using CarAdvertsSystem.Data.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CarAdvertsSystem.MVP.AdvertCreator
 {
@@ -26,11 +27,12 @@ namespace CarAdvertsSystem.MVP.AdvertCreator
             IAdvertServices advertService) 
             : base(view)
         {
+            Guard.WhenArgument(view, "View is Null!!!").IsNull().Throw();
             Guard.WhenArgument(cityService, "City Service is null!!!").IsNull().Throw();
             Guard.WhenArgument(manufacturerService, "Manufacturer Service is null!!!").IsNull().Throw();
             Guard.WhenArgument(vehicleModelService, "Vehicle Model Service is null!!!").IsNull().Throw();
             Guard.WhenArgument(categoryService, "Category Service is null!!!").IsNull().Throw();
-            Guard.WhenArgument(view, "View is Null!!!").IsNull().Throw();
+            Guard.WhenArgument(advertService, "Advert Service is Null!!!").IsNull().Throw();
 
             this.cityService = cityService;
             this.manufacturerService = manufacturerService;
@@ -45,7 +47,7 @@ namespace CarAdvertsSystem.MVP.AdvertCreator
             this.View.OnCreateAdvert += View_OnCreateAdvert;
         }
 
-        private void View_OnCreateAdvert(object sender, CreateAdvertEventArgs e)
+        public void View_OnCreateAdvert(object sender, CreateAdvertEventArgs e)
         {
             var pictureCollection = new List<Picture>();
             foreach (var pictrurePath in e.PictureFilePaths)
