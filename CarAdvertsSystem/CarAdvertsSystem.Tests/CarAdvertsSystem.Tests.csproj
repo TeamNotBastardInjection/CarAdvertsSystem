@@ -49,7 +49,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarAdvertsSystem.Data.Models.Tests\AdvertTests\TestClass1.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Models.Tests\AdvertTests\AdvertTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\ManufacturersTests\ManufacturerTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\VehicleModelsTests\VehicleModelTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\AddAdvertShould.cs" />

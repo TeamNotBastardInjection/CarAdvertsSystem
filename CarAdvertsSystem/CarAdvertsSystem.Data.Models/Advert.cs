@@ -35,14 +35,16 @@ namespace CarAdvertsSystem.Data.Models
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
         
+        [Required]
         public int Year { get; set; }
 
+        [Required]
         public decimal Price { get; set; }
 
+        [Required]
         public int Power { get; set; }
 
-        public int EngineVolume { get; set; }
-
+        [Required]
         public int DistanceCoverage { get; set; }
         
         public int CityId { get; set; }
@@ -50,6 +52,7 @@ namespace CarAdvertsSystem.Data.Models
         [ForeignKey("CityId")]
         public virtual City City { get; set; }
 
+        [Required]
         [MinLength(ValidationConstants.AdvertDescriptionMinLength)]
         [MaxLength(ValidationConstants.AdvertDescriptionMaxLength)]
         public string Description { get; set; }

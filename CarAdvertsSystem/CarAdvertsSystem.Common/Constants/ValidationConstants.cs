@@ -4,8 +4,9 @@
     {
         public const int AdvertTitleMinLength = 1;
         public const int AdvertTitleMaxLength = 50;
+
         public const int AdvertDescriptionMinLength = 2;
-        public const int AdvertDescriptionMaxLength = 50;
+        public const int AdvertDescriptionMaxLength = 500;
 
         public const int CityNameMinLength = 5;
         public const int CityNameMaxLength = 30;
