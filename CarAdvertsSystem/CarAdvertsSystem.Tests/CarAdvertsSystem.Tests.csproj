@@ -54,6 +54,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="WebFormsMvp, Version=1.4.5.0, Culture=neutral, PublicKeyToken=537f18701145dff0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\AdvertTests\AdvertTests.cs" />
@@ -88,9 +89,10 @@
     <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\DbContextTests\CreateShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\GenericRepositoryTests\ConstructorShould.cs" />
-    <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\ConstructorShould.cs" />
-    <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\DisposeShould.cs" />
-    <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\SaveChangesShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\ConstructorSould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\Mocks\FackeSearchView.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\View_OnGetPicturePath_Should.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\View_OnSearchAdverts_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +116,10 @@
       <Project>{e4333bb7-4bfd-4ffe-a520-3f82c1158693}</Project>
       <Name>CarAdvertsSystem.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CarAdvertsSystem.MVP\CarAdvertsSystem.MVP.csproj">
+      <Project>{26C1CFD1-6B7B-4198-939B-5526C148E24C}</Project>
+      <Name>CarAdvertsSystem.MVP</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CarAdvertsSystem.WebFormsClient\CarAdvertsSystem.WebFormsClient.csproj">
       <Project>{af5b61b4-2351-4e1c-a182-c763e0f80f43}</Project>
       <Name>CarAdvertsSystem.WebFormsClient</Name>
@@ -127,7 +133,6 @@
     <Folder Include="CarAdvertsSystem.MVP.Tests\AdvertDetailPresentersTests\" />
     <Folder Include="CarAdvertsSystem.MVP.Tests\AdvertSearcherPresenterTests\" />
     <Folder Include="CarAdvertsSystem.MVP.Tests\EditAdvertsPresenterTests\" />
-    <Folder Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
