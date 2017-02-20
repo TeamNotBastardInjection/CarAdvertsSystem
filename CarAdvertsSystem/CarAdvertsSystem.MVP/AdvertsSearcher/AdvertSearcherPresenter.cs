@@ -23,7 +23,8 @@ namespace CarAdvertsSystem.MVP.AdvertsSearcher
         {
             Guard.WhenArgument(view, "View is null.").IsNull().Throw();
             Guard.WhenArgument(cityService, "City Service is null.").IsNull().Throw();
-            Guard.WhenArgument(vehicleModelService, "Vehicle Mode lService is null.").IsNull().Throw();
+            Guard.WhenArgument(vehicleModelService, "Vehicle Model Service is null.").IsNull().Throw();
+            Guard.WhenArgument(manufacturerService, "Manufacturer Service is null.").IsNull().Throw();
             Guard.WhenArgument(categoryService, "Category Service is null.").IsNull().Throw();
             
             this.cityService = cityService;
@@ -37,26 +38,28 @@ namespace CarAdvertsSystem.MVP.AdvertsSearcher
             this.View.OnVehicleModelsGetData += View_OnVehicleModelsGetData;
         }
 
-        private void View_OnVehicleModelsGetData(object sender, EventArgs e)
+        public void View_OnVehicleModelsGetData(object sender, EventArgs e)
         {
-            this.View.Model.VehicleModels = this.vehicleModelService.GetAllVehicleModels();
+            var vehicleModels = this.vehicleModelService.GetAllVehicleModels();
+            this.View.Model.VehicleModels = vehicleModels;
         }
 
-        private void View_OnManufacturersGetData(object sender, EventArgs e)
+        public void View_OnManufacturersGetData(object sender, EventArgs e)
         {
-            this.View.Model.Manufacturers = this.manufacturerService.GetAllManufacturers();
-            //this.View.Model.Manufacturers = 
-            //    this.manufacturerService.GetManufacturersByCategoryId(2);
+            var manufacturers = this.manufacturerService.GetAllManufacturers();
+            this.View.Model.Manufacturers = manufacturers;
         }
 
-        private void View_OnCategoriesGetData(object sender, EventArgs e)
+        public void View_OnCategoriesGetData(object sender, EventArgs e)
         {
-            this.View.Model.Categories = this.categoryService.GetAllCategories();
+            var categories = this.categoryService.GetAllCategories();
+            this.View.Model.Categories = categories;
         }
 
-        private void View_OnCitiesGetData(object sender, EventArgs e)
+        public void View_OnCitiesGetData(object sender, EventArgs e)
         {
-            this.View.Model.Cities = this.cityService.GetAllCities();
+            var cities = this.cityService.GetAllCities();
+            this.View.Model.Cities = cities;
         }
     }
 

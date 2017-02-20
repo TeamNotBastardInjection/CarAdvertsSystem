@@ -12,7 +12,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.MVP.Tests.SearchPresenterTests
     public class Constructor_Sould
     {
         [Test]
-        public void ThrowArgumentNullException_WhenISearchViewIsNull()
+        public void ThrowNullReferenceException_WhenISearchViewIsNull()
         {
             ISearchView searchView = null;
             var advertServiceMock = new Mock<IAdvertServices>();
@@ -71,19 +71,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.MVP.Tests.SearchPresenterTests
             Assert.That(actualInstance, Is.InstanceOf<Presenter<ISearchView>>());
         }
 
-        //
-        [Test]
-        public void CreateAnInstanceImplementingITopDishesPresenter_WhenParametersAreCorrect()
-        {
-            var searchViewMock = new Mock<ISearchView>();
-            var advertServiceMock = new Mock<IAdvertServices>();
-            var pictureServiceMock = new Mock<IPictureServices>();
-
-            var actualInstance = new SearcherPresenter(searchViewMock.Object, advertServiceMock.Object, pictureServiceMock.Object);
-
-            Assert.That(actualInstance, Is.InstanceOf<Presenter<ISearchView>>());
-        }
-
+        
         //[Test]
         //public void SubscribeToViewGetTopDishesEvent()
         //{

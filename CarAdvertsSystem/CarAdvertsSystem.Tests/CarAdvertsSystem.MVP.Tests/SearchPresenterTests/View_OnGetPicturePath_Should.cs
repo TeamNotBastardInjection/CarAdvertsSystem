@@ -26,25 +26,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.MVP.Tests.SearchPresenterTests
                 () => searcherPresenter.View_OnGetPicturePath(null, getPicturePathEvetnArgs),
                 Throws.InstanceOf<ArgumentException>());
         }
-
-        //[TestCase(1)]
-        //[TestCase(42)]
-        //[TestCase(int.MaxValue)]
-        //public void ShouldNotThrowArgumentExceptionWithCorrectMessage_WhenGetPicturePathEventArgsAdvertIdPropertyIsPositive(int validADvertId)
-        //{
-        //    var searchViewMock = new Mock<ISearchView>();
-        //    var advertServiceMock = new Mock<IAdvertServices>();
-        //    var pictureServiceMock = new Mock<IPictureServices>();
-
-        //    var searcherPresenter = new SearcherPresenter(searchViewMock.Object, advertServiceMock.Object, pictureServiceMock.Object);
-        //    object sender = new object();
-        //    var getPicturePathEvetnArgs = new GetPicturePathEventArgs(validADvertId);
-
-        //    Assert.That(
-        //        () => searcherPresenter.View_OnGetPicturePath(sender, getPicturePathEvetnArgs),
-        //        Throws.Nothing);
-        //}
-
+        
         [Test]
         public void InvokeIPictureService_GetFirstPicturesNameByAdvertIdMethodOnce()
         {

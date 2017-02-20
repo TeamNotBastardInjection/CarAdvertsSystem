@@ -92,10 +92,11 @@
     <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\ConstructorShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\DisposeShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\SaveChangesShould.cs" />
-    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertCreatorPresenterTests\ConstructorShould.cs" />
-    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertCreatorPresenterTests\View_OnCreateAdvert_Should.cs" />
-    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertDetailPresentersTests\ConstructorShould.cs" />
-    <Compile Include="CarAdvertsSystem.MVP.Tests\EditAdvertsPresenterTests\ConstructorShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertSearcherPresenterTests\ConstruvtorSould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertSearcherPresenterTests\View_OnCategoriesGetDataShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertSearcherPresenterTests\View_OnCitiesGetDataShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertSearcherPresenterTests\View_OnManufacturersGetDataShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertSearcherPresenterTests\View_OnVehicleModelsGetData_Should.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\ConstructorSould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\Mocks\FackeSearchView.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\View_OnGetPicturePath_Should.cs" />
@@ -136,7 +137,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CarAdvertsSystem.MVP.Tests\AdvertSearcherPresenterTests\" />
+    <Folder Include="CarAdvertsSystem.MVP.Tests\AdvertCreatorPresenterTests\" />
+    <Folder Include="CarAdvertsSystem.MVP.Tests\AdvertDetailPresentersTests\" />
+    <Folder Include="CarAdvertsSystem.MVP.Tests\EditAdvertsPresenterTests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
