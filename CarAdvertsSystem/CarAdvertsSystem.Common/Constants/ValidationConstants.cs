@@ -21,5 +21,10 @@
 
         public const int UserLastNameMinLength = 5;
         public const int UserLastNameMaxLength = 20;
+
+        public const int CategoryNameMinLength = 1;
+        public const int CategoryNameMaxLength = 30;
+
+        public const int PictureNameMinLength = 1;
     }
 }

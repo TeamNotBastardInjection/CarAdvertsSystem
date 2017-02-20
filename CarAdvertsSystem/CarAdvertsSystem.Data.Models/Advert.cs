@@ -1,5 +1,4 @@
-﻿using CarAdvertsSystem.Data.Models.Enums;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using CarAdvertsSystem.Common.Constants;
 using CarAdvertsSystem.Data.Models.Contracts;
@@ -35,32 +34,17 @@ namespace CarAdvertsSystem.Data.Models
 
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
-
-        //[Required]
+        
         public int Year { get; set; }
 
-        //[Required]
         public decimal Price { get; set; }
 
-        // Extras
-        //[Required]
         public int Power { get; set; }
 
-        //[Required]
         public int EngineVolume { get; set; }
 
-        //[Required]
-        public EngineType EngineType { get; set; }
-
-        //[Required]
-        public TransmissionType TransmissionType { get; set; }
-
-        //[Required]
         public int DistanceCoverage { get; set; }
-
-        //[Required]
-        public ColorType Color { get; set; }
-
+        
         public int CityId { get; set; }
         
         [ForeignKey("CityId")]

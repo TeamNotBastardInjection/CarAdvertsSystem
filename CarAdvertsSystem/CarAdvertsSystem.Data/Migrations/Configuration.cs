@@ -48,7 +48,7 @@ namespace CarAdvertsSystem.Data.Migrations
                 new Category { Id = 0, Name = "Bus" },
                 new Category { Id = 1, Name = "Caravan" },
                 new Category { Id = 2, Name = "Car" },
-                new Category { Id = 3, Name = "MotorBicke" },
+                new Category { Id = 3, Name = "Motorbike" },
                 new Category { Id = 5, Name = "SUV" }
             );
 
@@ -57,7 +57,7 @@ namespace CarAdvertsSystem.Data.Migrations
                 new Manufacturer { Id = 2, Name = "Peugeot" },
                 new Manufacturer { Id = 3, Name = "KIA" },
                 new Manufacturer { Id = 4, Name = "Dacia" },
-                new Manufacturer { Id = 5, Name = "Lamborgini" },
+                new Manufacturer { Id = 5, Name = "Lamborghini" },
                 new Manufacturer { Id = 6, Name = "BMV" }
             );
 

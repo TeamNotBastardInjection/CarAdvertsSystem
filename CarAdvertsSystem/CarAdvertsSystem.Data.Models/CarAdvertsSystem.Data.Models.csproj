@@ -64,10 +64,6 @@
     <Compile Include="Advert.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="City.cs" />
-    <Compile Include="Enums\ColorType.cs" />
-    <Compile Include="Enums\EngineType.cs" />
-    <Compile Include="Enums\TransmissionType.cs" />
-    <Compile Include="Enums\VehicleType.cs" />
     <Compile Include="Contracts\IAdvert.cs" />
     <Compile Include="Contracts\ICategory.cs" />
     <Compile Include="Contracts\IVethicleModel.cs" />

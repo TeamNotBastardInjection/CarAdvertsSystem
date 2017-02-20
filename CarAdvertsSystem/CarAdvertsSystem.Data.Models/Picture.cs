@@ -1,6 +1,7 @@
 ﻿using CarAdvertsSystem.Data.Models.Contracts;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CarAdvertsSystem.Common.Constants;
 
 namespace CarAdvertsSystem.Data.Models
 {
@@ -10,7 +11,7 @@ namespace CarAdvertsSystem.Data.Models
         public int Id { get; set; }
 
         [Required]
-        [MinLength(1)]
+        [MinLength(ValidationConstants.PictureNameMinLength)]
         public string Name { get; set; }
 
         public int AdvertId { get; set; }
