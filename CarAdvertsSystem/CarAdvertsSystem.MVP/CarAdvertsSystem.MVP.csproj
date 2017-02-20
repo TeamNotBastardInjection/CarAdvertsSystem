@@ -70,7 +70,6 @@
     <Compile Include="AdvertsSearcher\AdvertSearcherPresenter.cs" />
     <Compile Include="AdvertsSearcher\AdvertSearcherViewModel.cs" />
     <Compile Include="AdvertsSearcher\IAdvertSearcherView.cs" />
-    <Compile Include="AdvertsSearcher\SearchAdvertsEventArgs.cs" />
     <Compile Include="EditAdverts\EditAdvertsPresenter.cs" />
     <Compile Include="EditAdverts\EditAdvertsViewModel.cs" />
     <Compile Include="EditAdverts\IdEventAdvertArgs.cs" />
