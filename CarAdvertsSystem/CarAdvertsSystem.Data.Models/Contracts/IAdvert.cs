@@ -8,7 +8,6 @@ namespace CarAdvertsSystem.Data.Models.Contracts
         int CityId { get; set; }
         string Description { get; set; }
         int DistanceCoverage { get; set; }
-        int EngineVolume { get; set; }
         int Id { get; set; }
         bool IsDeleted { get; set; }
         int Power { get; set; }
