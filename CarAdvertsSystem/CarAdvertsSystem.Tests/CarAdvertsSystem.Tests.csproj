@@ -36,6 +36,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="Moq, Version=4.5.30.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.5.30\lib\net45\Moq.dll</HintPath>
@@ -51,6 +55,7 @@
   <ItemGroup>
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\AdvertTests\AdvertTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\ManufacturersTests\ManufacturerTests.cs" />
+    <Compile Include="CarAdvertsSystem.Data.Models.Tests\UserTests\UserTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Models.Tests\VehicleModelsTests\VehicleModelTests.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\AddAdvertShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Services.Tests\AdvertTests\ConstructorShould.cs" />
