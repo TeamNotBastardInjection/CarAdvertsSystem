@@ -18,6 +18,25 @@ namespace CarAdvertsSystem.WebFormsClient
 
         protected void Page_Init(object sender, EventArgs e)
         {
+            if (Request.IsAuthenticated)
+            {
+                LoggedIn.Visible = true;
+                if (Page.User.IsInRole("admin"))
+                {
+                    RighOne.Visible = false;
+                    A1.Visible = false;
+                    A2.Visible = true;
+                    A3.Visible = true;
+                }
+
+                else 
+                {
+                    RighOne.Visible = false;
+                    A1.Visible = true;
+                    A2.Visible = true;
+                    A3.Visible = false;
+                }
+            }
             // The code below helps to protect against XSRF attacks
             var requestCookie = Request.Cookies[AntiXsrfTokenKey];
             Guid requestCookieGuidValue;

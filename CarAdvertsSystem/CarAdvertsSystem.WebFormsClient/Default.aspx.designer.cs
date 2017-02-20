@@ -58,6 +58,15 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.TextBox MinPrice;
         
         /// <summary>
+        /// RequiredFieldValidatorMinPriceInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMinPriceInput;
+        
+        /// <summary>
         /// MaxPrice control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace CarAdvertsSystem.WebFormsClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox MaxPrice;
+        
+        /// <summary>
+        /// RequiredFieldValidatorMaxPriceInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMaxPriceInput;
         
         /// <summary>
         /// YearFrom control.

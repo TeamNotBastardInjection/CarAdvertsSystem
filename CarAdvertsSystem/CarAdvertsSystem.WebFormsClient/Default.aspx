@@ -19,7 +19,9 @@
             <asp:Label Text="Category" runat="server" AssociatedControlID="CategoriesList" />
             <asp:DropDownList ID="CategoriesList" runat="server"
                 DataTextField="Name" DataValueField="Id" AutoPostBack="true"
-                OnSelectedIndexChanged="CategoriesList_SelectedIndexChanged">
+                OnSelectedIndexChanged="CategoriesList_SelectedIndexChanged"
+                ValidationGroup="DropDowns"
+                CssClass="dropdown-header">
             </asp:DropDownList>
         </ContentTemplate>
     </asp:UpdatePanel>
@@ -30,7 +32,9 @@
             <asp:Label Text="Manufacturer:" runat="server" AssociatedControlID="ManufacturersList" />
             <asp:DropDownList ID="ManufacturersList" runat="server" TabIndex="0"
                 DataTextField="Name" DataValueField="Id" AutoPostBack="true"
-                OnSelectedIndexChanged="ManufacturersList_SelectedIndexChanged">
+                OnSelectedIndexChanged="ManufacturersList_SelectedIndexChanged"
+                ValidationGroup="DropDowns"
+                CssClass="dropdown-header">
             </asp:DropDownList>
         </ContentTemplate>
         <Triggers>
@@ -43,7 +47,7 @@
         <ContentTemplate>
             <asp:Label Text="Model:" runat="server" AssociatedControlID="ModelsList" />
             <asp:DropDownList ID="ModelsList" runat="server"
-                DataTextField="Name" DataValueField="Id">
+                DataTextField="Name" DataValueField="Id" CssClass="dropdown-header">
             </asp:DropDownList>
         </ContentTemplate>
         <Triggers>
@@ -55,21 +59,31 @@
     <asp:UpdatePanel runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <asp:Label runat="server" Text="City: " AssociatedControlID="CitiesList" />
-            <asp:DropDownList runat="server" ID="CitiesList" DataTextField="Name" DataValueField="Id" />
+            <asp:DropDownList runat="server" ID="CitiesList" DataTextField="Name" DataValueField="Id" CssClass="dropdown-header" />
         </ContentTemplate>
     </asp:UpdatePanel>
 
     <asp:Label Text="Min Price:" runat="server" AssociatedControlID="MinPrice" />
-    <asp:TextBox ID="MinPrice" runat="server" />
-
+    <asp:TextBox ID="MinPrice" runat="server" TextMode="Number"/>
+        <asp:RequiredFieldValidator runat="server"
+            ID="RequiredFieldValidatorMinPriceInput"
+            ForeColor="Red" Display="Dynamic"
+            ErrorMessage="Minimal Price is Required!!!"
+            ControlToValidate="MinPrice"/>
+    <br />
     <asp:Label Text="Max Price:" runat="server" AssociatedControlID="MaxPrice" />
-    <asp:TextBox ID="MaxPrice" runat="server" />
+    <asp:TextBox ID="MaxPrice" runat="server" TextMode="Number" />
+        <asp:RequiredFieldValidator runat="server" 
+            ID="RequiredFieldValidatorMaxPriceInput"
+            ForeColor="Red" Display="Dynamic"
+            ErrorMessage="Maximum Price is Required!!!"
+            ControlToValidate="MaxPrice"/>
     <br />
 
     <asp:UpdatePanel runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <asp:Label Text="Year from:" runat="server" AssociatedControlID="YearFrom" />
-            <asp:DropDownList ID="YearFrom" runat="server" AutoPostBack="true" OnSelectedIndexChanged="YearFrom_SelectedIndexChanged">
+            <asp:DropDownList ID="YearFrom" runat="server" AutoPostBack="true" OnSelectedIndexChanged="YearFrom_SelectedIndexChanged" CssClass="dropdown-header">
             </asp:DropDownList>
         </ContentTemplate>
     </asp:UpdatePanel>
@@ -77,7 +91,7 @@
     <asp:UpdatePanel runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <asp:Label Text="to:" runat="server" AssociatedControlID="YearTo" />
-            <asp:DropDownList ID="YearTo" runat="server" AutoPostBack="true">
+            <asp:DropDownList ID="YearTo" runat="server" AutoPostBack="true" CssClass="dropdown-header">
             </asp:DropDownList>
         </ContentTemplate>
         <Triggers>
