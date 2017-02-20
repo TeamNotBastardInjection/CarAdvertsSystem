@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 using CarAdvertsSystem.Data.Models;
 using CarAdvertsSystem.Common.Constants;
 
@@ -211,6 +211,78 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Models.Tests.AdvertTests
             var advert = new Advert();
 
             Assert.IsInstanceOf<Advert>(advert);
+        }
+
+        [TestCase(15)]
+        [TestCase(20)]
+        public void VehicleModelId_ShouldGetAndSetDataCorrectly(int testVehicleModelId)
+        {
+            var advert = new Advert() { VehicleModelId = testVehicleModelId };
+
+            Assert.AreEqual(advert.VehicleModelId, testVehicleModelId);
+        }
+
+        [TestCase("Model X")]
+        [TestCase("La Ferrari")]
+        public void VehicleModel_ShouldGetAndSetDataCorrectly(string testVehicleModelName)
+        {
+            var vehicleModel = new VehicleModel { Name = testVehicleModelName };
+
+            var advert = new Advert() { VehicleModel = vehicleModel };
+
+            Assert.AreEqual(advert.VehicleModel.Name, testVehicleModelName);
+        }
+
+        [TestCase(15)]
+        [TestCase(20)]
+        public void CityId_ShouldGetAndSetDataCorrectly(int testCityId)
+        {
+            var advert = new Advert() { CityId = testCityId };
+
+            Assert.AreEqual(advert.CityId, testCityId);
+        }
+
+        [TestCase("Veliko Turnovo")]
+        [TestCase("Sofia")]
+        public void City_ShouldGetAndSetDataCorreclty(string testCityName)
+        {
+            var city = new City {Name = testCityName};
+
+            var advert = new Advert {City = city};
+
+            Assert.AreEqual(advert.City.Name, testCityName);
+        }
+
+        [TestCase("191983391239jskd-asdnbjasdnj-22")]
+        [TestCase("asdjasdj9i1231-123ju1jsad")]
+        public void UserId_ShouldGetAndSetDataCorrectly(string testUserId)
+        {
+            var advert = new Advert() { UserId = testUserId };
+
+            Assert.AreEqual(advert.UserId, testUserId);
+        }
+
+        [TestCase("chuk@abv.bg")]
+        [TestCase("tuturutka@yahoo.com")]
+        public void User_ShouldGetAndSetDataCorreclty(string testUserEmail)
+        {
+            var user = new User { Email = testUserEmail };
+
+            var advert = new Advert { User = user };
+
+            Assert.AreEqual(advert.User.Email, testUserEmail);
+        }
+
+        [TestCase(123)]
+        [TestCase(12)]
+        public void PictureCollection_ShouldGetAndSetDataCorrectly(int testId)
+        {
+            var picture = new Picture() { Id = testId };
+            var set = new HashSet<Picture> { picture };
+
+            var manufacturer = new Advert() { Pictures = set };
+
+            Assert.AreEqual(manufacturer.Pictures.First().Id, testId);
         }
     }
 }
