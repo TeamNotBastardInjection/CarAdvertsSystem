@@ -19,6 +19,7 @@ namespace CarAdvertsSystem.Data.Models
         public int Id { get; set; }
 
         [Required]
+        [Index(IsUnique = true)]
         [MinLength(ValidationConstants.VechicleNameMinLength)]
         [MaxLength(ValidationConstants.VechicleNameMaxLength)]
         public string Name { get; set; }

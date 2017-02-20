@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using CarAdvertsSystem.Data.Models;
 using System.ComponentModel.DataAnnotations;
@@ -9,6 +10,30 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Models.Tests.VehicleModel
 {
     public class VehicleModelTests
     {
+        // ----- Tests for Constructor
+
+        [Test]
+        public void Constructor_ShouldHaveParameterlessConstructor()
+        {
+            // Arrange & Act
+            var vehicleModel = new VehicleModel();
+
+            // Assert
+            Assert.IsInstanceOf<VehicleModel>(vehicleModel);
+        }
+
+        [Test]
+        public void Constructor_ShouldInitializeAdvertCollectionCorrectly()
+        {
+            var vehicleModel = new VehicleModel();
+
+            var advert = vehicleModel.Adverts;
+
+            Assert.That(advert, Is.Not.Null.And.InstanceOf<HashSet<Advert>>());
+        }
+
+        // ----- Tests for Id property
+
         [Test]
         public void Id_ShouldHaveKeyAttribute()
         {
@@ -29,11 +54,13 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Models.Tests.VehicleModel
         public void Id_ShouldGetAndSetDataCorrectly(int testId)
         {
             // Arrange & Act
-            var userAnimal = new VehicleModel { Id = testId };
+            var vehicleModel = new VehicleModel { Id = testId };
 
             //Assert
-            Assert.AreEqual(testId, userAnimal.Id);
+            Assert.AreEqual(testId, vehicleModel.Id);
         }
+        
+        // ----- Tests for Name property
 
         [Test]
         public void Name_ShouldHaveRequiredAttribute()
@@ -62,6 +89,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Models.Tests.VehicleModel
                 .FirstOrDefault();
 
             // Assert
+            Assert.That(indexAttribute, Is.Not.Null);
             Assert.That(indexAttribute.IsUnique, Is.True);
         }
 
@@ -100,22 +128,26 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Models.Tests.VehicleModel
         public void Name_ShouldGetAndSetDataCorrectly(string testName)
         {
             // Arrange & Act
-            var VehicleModel = new VehicleModel { Name = testName };
+            var vehicleModel = new VehicleModel { Name = testName };
 
             //Assert
-            Assert.AreEqual(VehicleModel.Name, testName);
+            Assert.AreEqual(vehicleModel.Name, testName);
         }
-        
+
+        // ------ Tests for ManufacturerId property
+
         [TestCase(15)]
         [TestCase(20)]
         public void ManufacturerId_ShouldGetAndSetDataCorrectly(int testManufacturerId)
         {
             // Arrange & Act
-            var VehicleModel = new VehicleModel { ManufacturerId = testManufacturerId };
+            var vehicleModel = new VehicleModel { ManufacturerId = testManufacturerId };
 
             //Assert
-            Assert.AreEqual(VehicleModel.ManufacturerId, testManufacturerId);
+            Assert.AreEqual(vehicleModel.ManufacturerId, testManufacturerId);
         }
+
+        // ------ Tests for Manufacturer property
 
         [TestCase("Audi")]
         [TestCase("Fiat")]
@@ -129,6 +161,45 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.Data.Models.Tests.VehicleModel
             Assert.AreEqual(vehicleModel.Manufacturer.Name, testManufacturerName);
         }
 
-        // I should add tests form categories and adverts
+        // ------ Tests for CategoryId property
+
+        [TestCase(15)]
+        [TestCase(20)]
+        public void CategoryId_ShouldGetAndSetDataCorrectly(int categoryId)
+        {
+            // Arrange & Act
+            var vehicleModel = new VehicleModel { CategoryId = categoryId };
+
+            //Assert
+            Assert.AreEqual(vehicleModel.CategoryId, categoryId);
+        }
+
+        // ----- Tests for Category property
+
+        [TestCase("Audi")]
+        [TestCase("Fiat")]
+        public void Category_ShouldGetAndSetDataCorrectly(string testCategoryName)
+        {
+            // Arrange & Act         
+            var category = new Category() { Name = testCategoryName };
+            var vehicleModel = new VehicleModel { Category = category };
+
+            //Assert
+            Assert.AreEqual(vehicleModel.Category.Name, testCategoryName);
+        }
+
+        // ----- Tests for Adverts collection
+
+        [TestCase(123)]
+        [TestCase(12)]
+        public void AdvertsCollection_ShouldGetAndSetDataCorrectly(int testId)
+        {
+            var advert = new Advert() { Id = testId };
+            var set = new HashSet<Advert> { advert };
+
+            var manufacturer = new VehicleModel() { Adverts = set };
+
+            Assert.AreEqual(manufacturer.Adverts.First().Id, testId);
+        }
     }
 }
