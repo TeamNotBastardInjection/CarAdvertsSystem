@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
+using CarAdvertsSystem.WebFormsClient.Controls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
@@ -38,6 +39,7 @@ namespace CarAdvertsSystem.WebFormsClient.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        ErrorSuccessNotifier.AddSuccessMessage("Login Successful!!!");
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:
@@ -53,8 +55,11 @@ namespace CarAdvertsSystem.WebFormsClient.Account
                     default:
                         FailureText.Text = "Invalid login attempt";
                         ErrorMessage.Visible = true;
+                        ErrorSuccessNotifier.AddErrorMessage("Opps!!! You have entered something wrong!!!");
                         break;
+
                 }
+
             }
         }
     }

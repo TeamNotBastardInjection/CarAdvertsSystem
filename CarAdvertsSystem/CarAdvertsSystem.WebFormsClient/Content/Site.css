@@ -2,6 +2,7 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #c0c5ce;
 }
 
 /* Wrapping element */
@@ -32,37 +33,39 @@ input[type="select"] {
     .jumbotron {
         margin-top: 20px;
     }
+
     .body-content {
         padding: 0;
     }
 }
 
-/*.navbar.navbar-inverse.navbar-fixed-top {
-    background-color: #6f6d93;
+.navbar.navbar-inverse.navbar-fixed-top {
+    background-color: #343d46;
+
 }
 
 .container.body-content {
     background-image: url("/Images/1920x1080-wallpaper-rolls-royce-wraith-rolls-royce-wraith-side-view.jpg");
     max-width: 100%;
-    height: 1080px
+    height: 1080px;
 }
 
 .jumbotron {
-    opacity: 0.8;
+    opacity: 0.9;
     display: inline-block;
-    float: left;
-
+    margin-left: 30px;
 }
 
-.jumbotron2 {
-    display: inline-block;
-    float: right;
-}*/
+
+.clearfix {
+    overflow: auto;
+}
 
 .imagegallery {
     border-radius: 5px;
-    width: 50%;
-    background-color: black;
+    width: 100%;
+    height: 20%;
+    background-color: #4f5b66;
     display: inline-block;
 }
 
@@ -72,4 +75,35 @@ input[type="select"] {
 
 .imagegallery ul li {
     float: left;
+    padding: 15px;
 }
+
+.image-gallery {
+    width: 100%;
+}
+
+.imagegallery-wraper {
+    position: absolute;
+    top: 220px;
+    left: 620px;
+}
+
+/*Div Rapper*/
+.content-wrapper {
+    margin: 0 10%;
+    background-color: #4f5b66;
+}
+
+.search-title h1 {
+    text-align: center;
+    font-size: 40px;
+    /*padding-left: 50px;*/
+    color: white;
+    
+}
+
+.table-responsive {
+    overflow-y: hidden;
+    background-color: white;
+}
+

@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdvertCreator.aspx.cs" Inherits="CarAdvertsSystem.WebFormsClient.AdvertCreator" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Create Advert Form</h1>
+    <div class="search-title">
+        <h1>Create an Advert</h1>
+    </div>
     <div class="jumbotron">
     <asp:Label Text="Title: " runat="server" AssociatedControlID="AdvertTitle"/>
     <asp:TextBox runat="server" ID="AdvertTitle" TextMode="MultiLine"/>
@@ -36,7 +38,7 @@
     <br />
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-            <asp:Label Text="VechisleModel: " runat="server" AssociatedControlID="VechisleModel" />
+            <asp:Label Text="Vehicle Model: " runat="server" AssociatedControlID="VechisleModel" />
             <asp:DropDownList runat="server" ID="VechisleModel"
                 DataTextField="Name" DataValueField="Id">
             </asp:DropDownList>
@@ -67,7 +69,7 @@
             ControlToValidate="Power"/>
     <br />
 
-    <asp:Label Text="Distance Covarage: " runat="server" AssociatedControlID="DistanceCovarage" />
+    <asp:Label Text="Distance Coverage: " runat="server" AssociatedControlID="DistanceCovarage" />
     <asp:TextBox runat="server" ID="DistanceCovarage" TextMode="Number" />
         <asp:RequiredFieldValidator runat="server"
             ID="RequiredFielDistanceCoveragedValidator"
@@ -87,6 +89,6 @@
         <asp:FileUpload runat="server" ID="UploadImages" AllowMultiple="true" />
         <asp:Label ID="listofuploadedfiles" runat="server" />
 
-    <asp:Button Text="Create" runat="server" ID="CreateAdvert" OnClick="CreateAdvert_Click" />
+    <asp:Button Text="Create" runat="server" ID="CreateAdvert" CssClass="btn" OnClick="CreateAdvert_Click" />
     </div>
 </asp:Content>

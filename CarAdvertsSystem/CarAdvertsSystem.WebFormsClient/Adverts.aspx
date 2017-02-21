@@ -3,6 +3,7 @@
     Inherits="CarAdvertsSystem.WebFormsClient.Adverts" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="jumbotron">
     <asp:ListView ID="ListViewAdverts" runat="server" SelectMethod="Reapeater_GetData"
             ItemType="CarAdvertsSystem.Data.Models.Advert" >
             <LayoutTemplate>
@@ -39,4 +40,5 @@
     <div>
         <a href="/default">Back to search</a>
     </div>
+        </div>
 </asp:Content>

@@ -16,5 +16,4 @@
 	  </ul>
 		</FooterTemplate>
   </asp:Repeater>
-	<div class="cleared"> </div>
 </div>

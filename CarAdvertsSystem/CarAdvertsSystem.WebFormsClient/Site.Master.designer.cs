@@ -40,15 +40,6 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl A1;
         
         /// <summary>
-        /// A2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl A2;
-        
-        /// <summary>
         /// A3 control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace CarAdvertsSystem.WebFormsClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl A3;
+        
+        /// <summary>
+        /// A2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl A2;
         
         /// <summary>
         /// ErrorSuccessNotifier control.

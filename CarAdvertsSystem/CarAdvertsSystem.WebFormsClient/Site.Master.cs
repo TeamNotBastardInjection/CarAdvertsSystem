@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CarAdvertsSystem.WebFormsClient.Controls;
 using Microsoft.AspNet.Identity;
 
 namespace CarAdvertsSystem.WebFormsClient
@@ -24,7 +25,7 @@ namespace CarAdvertsSystem.WebFormsClient
                 if (Page.User.IsInRole("admin"))
                 {
                     RighOne.Visible = false;
-                    A1.Visible = false;
+                    A1.Visible = true;
                     A2.Visible = true;
                     A3.Visible = true;
                 }

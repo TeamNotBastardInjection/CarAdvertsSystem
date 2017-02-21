@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Web;
@@ -7,87 +8,59 @@ using System.Web.Caching;
 
 namespace CarAdvertsSystem.WebFormsClient.Controls
 {
+    public class MyImageInfo
+    {
+        public int width;
+        public int height;
+        public int size;
+        public string lastModified;
+    }
+
     public partial class ImageGallery : System.Web.UI.UserControl
     {
-        public class MyImageInfo
-        {
-            public int width;
-            public int height;
-            public int size;
-            public string lastModified;
-        };
+        private string pathVariable;
+        private int maxImageHeight;
+        private int maxImageWidth;
+        private string breadCrumbClass;
 
-        //public System.Web.UI.WebControls.Repeater dlPictures;
-        //public System.Web.UI.WebControls.Literal top;
 
         public string BaseImagePath
         {
-            get { return _pathVar; }
+            get { return this.pathVariable; }
             set
             {
                 if (value.StartsWith("~"))
                 {
-                    _pathVar = (HttpContext.Current.Request.ApplicationPath + value.Substring(1)).Replace("//", "/");
+                    this.pathVariable = (HttpContext.Current.Request.ApplicationPath + value.Substring(1)).Replace("//", "/");
 
                 }
                 else
                 {
-                    _pathVar = value;
+                    this.pathVariable = value;
 
                 }
-                _pathVar = _pathVar.TrimEnd('/');
+
+                this.pathVariable = pathVariable.TrimEnd('/');
             }
         }
-        private string _pathVar;
 
         public int MaxImageWidth
         {
-            get { return this._maxImageWidth; }
-            set { this._maxImageWidth = value; }
+            get { return this.maxImageWidth; }
+            set { this.maxImageWidth = value; }
         }
-        private int _maxImageWidth;
 
         public int MaxImageHeight
         {
-            get { return _maxImageHeight; }
-            set { _maxImageHeight = value; }
+            get { return this.maxImageHeight; }
+            set { this.maxImageHeight = value; }
         }
-        private int _maxImageHeight;
 
         public string BreadcrumbClass
         {
-            get { return _breadCrumbClass; }
-            set { _breadCrumbClass = value; }
+            get { return this.breadCrumbClass; }
+            set { this.breadCrumbClass = value; }
         }
-        private string _breadCrumbClass;
-
-        public bool ShowDate
-        {
-            get { return _showDate; }
-            set { _showDate = value; }
-        }
-        private bool _showDate;
-
-        public bool ShowSize
-        {
-            get { return _showSize; }
-            set { _showSize = value; }
-        }
-        private bool _showSize;
-
-        public bool ShowName
-        {
-            get { return _showName; }
-            set { _showName = value; }
-        }
-        private bool _showName;
-
-        public bool ShowFileSize
-        {
-            get { return _showFileSize; }
-            set { _showFileSize = value; }
-        }
-        private bool _showFileSize;
 
         protected override void OnInit(EventArgs e)
         {
@@ -104,10 +77,15 @@ namespace CarAdvertsSystem.WebFormsClient.Controls
 
             //Two Variables that store the value of the directories the user clicks into
             string inSubpage = Request.QueryString["subpage"];
+
             if (inSubpage != null)
+            {
                 inSubpage = inSubpage.Trim('/');
+            }
             else
+            {
                 inSubpage = "";
+            }
 
             //Process the inSubpage and generate the links for the "top" ASP.NET label
             HandleDirectoryInput(inSubpage);
@@ -137,12 +115,14 @@ namespace CarAdvertsSystem.WebFormsClient.Controls
 
         private void HandleDirectoryInput(string inSubpage)
         {
-            if (_breadCrumbClass != null)
+            if (breadCrumbClass != null)
             {
-                top.Text = "<div class=\"" + _breadCrumbClass + "\">";
+                top.Text = "<div class=\"" + breadCrumbClass + "\">";
             }
             else
+            {
                 top.Text = "<div>";
+            }
 
             if (inSubpage != null && inSubpage != "")
             {
@@ -157,18 +137,14 @@ namespace CarAdvertsSystem.WebFormsClient.Controls
                     top.Text += " / <a href=\"?subpage=" + Server.UrlEncode(path.ToString()) + "\">" + s + "</a>";
                     path.Append("/");
                 }
-
-
             }
             else
             {
-                top.Text += "home";
+                top.Text += "";
 
             }
 
             top.Text += "</div>";
-
-
         }
 
         private string[] BuildImagesArray(string inSubpage)
@@ -214,7 +190,7 @@ namespace CarAdvertsSystem.WebFormsClient.Controls
 
         private string AddImage(string s, string inSubpage)
         {
-            System.Drawing.Image currentImage;
+            Image currentImage;
             int imgHeight, imgWidth;
             MyImageInfo iInfo = new MyImageInfo();
 
@@ -265,17 +241,12 @@ namespace CarAdvertsSystem.WebFormsClient.Controls
                 filename = filename.Substring(0, 17) + "...";
 
             StringBuilder htmlout = new StringBuilder();
-            //thumbnail.ashx? img =
 
             htmlout.Append("<a href=\"");
             htmlout.Append(PathVar);
             htmlout.Append("\">");
             htmlout.Append("<img src=\""); 
             htmlout.Append(PathVar);
-            //htmlout.Append("&amp;w=");
-            //htmlout.Append(imgWidth);
-            //htmlout.Append("&amp;h=");
-            //htmlout.Append(imgHeight);
             htmlout.Append("\" width=\"");
             htmlout.Append(imgWidth);
             htmlout.Append("\" height=\"");
@@ -287,28 +258,6 @@ namespace CarAdvertsSystem.WebFormsClient.Controls
             htmlout.Append("<a href=\"");
             htmlout.Append(PathVar);
             htmlout.Append("\">");
-            if (ShowName)
-            {
-                htmlout.Append(filename);
-                htmlout.Append("<br />");
-            }
-            if (ShowSize)
-            {
-                htmlout.Append(iInfo.width);
-                htmlout.Append(" x ");
-                htmlout.Append(iInfo.height);
-                htmlout.Append("<br />");
-            }
-            if (ShowFileSize)
-            {
-                htmlout.Append(iInfo.size);
-                htmlout.Append("KB<br />");
-            }
-            if (ShowDate)
-            {
-                htmlout.Append("Uploaded: ");
-                htmlout.Append(iInfo.lastModified);
-            }
             htmlout.Append("</a></p>");
 
             return htmlout.ToString();

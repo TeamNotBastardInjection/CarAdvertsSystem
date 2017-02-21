@@ -8,6 +8,7 @@
 	width: 500px;
 	box-shadow: 2px 2px 3px #3A4F63;
     border-radius: 4px;
+    position: static;
 }
 
 .PanelSuccess {
