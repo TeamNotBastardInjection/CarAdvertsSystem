@@ -190,9 +190,6 @@
     <Content Include="404.html" />
     <Content Include="500.html" />
     <Content Include="About.aspx" />
-    <Content Include="Account\Confirm.aspx" />
-    <Content Include="Account\Forgot.aspx" />
-    <Content Include="Account\Lockout.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\ManageLogins.aspx" />
@@ -225,13 +222,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Images\1920x1080-wallpaper-rolls-royce-wraith-rolls-royce-wraith-side-view.jpg" />
-    <Content Include="Images\20151123_131121.jpg" />
-    <Content Include="Images\20151123_131136.jpg" />
-    <Content Include="Images\20151123_131702.jpg" />
-    <Content Include="Images\20151123_131706.jpg" />
-    <Content Include="Images\20151123_132554.jpg" />
-    <Content Include="Images\20151123_132636.jpg" />
+    <Content Include="Images\GalleryImages\1920x1080-wallpaper-rolls-royce-wraith-rolls-royce-wraith-side-view.jpg" />
+    <Content Include="Images\GalleryImages\20151123_131121.jpg" />
+    <Content Include="Images\GalleryImages\20151123_131136.jpg" />
+    <Content Include="Images\GalleryImages\20151123_131702.jpg" />
+    <Content Include="Images\GalleryImages\20151123_131706.jpg" />
+    <Content Include="Images\GalleryImages\20151123_132554.jpg" />
+    <Content Include="Images\GalleryImages\20151123_132636.jpg" />
+    <Content Include="Images\ErrorPages\400.jpg" />
+    <Content Include="Images\ErrorPages\404.jpeg" />
+    <Content Include="Images\ErrorPages\500.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -286,27 +286,6 @@
     </Compile>
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Confirm.aspx.cs">
-      <DependentUpon>Confirm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Confirm.aspx.designer.cs">
-      <DependentUpon>Confirm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Forgot.aspx.cs">
-      <DependentUpon>Forgot.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Forgot.aspx.designer.cs">
-      <DependentUpon>Forgot.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Lockout.aspx.cs">
-      <DependentUpon>Lockout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Lockout.aspx.designer.cs">
-      <DependentUpon>Lockout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

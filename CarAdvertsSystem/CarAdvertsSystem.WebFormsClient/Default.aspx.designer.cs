@@ -58,13 +58,13 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.TextBox MinPrice;
         
         /// <summary>
-        /// RequiredFieldValidatorMinPriceInput control.
+        /// CompareValidatorMinPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMinPriceInput;
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorMinPrice;
         
         /// <summary>
         /// MaxPrice control.

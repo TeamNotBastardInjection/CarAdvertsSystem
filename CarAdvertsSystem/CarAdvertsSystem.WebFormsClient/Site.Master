@@ -88,7 +88,7 @@
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
             </div>
             <div class="image-gallery">
-                <brh:imagegallery BreadcrumbClass="imagegallery" BaseImagePath="~/Images/" MaxImageWidth="100" MaxImageHeight="100" ShowName="True" ShowSize="True" ShowFileSize="True" ShowDate="True" runat="server" />
+                <brh:imagegallery BreadcrumbClass="imagegallery" BaseImagePath="~/Images/GalleryImages" MaxImageWidth="100" MaxImageHeight="100" ShowName="True" ShowSize="True" ShowFileSize="True" ShowDate="True" runat="server" />
             </div>
             <div class="container body-content">
 

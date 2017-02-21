@@ -56,11 +56,13 @@
         </asp:UpdatePanel>
 
         <asp:Label Text="Min Price:" runat="server" AssociatedControlID="MinPrice" />
-        <asp:TextBox ID="MinPrice" runat="server" TextMode="Number" />
-        <asp:RequiredFieldValidator runat="server"
-            ID="RequiredFieldValidatorMinPriceInput"
-            ForeColor="Red" Display="Dynamic"
-            ErrorMessage="Minimal Price is Required!!!"
+        <asp:TextBox ID="MinPrice" runat="server" />
+        <asp:CompareValidator runat="server"
+            ID="CompareValidatorMinPrice"
+            Type="Integer"
+            Operator="DataTypeCheck"
+            ForeColor="Red"
+            ErrorMessage="Minimal Price must be a Valid Positive Number!!!"
             ControlToValidate="MinPrice" />
         <br />
         <asp:Label Text="Max Price:" runat="server" AssociatedControlID="MaxPrice" />
