@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using CarAdvertsSystem.Data.Models;
 using CarAdvertsSystem.Data.Services.Contracts;
+using CarAdvertsSystem.MVP.AdvertCreator;
 using CarAdvertsSystem.MVP.AdvertsSearcher;
-using CarAdvertsSystem.MVP.Search;
 using NUnit.Framework;
 using Moq;
 
-namespace CarAdvertsSystem.Tests.CarAdvertsSystem.MVP.Tests.AdvertSearcherPresenterTests
+namespace CarAdvertsSystem.Tests.CarAdvertsSystem.MVP.Tests.AdvertCreatorPresenterTests
 {
     [TestFixture]
     public class View_OnCategoriesGetData_Should
@@ -18,17 +18,24 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.MVP.Tests.AdvertSearcherPresen
         [Test]
         public void InvokeICategoryService_GetAllCategoriesMethodOnce()
         {
-            var searchViewMock = new Mock<IAdvertSearcherView>();
-            searchViewMock.SetupGet(view => view.Model).Returns(new AdvertSearcherViewModel());
+            var advertCreatorView = new Mock<IAdvertCreatorView>();
+            advertCreatorView.SetupGet(view => view.Model).Returns(new AdvertCreatorViewModel());
 
             var cityServiceMock = new Mock<ICityServices>();
             var vehicleModelServiceMock = new Mock<IVehicleModelServices>();
             var manufacturerServiceMock = new Mock<IManufacturerServices>();
             var categoryServiceMock = new Mock<ICategoryServices>();
+            var advertServiceMock = new Mock<IAdvertServices>();
 
-            var searcherPresenter = new AdvertSearcherPresenter(searchViewMock.Object, cityServiceMock.Object, vehicleModelServiceMock.Object, manufacturerServiceMock.Object, categoryServiceMock.Object);
-            
-            searcherPresenter.View_OnCategoriesGetData(null, EventArgs.Empty);
+            var advertCreatorPresenter = new AdvertCreatorPresenter(
+                advertCreatorView.Object,
+                cityServiceMock.Object,
+                manufacturerServiceMock.Object,
+                vehicleModelServiceMock.Object,
+                categoryServiceMock.Object,
+                advertServiceMock.Object);
+
+            advertCreatorPresenter.View_OnCategoriesGetData(null, EventArgs.Empty);
 
             categoryServiceMock.Verify(service => service.GetAllCategories(), Times.Once);
         }
@@ -36,22 +43,30 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.MVP.Tests.AdvertSearcherPresen
         [Test]
         public void AddCategoriesToViewModel_WhenOnCategoriesGetDataEventIsRaised()
         {
-            var searchViewMock = new Mock<IAdvertSearcherView>();
-            searchViewMock.SetupGet(view => view.Model).Returns(new AdvertSearcherViewModel());
+            var advertCreatorView = new Mock<IAdvertCreatorView>();
+            advertCreatorView.SetupGet(view => view.Model).Returns(new AdvertCreatorViewModel());
 
             var cityServiceMock = new Mock<ICityServices>();
             var vehicleModelServiceMock = new Mock<IVehicleModelServices>();
             var manufacturerServiceMock = new Mock<IManufacturerServices>();
-            var categoryServiceMock = new Mock<ICategoryServices>();
 
             var categories = this.GetCategories();
+            var categoryServiceMock = new Mock<ICategoryServices>();
             categoryServiceMock.Setup(c => c.GetAllCategories()).Returns(categories);
 
-            var searcherPresenter = new AdvertSearcherPresenter(searchViewMock.Object, cityServiceMock.Object, vehicleModelServiceMock.Object, manufacturerServiceMock.Object, categoryServiceMock.Object);
+            var advertServiceMock = new Mock<IAdvertServices>();
+
+            var advertCreatorPresenter = new AdvertCreatorPresenter(
+                advertCreatorView.Object,
+                cityServiceMock.Object,
+                manufacturerServiceMock.Object,
+                vehicleModelServiceMock.Object,
+                categoryServiceMock.Object,
+                advertServiceMock.Object);
             
-            searchViewMock.Raise(v => v.OnCategoriesGetData += null, EventArgs.Empty);
-            
-            CollectionAssert.AreEquivalent(categories, searchViewMock.Object.Model.Categories);
+            advertCreatorView.Raise(v => v.OnCategoriesGetData += null, EventArgs.Empty);
+
+            CollectionAssert.AreEquivalent(categories, advertCreatorView.Object.Model.Categories);
         }
 
         private IQueryable<Category> GetCategories()
@@ -65,5 +80,6 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.MVP.Tests.AdvertSearcherPresen
 
             return categories.AsQueryable();
         }
+
     }
 }

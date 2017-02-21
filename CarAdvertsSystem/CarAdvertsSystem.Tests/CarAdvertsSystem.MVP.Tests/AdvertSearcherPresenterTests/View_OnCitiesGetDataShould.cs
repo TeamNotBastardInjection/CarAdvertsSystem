@@ -13,7 +13,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.MVP.Tests.AdvertSearcherPresen
     public class View_OnCitiesGetData_Should
     {
         [Test]
-        public void InvokeICityrService_GetAllCategoriesMethodOnce()
+        public void InvokeICityService_GetAllCitiesMethodOnce()
         {
             var searchViewMock = new Mock<IAdvertSearcherView>();
             searchViewMock.SetupGet(view => view.Model).Returns(new AdvertSearcherViewModel());
@@ -31,7 +31,7 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.MVP.Tests.AdvertSearcherPresen
         }
 
         [Test]
-        public void AddCategoriesToViewModel_WhenOnCategoriesGetDataEventIsRaised()
+        public void AddCitiesToViewModel_WhenOnCitiesGetDataEventIsRaised()
         {
             var searchViewMock = new Mock<IAdvertSearcherView>();
             searchViewMock.SetupGet(view => view.Model).Returns(new AdvertSearcherViewModel());
@@ -53,14 +53,14 @@ namespace CarAdvertsSystem.Tests.CarAdvertsSystem.MVP.Tests.AdvertSearcherPresen
 
         private IQueryable<City> GetCities()
         {
-            var categories = new List<City>()
+            var cities = new List<City>()
             {
-                new City() { Name = "Car"},
-                new City() { Name = "Bus"},
-                new City() { Name = "Caravan"},
+                new City() { Name = "Sofia"},
+                new City() { Name = "Plovdiv"},
+                new City() { Name = "Varna"},
             };
 
-            return categories.AsQueryable();
+            return cities.AsQueryable();
         }
     }
 }
