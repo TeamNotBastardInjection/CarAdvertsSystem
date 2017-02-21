@@ -71,7 +71,7 @@ namespace CarAdvertsSystem.WebFormsClient
 
         protected void Search_Click(object sender, EventArgs e)
         {
-            ErrorSuccessNotifier.AddSuccessMessage("Yolololol");
+            ErrorSuccessNotifier.AddSuccessMessage("Search Successful!!");
 
             var vechicleModelId = int.Parse(this.ModelsList.SelectedItem.Value);
             var cityId = int.Parse(this.CitiesList.SelectedItem.Value);

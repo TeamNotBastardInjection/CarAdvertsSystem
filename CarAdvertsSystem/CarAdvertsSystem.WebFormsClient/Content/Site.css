@@ -37,7 +37,7 @@ input[type="select"] {
     }
 }
 
-.navbar.navbar-inverse.navbar-fixed-top {
+/*.navbar.navbar-inverse.navbar-fixed-top {
     background-color: #6f6d93;
 }
 
@@ -57,5 +57,19 @@ input[type="select"] {
 .jumbotron2 {
     display: inline-block;
     float: right;
+}*/
+
+.imagegallery {
+    border-radius: 5px;
+    width: 50%;
+    background-color: black;
+    display: inline-block;
 }
 
+.imagegallery ul {
+    list-style-type: none;
+}
+
+.imagegallery ul li {
+    float: left;
+}

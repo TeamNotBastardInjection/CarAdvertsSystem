@@ -3,7 +3,7 @@
 <%@ Register Src="~/Controls/NotificationControl.ascx"
     TagName="ErrorSuccessNotifier" TagPrefix="userControls" %>
 
-
+<%@ Register TagPrefix="brh" TagName="imagegallery" Src="~/Controls/ImageGallery.ascx" %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -61,16 +61,16 @@
                     </ul>
                     <%--<asp:LoginView runat="server" ViewStateMode="Disabled">--%>
                     <%--<AnonymousTemplate>--%>
-                    <ul class="nav navbar-nav navbar-right" runat="server" ID="RighOne">
+                    <ul class="nav navbar-nav navbar-right" runat="server" id="RighOne">
                         <li><a runat="server" href="~/Account/Register">Register</a></li>
                         <li><a runat="server" href="~/Account/Login">Log in</a></li>
                     </ul>
                     <%--</AnonymousTemplate>
                         <LoggedInTemplate>--%>
-                    <ul class="nav navbar-nav navbar-right" runat="server" ID="LoggedIn" visible="False">
-                        <li ID="A1" runat="server"><a runat="server" href="~/AdvertCreator">Add a Car Advert</a></li>
-                        <li ID="A2" runat="server"><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                        <li ID="A3" runat="server"><a runat="server" href="~/Admin/EditAdverts">Edit Categories</a></li>
+                    <ul class="nav navbar-nav navbar-right" runat="server" id="LoggedIn" visible="False">
+                        <li id="A1" runat="server"><a runat="server" href="~/AdvertCreator">Add a Car Advert</a></li>
+                        <li id="A2" runat="server"><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                        <li id="A3" runat="server"><a runat="server" href="~/Admin/EditAdverts">Edit Categories</a></li>
                         <li>
                             <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                         </li>
@@ -85,12 +85,14 @@
             <userControls:ErrorSuccessNotifier ID="ErrorSuccessNotifier" runat="server" />
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
         </div>
+            <brh:imagegallery BreadcrumbClass="gallerybreadcrumb" BaseImagePath="~/Images/" MaxImageWidth="100" MaxImageHeight="100" ShowName="True" ShowSize="True" ShowFileSize="True" ShowDate="True" runat="server" />
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Team !BastardInjectio Asp.NET Web Forms Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Team !BastardInjection Asp.NET Web Forms Application</p>
             </footer>
         </div>
     </form>

@@ -3,8 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Create Advert Form</h1>
     <div class="jumbotron">
-    <asp:Label Text="Title: " runat="server" AssociatedControlID="AdvertTitle" />
-    <asp:TextBox runat="server" ID="AdvertTitle" />
+    <asp:Label Text="Title: " runat="server" AssociatedControlID="AdvertTitle"/>
+    <asp:TextBox runat="server" ID="AdvertTitle" TextMode="MultiLine"/>
+        <asp:RequiredFieldValidator runat="server"
+            ID="RequiredFieldAdvertTitleValidator"
+            ForeColor="red" Display="Dynamic"
+            ErrorMessage="Title must be between 3 and 30 Symbols Long"
+            ControlToValidate="AdvertTitle"/>
     <br />
     <asp:Label Text="City: " runat="server" AssociatedControlID="City" />
     <asp:DropDownList runat="server" ID="City"
@@ -46,33 +51,41 @@
     </asp:DropDownList>
     <br />
     <asp:Label Text="Price: " runat="server" AssociatedControlID="Price" />
-    <asp:TextBox runat="server" ID="Price" />
+    <asp:TextBox runat="server" ID="Price"  TextMode="Number"/>
+        <asp:RequiredFieldValidator runat="server"
+            ID="RequiredFieldPriceValidator"
+            ForeColor="Red" Display="Dynamic"
+            ErrorMessage="You need to enter a Price!!!"
+            ControlToValidate="Price"/>
     <br />
     <asp:Label Text="Power: " runat="server" AssociatedControlID="Power" />
-    <asp:TextBox runat="server" ID="Power" />
+    <asp:TextBox runat="server" ID="Power" TextMode="Number" />
+        <asp:RequiredFieldValidator runat="server"
+            ID="RequiredFieldPowerValidator"
+            ForeColor="Red" Display="Dynamic"
+            ErrorMessage="Power must be between 10 and 5000 HP!"
+            ControlToValidate="Power"/>
     <br />
-    <%--Engine Volume/
-    EngineType--%>
 
     <asp:Label Text="Distance Covarage: " runat="server" AssociatedControlID="DistanceCovarage" />
-    <asp:TextBox runat="server" ID="DistanceCovarage" />
+    <asp:TextBox runat="server" ID="DistanceCovarage" TextMode="Number" />
+        <asp:RequiredFieldValidator runat="server"
+            ID="RequiredFielDistanceCoveragedValidator"
+            ForeColor="Red" Display="Dynamic"
+            ErrorMessage="Distance Coverage must be up to 1million kms!!!"
+            ControlToValidate="DistanceCovarage"/>
     <br />
     <asp:Label Text="Description: " runat="server" AssociatedControlID="Description" />
-    <asp:TextBox runat="server" ID="Description" />
+    <asp:TextBox runat="server" ID="Description" TextMode="MultiLine" />
+        <asp:RequiredFieldValidator runat="server"
+            ID="RequiredFieldDescriptionValidator"
+            ForeColor="red" Display="Dynamic"
+            ErrorMessage="Description must be up to 500 symbols!"
+            ControlToValidate="Description"/>
     <br />
-
-<%--    <asp:FileUpload ID="FileUploadControl" runat="server" />
-    <asp:Button runat="server" ID="UploadButton" Text="Upload" OnClick="UploadButton_Click" />
-    <br />
-    <br />
-    <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />--%>
-
-
         <div>Upload one or many files.</div>
         <asp:FileUpload runat="server" ID="UploadImages" AllowMultiple="true" />
         <asp:Label ID="listofuploadedfiles" runat="server" />
-    
-
 
     <asp:Button Text="Create" runat="server" ID="CreateAdvert" OnClick="CreateAdvert_Click" />
     </div>

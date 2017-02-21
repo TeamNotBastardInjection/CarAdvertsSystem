@@ -221,6 +221,7 @@
     <Content Include="Content\NotificationControl\Styles\NotificationControl.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Controls\Carousel.ascx" />
+    <Content Include="Controls\ImageGallery.ascx" />
     <Content Include="Controls\NotificationControl.ascx" />
     <Content Include="Controls\test.ascx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -230,6 +231,12 @@
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\1920x1080-wallpaper-rolls-royce-wraith-rolls-royce-wraith-side-view.jpg" />
+    <Content Include="Images\20151123_131121.jpg" />
+    <Content Include="Images\20151123_131136.jpg" />
+    <Content Include="Images\20151123_131702.jpg" />
+    <Content Include="Images\20151123_131706.jpg" />
+    <Content Include="Images\20151123_132554.jpg" />
+    <Content Include="Images\20151123_132636.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -443,6 +450,13 @@
     </Compile>
     <Compile Include="Controls\Carousel.ascx.designer.cs">
       <DependentUpon>Carousel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageGallery.ascx.cs">
+      <DependentUpon>ImageGallery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageGallery.ascx.designer.cs">
+      <DependentUpon>ImageGallery.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\NotificationControl.ascx.cs">
       <DependentUpon>NotificationControl.ascx</DependentUpon>

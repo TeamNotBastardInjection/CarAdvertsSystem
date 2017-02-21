@@ -22,6 +22,15 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.TextBox AdvertTitle;
         
         /// <summary>
+        /// RequiredFieldAdvertTitleValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldAdvertTitleValidator;
+        
+        /// <summary>
         /// City control.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.TextBox Price;
         
         /// <summary>
+        /// RequiredFieldPriceValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldPriceValidator;
+        
+        /// <summary>
         /// Power control.
         /// </summary>
         /// <remarks>
@@ -83,6 +101,15 @@ namespace CarAdvertsSystem.WebFormsClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Power;
+        
+        /// <summary>
+        /// RequiredFieldPowerValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldPowerValidator;
         
         /// <summary>
         /// DistanceCovarage control.
@@ -94,6 +121,15 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.TextBox DistanceCovarage;
         
         /// <summary>
+        /// RequiredFielDistanceCoveragedValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFielDistanceCoveragedValidator;
+        
+        /// <summary>
         /// Description control.
         /// </summary>
         /// <remarks>
@@ -101,6 +137,15 @@ namespace CarAdvertsSystem.WebFormsClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Description;
+        
+        /// <summary>
+        /// RequiredFieldDescriptionValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldDescriptionValidator;
         
         /// <summary>
         /// UploadImages control.
