@@ -54,6 +54,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
     <Reference Include="WebFormsMvp, Version=1.4.5.0, Culture=neutral, PublicKeyToken=537f18701145dff0" />
   </ItemGroup>
   <ItemGroup>
@@ -93,14 +94,23 @@
     <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\DisposeShould.cs" />
     <Compile Include="CarAdvertsSystem.Data.Tests\UnitOfWorkTests\SaveChangesShould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertCreatorPresenterTests\ConstructorShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertCreatorPresenterTests\View_OnCategoriesGetDataShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertCreatorPresenterTests\View_OnCitiesGetDataShould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertCreatorPresenterTests\View_OnCreateAdvert_Should.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertCreatorPresenterTests\View_OnManufacturersGetDataShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertCreatorPresenterTests\View_OnVehicleModelsGetDataShould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertDetailPresentersTests\ConstructorShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertDetailPresentersTests\View_OnGetAdvertsByIdShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertDetailPresentersTests\View_OnGetPicturesByAdvertIdShould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertSearcherPresenterTests\ConstruvtorSould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertSearcherPresenterTests\View_OnCategoriesGetDataShould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertSearcherPresenterTests\View_OnCitiesGetDataShould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertSearcherPresenterTests\View_OnManufacturersGetDataShould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\AdvertSearcherPresenterTests\View_OnVehicleModelsGetData_Should.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\EditAdvertsPresenterTests\ConstructorShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\EditAdvertsPresenterTests\View_OnAdvertDeleteItemShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\EditAdvertsPresenterTests\View_OnAdvertsGetDataShould.cs" />
+    <Compile Include="CarAdvertsSystem.MVP.Tests\EditAdvertsPresenterTests\View_OnAdvertUpdateItemShould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\ConstructorSould.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\Mocks\FackeSearchView.cs" />
     <Compile Include="CarAdvertsSystem.MVP.Tests\SearchPresenterTests\View_OnGetPicturePath_Should.cs" />

@@ -26,18 +26,21 @@ namespace CarAdvertsSystem.MVP.AdvertDetail
             this.View.OnGetAdvertsById += View_OnGetAdvertsById;
         }
 
-        private void View_OnGetAdvertsById(object sender, GetAdvertsByIdEventArgs e)
+        public void View_OnGetAdvertsById(object sender, GetAdvertsByIdEventArgs e)
         {
-            var adverts = this.advertService.GetById(e.AdvertId);
-            var advertCollection = new List<Advert>();
+            Guard.WhenArgument(e.AdvertId, "AdvertId must be positive number!!!").IsLessThan(1).Throw();
 
-            advertCollection.Add(adverts);
+            var advert = this.advertService.GetById(e.AdvertId);
+            var advertCollection = new List<Advert>();
+            advertCollection.Add(advert);
 
             this.View.Model.Adverts = advertCollection.AsQueryable();
         }
 
-        private void View_OnGetPicturesByAdvertId(object sender, GetPicturesEventArgs e)
+        public void View_OnGetPicturesByAdvertId(object sender, GetPicturesEventArgs e)
         {
+            Guard.WhenArgument(e.AdvertId, "AdvertId must be positive number!!!").IsLessThan(1).Throw();
+
             var pictures = this.pictureService.GetPicturesByAdvertId(e.AdvertId);
 
             this.View.Model.Pictures = pictures;

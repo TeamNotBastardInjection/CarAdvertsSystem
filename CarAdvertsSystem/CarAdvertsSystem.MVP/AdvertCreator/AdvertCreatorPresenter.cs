@@ -6,7 +6,6 @@ using WebFormsMvp;
 using Bytes2you.Validation;
 using CarAdvertsSystem.Data.Models;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace CarAdvertsSystem.MVP.AdvertCreator
 {
@@ -72,22 +71,22 @@ namespace CarAdvertsSystem.MVP.AdvertCreator
             this.advertService.AddAdvert(advert);
         }
 
-        private void View_OnVehicleModelsGetData(object sender, EventArgs e)
+        public void View_OnVehicleModelsGetData(object sender, EventArgs e)
         {
             this.View.Model.VehicleModels = this.vehicleModelService.GetAllVehicleModels();
         }
 
-        private void View_OnManufacturersGetData(object sender, EventArgs e)
+        public void View_OnManufacturersGetData(object sender, EventArgs e)
         {
             this.View.Model.Manufacturers = this.manufacturerService.GetAllManufacturers();
         }
 
-        private void View_OnCategoriesGetData(object sender, EventArgs e)
+        public void View_OnCategoriesGetData(object sender, EventArgs e)
         {
             this.View.Model.Categories = this.categoryService.GetAllCategories();
         }
 
-        private void View_OnCitiesGetData(object sender, EventArgs e)
+        public void View_OnCitiesGetData(object sender, EventArgs e)
         {
             this.View.Model.Cities = this.cityService.GetAllCities();
         }

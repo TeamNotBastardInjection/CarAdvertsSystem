@@ -25,8 +25,10 @@ namespace CarAdvertsSystem.MVP.EditAdverts
             this.View.OnAdvertUpdateItem += View_OnAdvertUpdateItem;
         }
 
-        private void View_OnAdvertUpdateItem(object sender, IdEventAdvertArgs e)
+        public void View_OnAdvertUpdateItem(object sender, IdEventAdvertArgs e)
         {
+            Guard.WhenArgument(e.Id, "Advert Id must be positive number!!!").IsLessThan(1).Throw();
+
             Advert item = this.advertService.GetById(e.Id);
             if (item == null)
             {
@@ -41,12 +43,21 @@ namespace CarAdvertsSystem.MVP.EditAdverts
             }
         }
 
-        private void View_OnAdvertDeleteItem(object sender, IdEventAdvertArgs e)
+        // InvokeIAdvertService_GetByIdMethodColdOnce()
+        // AddModelError_WhenItemIsNotFound()
+        // TryUpdateModelIsNotCalled_WhenItemIsNotFound()
+        // TryUpdateModelIsCalled_WhenItemIsFound()
+        // UpdateCategoryIsCalled_WhenItemIsFoundAndIsInValidState()
+        // UpdateCategoryIsNotCalled_WhenItemIsFoundAndIsInInvalidState()
+
+        public void View_OnAdvertDeleteItem(object sender, IdEventAdvertArgs e)
         {
+            Guard.WhenArgument(e.Id, "Advert Id must be positive number!!!").IsLessThan(1).Throw();
+            
             this.advertService.DeleteAdvertById(e.Id);
         }
 
-        private void View_OnAdvertsGetData(object sender, EventArgs e)
+        public void View_OnAdvertsGetData(object sender, EventArgs e)
         {
             this.View.Model.Adverts = this.advertService.GetAllAdverts();
         }
