@@ -9,8 +9,6 @@ namespace CarAdvertsSystem.WebFormsClient.Controls
     public enum MessageType
     {
         Success,
-        Info,
-        Warning,
         Error
     }
 
@@ -51,16 +49,6 @@ namespace CarAdvertsSystem.WebFormsClient.Controls
             }
         }
 
-        public static void AddInfoMessage(string msg)
-        {
-            AddMessage(new NotificationMessage()
-            {
-                Text = msg,
-                Type = MessageType.Info,
-                AutoHide = true
-            });
-        }
-
         public static void AddSuccessMessage(string msg)
         {
             AddMessage(new NotificationMessage()
@@ -71,15 +59,6 @@ namespace CarAdvertsSystem.WebFormsClient.Controls
             });
         }
 
-        public static void AddWarningMessage(string msg)
-        {
-            AddMessage(new NotificationMessage()
-            {
-                Text = msg,
-                Type = MessageType.Warning,
-                AutoHide = false
-            });
-        }
 
         public static void AddErrorMessage(string msg)
         {

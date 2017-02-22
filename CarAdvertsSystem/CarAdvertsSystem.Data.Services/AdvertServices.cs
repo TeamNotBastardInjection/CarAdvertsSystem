@@ -94,5 +94,14 @@ namespace CarAdvertsSystem.Data.Services
                 unitOfWork.SaveChanges();
             }
         }
+
+        public IQueryable<Advert> GetAllAdvertsByUserId(string userId)
+        {
+            var adverts = this.advertRepository
+                .All()
+                .Where(a => a.UserId == userId);
+
+            return adverts;
+        }
     }
 }

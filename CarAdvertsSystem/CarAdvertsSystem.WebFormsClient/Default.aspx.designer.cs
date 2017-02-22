@@ -40,6 +40,15 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.DropDownList ModelsList;
         
         /// <summary>
+        /// ModelListValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ModelListValidator;
+        
+        /// <summary>
         /// CitiesList control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,24 @@ namespace CarAdvertsSystem.WebFormsClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList CitiesList;
+        
+        /// <summary>
+        /// PriceValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PriceValidator;
+        
+        /// <summary>
+        /// MinPriceLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MinPriceLabel;
         
         /// <summary>
         /// MinPrice control.
@@ -58,13 +85,13 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.TextBox MinPrice;
         
         /// <summary>
-        /// CompareValidatorMinPrice control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorMinPrice;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// MaxPrice control.

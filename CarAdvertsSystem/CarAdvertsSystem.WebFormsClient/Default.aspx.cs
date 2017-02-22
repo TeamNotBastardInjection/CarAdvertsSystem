@@ -71,7 +71,39 @@ namespace CarAdvertsSystem.WebFormsClient
 
         protected void Search_Click(object sender, EventArgs e)
         {
-            ErrorSuccessNotifier.AddSuccessMessage("Search Successful!!");
+
+            if (this.ModelsList.SelectedItem == null)
+            {
+                this.ModelListValidator.Text = Server.HtmlEncode("You have to select a Model!");
+                this.ModelListValidator.Visible = true;
+                return;
+            }
+
+            int inputMinPrice;
+            bool minPriceVal = int.TryParse(this.MinPrice.Text, out inputMinPrice);
+
+            int inputMaxPrice;
+            bool maxPriceVal = int.TryParse(this.MaxPrice.Text, out inputMaxPrice);
+
+            if (minPriceVal == false || maxPriceVal == false)
+            {
+                this.MinPrice.Text = "";
+                this.MaxPrice.Text = "";
+                this.PriceValidator.Text = Server.HtmlEncode("You have to enter a number!");
+                this.PriceValidator.Visible = true;
+                
+                return;
+            }
+
+            if (inputMinPrice <= 0 || inputMaxPrice <= 0)
+            {
+                this.MinPrice.Text = "";
+                this.MaxPrice.Text = "";
+                this.PriceValidator.Text = "You have to enter a positive number!";
+                this.PriceValidator.Visible = true;
+                return;
+                
+            }
 
             var vechicleModelId = int.Parse(this.ModelsList.SelectedItem.Value);
             var cityId = int.Parse(this.CitiesList.SelectedItem.Value);
@@ -80,10 +112,9 @@ namespace CarAdvertsSystem.WebFormsClient
             var yearFrom = int.Parse(this.YearFrom.SelectedItem.Text);
             var yearTo = int.Parse(this.YearTo.SelectedItem.Text);
                   
-            string queryParam = $"?v={vechicleModelId}&c={cityId}&mip={minPrice}&map={maxPrice}&yf={yearFrom}&yt={yearTo}";
+            var queryParam = $"?v={vechicleModelId}&c={cityId}&mip={minPrice}&map={maxPrice}&yf={yearFrom}&yt={yearTo}";
 
             Response.Redirect("~/adverts" + queryParam);
-
         }     
     }
 }

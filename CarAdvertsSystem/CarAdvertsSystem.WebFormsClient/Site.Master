@@ -70,8 +70,9 @@
                         <%--</AnonymousTemplate>
                         <LoggedInTemplate>--%>
                         <ul class="nav navbar-nav navbar-right" runat="server" id="LoggedIn" visible="False">
+                            <li id="A0" runat="server"><a runat="server" href="~/UserAdverts">My Adverts</a></li>                  
                             <li id="A1" runat="server"><a runat="server" href="~/AdvertCreator">Add a Car Advert</a></li>
-                            <li id="A3" runat="server"><a runat="server" href="~/Admin/EditAdverts">Edit Categories</a></li>
+                            <li id="A3" runat="server"><a runat="server" href="~/Admin/EditAdverts">Edit Adverts</a></li>
                             <li id="A2" runat="server"><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                             <li>
                                 <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />

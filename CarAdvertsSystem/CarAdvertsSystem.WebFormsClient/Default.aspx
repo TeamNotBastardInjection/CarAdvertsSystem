@@ -41,6 +41,7 @@
                 <asp:DropDownList ID="ModelsList" runat="server"
                     DataTextField="Name" DataValueField="Id" CssClass="dropdown-header">
                 </asp:DropDownList>
+                <asp:Label runat="server" ID="ModelListValidator" Visible="False"/>
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="ManufacturersList" EventName="SelectedIndexChanged" />
@@ -52,26 +53,27 @@
             <ContentTemplate>
                 <asp:Label runat="server" Text="City: " AssociatedControlID="CitiesList" />
                 <asp:DropDownList runat="server" ID="CitiesList" DataTextField="Name" DataValueField="Id" CssClass="dropdown-header" />
+                <asp:Label runat="server" ID="PriceValidator" Visible="False"></asp:Label>
             </ContentTemplate>
         </asp:UpdatePanel>
 
-        <asp:Label Text="Min Price:" runat="server" AssociatedControlID="MinPrice" />
+        <asp:Label Text="Min Price:" ID="MinPriceLabel" runat="server" AssociatedControlID="MinPrice" />
         <asp:TextBox ID="MinPrice" runat="server" />
-        <asp:CompareValidator runat="server"
-            ID="CompareValidatorMinPrice"
-            Type="Integer"
-            Operator="DataTypeCheck"
-            ForeColor="Red"
-            ErrorMessage="Minimal Price must be a Valid Positive Number!!!"
-            ControlToValidate="MinPrice" />
+        <asp:RequiredFieldValidator runat="server"
+            ID="RequiredFieldValidator1"
+            ForeColor="Red" Display="Dynamic"
+            ErrorMessage="Maximum Price is Required!!!"
+            ControlToValidate="MinPrice"
+            SetFocusOnError="True" />
         <br />
         <asp:Label Text="Max Price:" runat="server" AssociatedControlID="MaxPrice" />
-        <asp:TextBox ID="MaxPrice" runat="server" TextMode="Number" />
+        <asp:TextBox ID="MaxPrice" runat="server" />
         <asp:RequiredFieldValidator runat="server"
             ID="RequiredFieldValidatorMaxPriceInput"
             ForeColor="Red" Display="Dynamic"
-            ErrorMessage="Maximum Price is Required!!!"
-            ControlToValidate="MaxPrice" />
+            ErrorMessage="Minimum Price is Required!!!"
+            ControlToValidate="MaxPrice" 
+            SetFocusOnError="True"/>
         <br />
 
         <asp:UpdatePanel runat="server" UpdateMode="Conditional">
@@ -95,7 +97,7 @@
         <br />
         <br />
 
-        <asp:Button ID="Search" Text="Search" runat="server" CssClass="btn" OnClick="Search_Click" />
+        <asp:Button ID="Search" Text="Search" runat="server" CssClass="btn" OnClick="Search_Click"/>
     </div>
 
 </asp:Content>

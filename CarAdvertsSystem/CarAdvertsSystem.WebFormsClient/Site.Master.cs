@@ -25,6 +25,7 @@ namespace CarAdvertsSystem.WebFormsClient
                 if (Page.User.IsInRole("admin"))
                 {
                     RighOne.Visible = false;
+                    A0.Visible = true;
                     A1.Visible = true;
                     A2.Visible = true;
                     A3.Visible = true;
@@ -33,6 +34,7 @@ namespace CarAdvertsSystem.WebFormsClient
                 else 
                 {
                     RighOne.Visible = false;
+                    A0.Visible = true;
                     A1.Visible = true;
                     A2.Visible = true;
                     A3.Visible = false;

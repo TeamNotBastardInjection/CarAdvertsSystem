@@ -58,13 +58,22 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.DropDownList Manufacturer;
         
         /// <summary>
-        /// VechisleModel control.
+        /// VehicleModel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList VechisleModel;
+        protected global::System.Web.UI.WebControls.DropDownList VehicleModel;
+        
+        /// <summary>
+        /// VehicleModelValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal VehicleModelValidator;
         
         /// <summary>
         /// Year control.
@@ -85,13 +94,13 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.TextBox Price;
         
         /// <summary>
-        /// RequiredFieldPriceValidator control.
+        /// RangeValidatorPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldPriceValidator;
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidatorPrice;
         
         /// <summary>
         /// Power control.
@@ -103,13 +112,13 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.TextBox Power;
         
         /// <summary>
-        /// RequiredFieldPowerValidator control.
+        /// RangeValidatorPower control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldPowerValidator;
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidatorPower;
         
         /// <summary>
         /// DistanceCovarage control.
@@ -121,13 +130,13 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.TextBox DistanceCovarage;
         
         /// <summary>
-        /// RequiredFielDistanceCoveragedValidator control.
+        /// RangeValidatorDistanceCoverage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFielDistanceCoveragedValidator;
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidatorDistanceCoverage;
         
         /// <summary>
         /// Description control.
@@ -148,6 +157,15 @@ namespace CarAdvertsSystem.WebFormsClient {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldDescriptionValidator;
         
         /// <summary>
+        /// ListOfPictures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ListOfPictures;
+        
+        /// <summary>
         /// UploadImages control.
         /// </summary>
         /// <remarks>
@@ -155,15 +173,6 @@ namespace CarAdvertsSystem.WebFormsClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload UploadImages;
-        
-        /// <summary>
-        /// listofuploadedfiles control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label listofuploadedfiles;
         
         /// <summary>
         /// CreateAdvert control.

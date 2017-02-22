@@ -12,6 +12,7 @@ namespace CarAdvertsSystem.Data.Models
 
         [Required]
         [MinLength(ValidationConstants.PictureNameMinLength)]
+        [MaxLength(ValidationConstants.PictureNameMaxLength)]
         public string Name { get; set; }
 
         public int AdvertId { get; set; }

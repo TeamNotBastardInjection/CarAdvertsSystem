@@ -46,11 +46,22 @@ namespace CarAdvertsSystem.WebFormsClient
 
         protected void CreateAdvert_Click(object sender, EventArgs e)
         {
-            this.UploadFiles();
+            if (this.VehicleModel.SelectedItem == null)
+            {
+                this.VehicleModelValidator.Text = Server.HtmlEncode("You have to select a Model!");
+                this.VehicleModelValidator.Visible = true;
+                return;
+            }
+
+            var isUploaded = this.UploadFiles();
+            if (isUploaded == false)
+            {
+                return;
+            }
 
             var title = this.AdvertTitle.Text;
             var cityId = int.Parse(this.City.SelectedItem.Value);
-            var vechisleId = int.Parse(this.VechisleModel.SelectedItem.Value);
+            var vehicleId = int.Parse(this.VehicleModel.SelectedItem.Value);
             var price = int.Parse(this.Price.Text);
             var year = int.Parse(this.Year.SelectedItem.Value);
             var power = int.Parse(this.Power.Text);
@@ -62,7 +73,7 @@ namespace CarAdvertsSystem.WebFormsClient
                 title, 
                 userId, 
                 cityId, 
-                vechisleId, 
+                vehicleId, 
                 price, 
                 power, 
                 distanceCovarage, 
@@ -70,7 +81,9 @@ namespace CarAdvertsSystem.WebFormsClient
                 year,
                 this.PictureFilePaths));
 
-            ErrorSuccessNotifier.AddSuccessMessage("Advert Added Yolo!!!");
+            ErrorSuccessNotifier.AddSuccessMessage("Advert Added!!");
+
+            Response.Redirect("~/UserAdverts.aspx");
         }
 
         protected void Category_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,7 +98,7 @@ namespace CarAdvertsSystem.WebFormsClient
         {
             this.OnVehicleModelsGetData?.Invoke(this, null);
 
-            this.VechisleModel.DataSource = this.Model.VehicleModels.ToList();
+            this.VehicleModel.DataSource = this.Model.VehicleModels.ToList();
             this.DataBind();
         }
 
@@ -103,48 +116,68 @@ namespace CarAdvertsSystem.WebFormsClient
             return years;
         }
 
-        //protected void UploadButton_Click(object sender, EventArgs e)
-        //{
-        //    if (FileUploadControl.HasFile)
-        //    {
-        //        string filename = Path.GetFileName(FileUploadControl.FileName);
-        //        FileUploadControl.SaveAs(Server.MapPath("~/Uploaded_Files/") + filename);
-        //        StatusLabel.Text = "Upload status: File uploaded!";
-        //    }
-        //}
-
         /// <summary>
         /// Upload and save multiple files;
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void UploadFiles()
-        {
+        protected bool UploadFiles()
+        {           
+            var isUploaded = false;
             var filePaths = new List<string>();
             if (UploadImages.HasFiles)
             {
-                // Rename files to be with unique names and save them
-                foreach (HttpPostedFile uploadedFile in UploadImages.PostedFiles)
+                try
                 {
-                    // Get file extension and create new file name
-                    FileInfo fi = new FileInfo(uploadedFile.FileName);
-                    string ext = fi.Extension;
-                    var newFileName = $"{counter}{ext}";
+                    if (UploadImages.PostedFile.ContentType == "image/jpeg" || UploadImages.PostedFile.ContentType == "image/png")
+                    {
+                        var largestAllowedPictureSize = 5 * 1048576;
 
-                    // Save file to a server side
-                    uploadedFile.SaveAs(System.IO.Path.Combine(Server.MapPath("~/Uploaded_Files/"), newFileName));
+                        if (UploadImages.PostedFile.ContentLength < largestAllowedPictureSize)
+                        {
+                            foreach (HttpPostedFile uploadedFile in UploadImages.PostedFiles)
+                            {
+                                // Get file extension and create new file name
+                                FileInfo fi = new FileInfo(uploadedFile.FileName);
+                                string ext = fi.Extension;
+                                var newFileName = $"{counter}{ext}";
 
-                    // Save file path to a Sql database
-                    filePaths.Add(newFileName);
+                                // Save file to a server side
+                                uploadedFile.SaveAs(Path.Combine(Server.MapPath("~/Uploaded_Files/"), newFileName));
 
-                    // Add file name to the control
-                    listofuploadedfiles.Text += String.Format("{0}<br />", uploadedFile.FileName);
+                                // Save file path to a Sql database
+                                filePaths.Add(newFileName);
 
-                    counter++;
+                                // Add file name to the control
+                                ListOfPictures.Text += $"{uploadedFile.FileName}<br />";
+
+                                counter++;
+                            }
+
+                            isUploaded = true;
+                        }
+                        else
+                        {
+                            ListOfPictures.Text = "The File has to be less up to 5MB!";
+                            ListOfPictures.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        ListOfPictures.Text = "Only .jpeg files allowed!";
+                        ListOfPictures.Visible = true;
+                    }
+                }
+                catch (Exception e)
+                {
+                    ListOfPictures.Text =
+                        "The file could not be uploaded it has to be up to 5MB and only .jpeg allowed!: " + e.Message;
+                    ListOfPictures.Visible = true;
                 }
             }
 
             this.PictureFilePaths = filePaths;
+            return isUploaded;
         }
     }
 }

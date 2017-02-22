@@ -11,7 +11,9 @@
             ID="RequiredFieldAdvertTitleValidator"
             ForeColor="red" Display="Dynamic"
             ErrorMessage="Title must be between 3 and 30 Symbols Long"
-            ControlToValidate="AdvertTitle"/>
+            ControlToValidate="AdvertTitle"
+            ValidationGroup="Validation"
+            SetFocusOnError="True"/>
     <br />
     <asp:Label Text="City: " runat="server" AssociatedControlID="City" />
     <asp:DropDownList runat="server" ID="City"
@@ -38,10 +40,11 @@
     <br />
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-            <asp:Label Text="Vehicle Model: " runat="server" AssociatedControlID="VechisleModel" />
-            <asp:DropDownList runat="server" ID="VechisleModel"
+            <asp:Label Text="Vehicle Model: " runat="server" AssociatedControlID="VehicleModel" />
+            <asp:DropDownList runat="server" ID="VehicleModel"
                 DataTextField="Name" DataValueField="Id">
             </asp:DropDownList>
+            <asp:Literal runat="server" ID="VehicleModelValidator" Visible="False"></asp:Literal>
         </ContentTemplate>
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="Manufacturer" EventName="SelectedIndexChanged" />
@@ -54,28 +57,43 @@
     <br />
     <asp:Label Text="Price: " runat="server" AssociatedControlID="Price" />
     <asp:TextBox runat="server" ID="Price"  TextMode="Number"/>
-        <asp:RequiredFieldValidator runat="server"
-            ID="RequiredFieldPriceValidator"
-            ForeColor="Red" Display="Dynamic"
-            ErrorMessage="You need to enter a Price!!!"
-            ControlToValidate="Price"/>
+        <asp:RangeValidator runat="server"
+            ID="RangeValidatorPrice"
+            Type="Integer"
+            MinimumValue="0"
+            MaximumValue="1000000"
+            ForeColor="Red"
+            ErrorMessage="Price must be a Valid Positive Number!!!"
+            ControlToValidate="Price"
+            ValidationGroup="Validation"
+            SetFocusOnError="True"/>
     <br />
     <asp:Label Text="Power: " runat="server" AssociatedControlID="Power" />
     <asp:TextBox runat="server" ID="Power" TextMode="Number" />
-        <asp:RequiredFieldValidator runat="server"
-            ID="RequiredFieldPowerValidator"
-            ForeColor="Red" Display="Dynamic"
-            ErrorMessage="Power must be between 10 and 5000 HP!"
-            ControlToValidate="Power"/>
+        <asp:RangeValidator runat="server"
+            ID="RangeValidatorPower"
+            Type="Integer"
+            MinimumValue="0"
+            MaximumValue="1000000"
+            ForeColor="Red"
+            ErrorMessage="Power must be a Valid Positive Number!!!"
+            ControlToValidate="Power"
+            ValidationGroup="Validation"
+            SetFocusOnError="True"/>
     <br />
 
     <asp:Label Text="Distance Coverage: " runat="server" AssociatedControlID="DistanceCovarage" />
     <asp:TextBox runat="server" ID="DistanceCovarage" TextMode="Number" />
-        <asp:RequiredFieldValidator runat="server"
-            ID="RequiredFielDistanceCoveragedValidator"
-            ForeColor="Red" Display="Dynamic"
-            ErrorMessage="Distance Coverage must be up to 1million kms!!!"
-            ControlToValidate="DistanceCovarage"/>
+        <asp:RangeValidator runat="server"
+            ID="RangeValidatorDistanceCoverage"
+            Type="Integer"
+            MinimumValue="0"
+            MaximumValue="1000000"
+            ForeColor="Red"
+            ErrorMessage="Distance Coverage must be a Valid Positive Number!!!"
+            ControlToValidate="DistanceCovarage"
+            ValidationGroup="Validation"
+            SetFocusOnError="True"/>
     <br />
     <asp:Label Text="Description: " runat="server" AssociatedControlID="Description" />
     <asp:TextBox runat="server" ID="Description" TextMode="MultiLine" />
@@ -83,12 +101,14 @@
             ID="RequiredFieldDescriptionValidator"
             ForeColor="red" Display="Dynamic"
             ErrorMessage="Description must be up to 500 symbols!"
-            ControlToValidate="Description"/>
+            ControlToValidate="Description"
+            ValidationGroup="Validation"
+            SetFocusOnError="True"/>
     <br />
-        <div>Upload one or many files.</div>
+        
+        <asp:Label ID="ListOfPictures" runat="server" Visible="False" />
         <asp:FileUpload runat="server" ID="UploadImages" AllowMultiple="true" />
-        <asp:Label ID="listofuploadedfiles" runat="server" />
 
-    <asp:Button Text="Create" runat="server" ID="CreateAdvert" CssClass="btn" OnClick="CreateAdvert_Click" />
+    <asp:Button Text="Create" runat="server" ID="CreateAdvert" CssClass="btn" OnClick="CreateAdvert_Click" ValidationGroup="Validation"/>
     </div>
 </asp:Content>
