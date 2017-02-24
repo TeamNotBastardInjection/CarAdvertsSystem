@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditAdverts.aspx.cs" Inherits="CarAdvertsSystem.WebFormsClient.Admin.EditAdverts" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" 
+    ValidateRequest="false"
+    AutoEventWireup="true" CodeBehind="EditAdverts.aspx.cs" Inherits="CarAdvertsSystem.WebFormsClient.Admin.EditAdverts" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="table-responsive">

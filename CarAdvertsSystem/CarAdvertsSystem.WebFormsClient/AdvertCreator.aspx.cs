@@ -132,8 +132,9 @@ namespace CarAdvertsSystem.WebFormsClient
                     if (UploadImages.PostedFile.ContentType == "image/jpeg" || UploadImages.PostedFile.ContentType == "image/png")
                     {
                         var largestAllowedPictureSize = 5 * 1048576;
+                        var postedFilesMemorySize = UploadImages.PostedFiles.Select(f => f.ContentLength).Sum();
 
-                        if (UploadImages.PostedFile.ContentLength < largestAllowedPictureSize)
+                        if (postedFilesMemorySize < largestAllowedPictureSize)
                         {
                             foreach (HttpPostedFile uploadedFile in UploadImages.PostedFiles)
                             {

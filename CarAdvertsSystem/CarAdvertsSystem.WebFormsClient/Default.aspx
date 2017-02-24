@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CarAdvertsSystem.WebFormsClient.Default" %>
-<%@ OutputCache Duration="60" VaryByParam="none" %>
+<%--<%@ OutputCache Duration="60" VaryByParam="none" %>--%>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="search-title">
